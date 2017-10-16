@@ -1,10 +1,6 @@
 ﻿#常用Adb命令
 
 
-**目录** 
-
-[TOC]
-
 ##1.输入法相关  
      adb shell imei list -s   查看已激活的输入法
 	 adb shell imei set   设置输入法
