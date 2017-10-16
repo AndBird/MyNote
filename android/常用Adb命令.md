@@ -1,32 +1,36 @@
-﻿#常用Adb命令
+#常用Adb命令
 
 
 ##1.输入法相关  
-     adb shell imei list -s   查看已激活的输入法
-	 adb shell imei set   设置输入法
+
+	adb shell imei list -s   查看已激活的输入法
+	adb shell imei set   设置输入法
 
 ##2.日志相关  
+    
      //获取对应包名应用(过滤字符串等)的日志，没有引号会报错
      adb shell "logcat | grep com.包名"                         
      //把信息存放到D盘目录下的1.txt文件，方便后续查看
-	 adb logcat > D:/1.txt
-	 //要显示包含FilterStr的字符串
-	 adb logcat | find "FilterStr"   
-	 //清除log缓存：
-	 adb logcat -c
-	 //查看bug报告：
-	 adb bugreport
+     adb logcat > D:/1.txt
+     //要显示包含FilterStr的字符串
+     adb logcat | find "FilterStr"   
+     //清除log缓存：
+     adb logcat -c
+     //查看bug报告：
+     adb bugreport
 	 
 ##3.设备操作
+     
      //列出设备列表
      adb devices
-	 adb -s deveiceName shell ....
-	 //连接调试设备(部分可以不输入端口)
-	 adb connect 192.168.0.101:5555 
-	 adb disconnect
+     adb -s deveiceName shell ....
+     //连接调试设备(部分可以不输入端口)
+     adb connect 192.168.0.101:5555 
+     adb disconnect
 	 
 ##4.应用管理
-     adb install (-r) apkfile  (如果加-r参数会覆盖原来安装的软件并保留数据)
+    
+    adb install (-r) apkfile  (如果加-r参数会覆盖原来安装的软件并保留数据)
 	 adb uninstall (-k) com.xx.xx   (-k 卸载app但保留数据和缓存文件)
 	 //列出手机上所有已安装的应用包名
 	 adb shell pm list packages 
@@ -40,6 +44,7 @@
 	 pm path com.xx.xx 
 	 
 ##5.进程管理和设备信息
+    
     //查看设备cpu和内存占用情况：
 	adb shell top
 	//查看占用内存前6的app：
@@ -59,6 +64,7 @@
 	adb shell cat /proc/meminfo
 	
 ##6.文件操作
+    
     //文件操作
 	adb pull/push
 	//重命名文件：
@@ -77,6 +83,7 @@
 	adb shell cat <file>
 	
 ##7.事件发送
+    
     //发送返回事件
 	adb shell input keyevent 4 
 	
