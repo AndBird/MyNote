@@ -1,0 +1,109 @@
+﻿**常用Adb命令**
+
+
+**目录** 
+
+[TOC]
+
+##1.输入法相关  
+     adb shell imei list -s   查看已激活的输入法
+	 adb shell imei set   设置输入法
+
+##2.日志相关  
+     //获取对应包名应用(过滤字符串等)的日志，没有引号会报错
+     adb shell "logcat | grep com.包名"                         
+     //把信息存放到D盘目录下的1.txt文件，方便后续查看
+	 adb logcat > D:/1.txt
+	 //要显示包含FilterStr的字符串
+	 adb logcat | find "FilterStr"   
+	 //清除log缓存：
+	 adb logcat -c
+	 //查看bug报告：
+	 adb bugreport
+	 
+##3.设备操作
+     //列出设备列表
+     adb devices
+	 adb -s deveiceName shell ....
+	 //连接调试设备(部分可以不输入端口)
+	 adb connect 192.168.0.101:5555 
+	 adb disconnect
+	 
+##4.应用管理
+     adb install (-r) apkfile  (如果加-r参数会覆盖原来安装的软件并保留数据)
+	 adb uninstall (-k) com.xx.xx   (-k 卸载app但保留数据和缓存文件)
+	 //列出手机上所有已安装的应用包名
+	 adb shell pm list packages 
+	 //输出应用的apk文件路径和包名
+	 adb shell pm list packages -f
+	 //获取对应包名应用的所有信息
+	 adb shell dumpsys package com.examle.xx
+	 //列出所有应用的信息
+	 adb shell dumpsys 列出所有
+	 //获取指定包名应用的路径
+	 pm path com.xx.xx 
+	 
+##5.进程管理和设备信息
+    //查看设备cpu和内存占用情况：
+	adb shell top
+	//查看占用内存前6的app：
+	adb shell top -m 6
+	//刷新一次内存信息，然后返回：
+	adb shell top -n 1
+	
+	//杀死一个进程：
+	adb shell kill [pid]
+	//查看进程列表：
+	adb shell ps
+	//查看指定进程状态：
+	adb shell ps -x [PID]
+	//查看后台services信息：
+	adb shell service list
+	//查看当前内存占用：
+	adb shell cat /proc/meminfo
+	
+##6.文件操作
+    //文件操作
+	adb pull/push
+	//重命名文件：
+	adb shell rename path/oldfilename path/newfilename
+	//删除system/avi.apk：
+	adb shell rm /system/avi.apk
+	//删除文件夹及其下面所有文件：
+	adb shell rm -r <folder>
+	//移动文件：
+	adb shell mv path/file newpath/file
+	//设置文件权限：
+	adb shell chmod 777 /system/fonts/DroidSansFallback.ttf
+	//新建文件夹：
+	adb shell mkdir path/foldelname
+	//查看文件内容：
+	adb shell cat <file>
+	
+##7.事件发送
+    //发送返回事件
+	adb shell input keyevent 4 
+	
+	
+	
+	
+## .其他操作
+    //截屏
+	adb shell screencap -p /mnt/sdcard/save.png
+	//查看wifi密码：
+	adb shell cat /data/misc/wifi/*.conf
+	
+	//获取设备名称：
+	adb shell cat /system/build.prop
+	//跑monkey：
+	adb shell monkey -v -p your.package.name 500
+
+        
+
+	 
+
+
+
+
+
+
