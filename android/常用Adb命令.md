@@ -1,10 +1,8 @@
 # 常用Adb命令
 
-**目录 (Table of Contents)**
+**目录**
 
- [TOCM]
-
- [TOC]
+[TOC]
 
 ## 1.输入法相关  
 
