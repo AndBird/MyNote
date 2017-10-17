@@ -90,12 +90,23 @@
     //发送返回事件
 	adb shell input keyevent 4 
 	
+## 8.截屏相关
 	
+	//截屏
+	adb shell screencap -p /mnt/sdcard/save.png
+	//录制屏幕
+	adb shell screenrecord /mnt/sdcard/1.mp4
+	//设置录制的视频分辨率
+	adb shell screenrecord --size 848*480 /sdcard/1.mp4
+	//默认比特率是4M/s，为了分享方便，我们可以调低比特率为2M
+	adb shell screenrecord --bit-rate 2000000 /sdcard/1.mp4
+
+
+
 	
 	
 ## .其他操作
-    //截屏
-	adb shell screencap -p /mnt/sdcard/save.png
+    
 	//查看wifi密码：
 	adb shell cat /data/misc/wifi/*.conf
 	
