@@ -1,0 +1,15 @@
+## 1.获取app的包名
+```
+public static String getApplicationName(Context context) { 
+		PackageManager packageManager = null; 
+		ApplicationInfo applicationInfo = null; 
+		try { 
+			packageManager = context.getPackageManager(); 
+			applicationInfo = packageManager.getApplicationInfo(context.getPackageName(), 0); 
+		} catch (PackageManager.NameNotFoundException e) { 
+			applicationInfo = null; 
+		} 
+		String applicationName = (String) packageManager.getApplicationLabel(applicationInfo); 
+		return applicationName; 
+	} 
+  ```
