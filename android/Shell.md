@@ -1,3 +1,4 @@
+* android中执行shell指令
 ```
 private void execShellCmd(String[] cmd){  
 		    try {  
