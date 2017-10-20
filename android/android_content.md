@@ -1,14 +1,14 @@
 # 目录
 
 
-## 1. View
-* [TextView](https://github.com/AndBird/MyNote/blob/master/android/view/TextView.md)
+*  View
+  * [TextView](https://github.com/AndBird/MyNote/blob/master/android/view/TextView.md)
 
-## 2. Activity
+* [Activity](https://github.com/AndBird/MyNote/edit/master/android/activity/activity_content.md)
 
-## 3. [Service](https://github.com/AndBird/MyNote/edit/master/android/Service.md)
+* [Service](https://github.com/AndBird/MyNote/edit/master/android/service/service_content.md)
 
-## 4. [Broadcast](https://github.com/AndBird/MyNote/tree/master/android/Broadcast.md)
+* [Broadcast](https://github.com/AndBird/MyNote/tree/master/android/broadcast/broadcast_content.md)
 
 
 ## 其他
