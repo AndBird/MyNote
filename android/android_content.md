@@ -1,7 +1,7 @@
 # 目录
 
 
-*  View
+* View
   * [TextView](https://github.com/AndBird/MyNote/blob/master/android/view/TextView.md)
 
 * [Activity](https://github.com/AndBird/MyNote/edit/master/android/activity/activity_content.md)
