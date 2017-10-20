@@ -5,12 +5,12 @@
   * [TextView](https://github.com/AndBird/MyNote/blob/master/android/view/TextView.md)
 
 * [Activity](https://github.com/AndBird/MyNote/edit/master/android/activity/activity_content.md)
-  * [部分系统界面跳转](https://github.com/AndBird/MyNote/blob/master/android/activity/系统界面跳转.md)
+  * [部分系统界面跳转](https://github.com/AndBird/MyNote/blob/master/android/activity/系统界面跳转.md)
 
 * [Service](https://github.com/AndBird/MyNote/edit/master/android/service/service_content.md)
 
 * [Broadcast](https://github.com/AndBird/MyNote/tree/master/android/broadcast/broadcast_content.md)
-  * [应用安装广播](https://github.com/AndBird/MyNote/tree/master/android/broadcast/应用安装广播.md)
+  * [应用安装广播](https://github.com/AndBird/MyNote/tree/master/android/broadcast/应用安装广播.md)
 
 
 * [其他](https://github.com/AndBird/MyNote/blob/master/android/view/other_content.md)
