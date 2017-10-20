@@ -1,5 +1,5 @@
 * android中执行shell指令
-```
+```Java
 private void execShellCmd(String[] cmd){  
 		    try {  
 		    	 Log.e(TAG,"执行模拟");
