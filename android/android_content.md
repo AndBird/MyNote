@@ -4,7 +4,7 @@
 * [View](https://github.com/AndBird/MyNote/blob/master/android/view/view_content.md)
   * [TextView](https://github.com/AndBird/MyNote/blob/master/android/view/TextView.md)
 
-* [Activity](https://github.com/AndBird/MyNote/edit/master/android/activity/activity_content.md)
+* [Activity](https://github.com/AndBird/MyNote/tree/master/android/activity/activity_content.md)
   * [部分系统界面跳转](https://github.com/AndBird/MyNote/blob/master/android/activity/系统界面跳转.md)
 
 * [Service](https://github.com/AndBird/MyNote/edit/master/android/service/service_content.md)
