@@ -13,7 +13,7 @@
   * [应用安装广播](https://github.com/AndBird/MyNote/tree/master/android/broadcast/应用安装广播.md)
 
 
-* [其他](https://github.com/AndBird/MyNote/tree/master/android/other_content.md)
+* [其他](https://github.com/AndBird/MyNote/tree/master/android/other/other_content.md)
   * [常用Adb命令](https://github.com/AndBird/MyNote/blob/master/android/other/常用Adb命令.md)
   * [输入法](https://github.com/AndBird/MyNote/blob/master/android/other/输入法.md)
   * [音量](https://github.com/AndBird/MyNote/edit/master/android/other/音量.md)
