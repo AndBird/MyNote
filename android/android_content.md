@@ -3,6 +3,7 @@
 
 * [View](https://github.com/AndBird/MyNote/tree/master/android/view/view_content.md)
   * [TextView](https://github.com/AndBird/MyNote/blob/master/android/view/TextView.md)
+  * [GridView](https://github.com/AndBird/MyNote/blob/master/android/view/GridView.md)
 
 * [Activity](https://github.com/AndBird/MyNote/tree/master/android/activity/activity_content.md)
   * [部分系统界面跳转](https://github.com/AndBird/MyNote/blob/master/android/activity/系统界面跳转.md)
@@ -20,6 +21,7 @@
   * [传感器](https://github.com/AndBird/MyNote/blob/master/android/other/传感器.md)
   * [输入法](https://github.com/AndBird/MyNote/blob/master/android/other/输入法.md)
   * [屏幕相关](https://github.com/AndBird/MyNote/blob/master/android/other/屏幕相关.md)
+  * [屏幕截屏](https://github.com/AndBird/MyNote/blob/master/android/other/屏幕截屏.md)
   * [Shell](https://github.com/AndBird/MyNote/blob/master/android/other/Shell.md)
   * [设备相关](https://github.com/AndBird/MyNote/blob/master/android/other/设备相关.md)
   * [音量](https://github.com/AndBird/MyNote/edit/master/android/other/音量.md)
