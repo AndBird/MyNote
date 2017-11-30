@@ -1,4 +1,4 @@
-#其他
+# 其他
 
 
   * [aapt](https://github.com/AndBird/MyNote/blob/master/android/other/aapt.md)
