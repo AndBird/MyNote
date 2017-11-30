@@ -19,4 +19,4 @@
 		}
     	return bitmap;
     }
-```Java
+```
