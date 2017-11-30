@@ -1,31 +1,31 @@
-Éú³ÉdllÎÄ¼ş
-·¨Ò»:
-1. ´Ó"ÎÄ¼ş"²Ëµ¥ÖĞ£¬Ñ¡Ôñ"ĞÂ½¨"£¬È»ºóÑ¡Ôñ"ÏîÄ¿¡­"£¬ÔÚ"ÏîÄ¿ÀàĞÍ"´°¸ñÖĞ£¬Ñ¡Ôñ"Visual C++"ÏÂµÄ"Win32¿ØÖÆÌ¨³ÌĞò" => "ÏÂÒ»²½"µÄÑ¡Ïî¿¨ÖĞÑ¡ÖĞ"DLL"ºÍ"¿ÕÏîÄ¿"¡£
-2. ½«±àÒëºÃµÄ³ÌĞòµÄÍ·ÎÄ¼ş(.h)ºÍÔ´ÎÄ¼ş(.c»ò.cpp)ÎÄ¼ş¿½±´µ½¹¤³ÌÖĞ
-3. ÔÚstdafx.h»òĞÂ½¨.hÎÄ¼şÖĞ¼ÓÈë
-extern "C" int __declspec(dllexport)add(int x, int y);  //addÎª±»µ÷ÓÃ³ÌĞòÈë¿Ú
-4. ±àÒëÉú³É£¬ÔÚdebugÎÄ¼ş¼ĞÏÂ»áÉú³É.dllÎÄ¼ş
+ç”Ÿæˆdllæ–‡ä»¶
+æ³•ä¸€:
+1. ä»"æ–‡ä»¶"èœå•ä¸­ï¼Œé€‰æ‹©"æ–°å»º"ï¼Œç„¶åé€‰æ‹©"é¡¹ç›®â€¦"ï¼Œåœ¨"é¡¹ç›®ç±»å‹"çª—æ ¼ä¸­ï¼Œé€‰æ‹©"Visual C++"ä¸‹çš„"Win32æ§åˆ¶å°ç¨‹åº" => "ä¸‹ä¸€æ­¥"çš„é€‰é¡¹å¡ä¸­é€‰ä¸­"DLL"å’Œ"ç©ºé¡¹ç›®"ã€‚
+2. å°†ç¼–è¯‘å¥½çš„ç¨‹åºçš„å¤´æ–‡ä»¶(.h)å’Œæºæ–‡ä»¶(.cæˆ–.cpp)æ–‡ä»¶æ‹·è´åˆ°å·¥ç¨‹ä¸­
+3. åœ¨stdafx.hæˆ–æ–°å»º.hæ–‡ä»¶ä¸­åŠ å…¥
+extern "C" int __declspec(dllexport)add(int x, int y);  //addä¸ºè¢«è°ƒç”¨ç¨‹åºå…¥å£
+4. ç¼–è¯‘ç”Ÿæˆï¼Œåœ¨debugæ–‡ä»¶å¤¹ä¸‹ä¼šç”Ÿæˆ.dllæ–‡ä»¶
 
-·¨¶ş:ÔÚvs2010
-1. Ñ¡ÖĞÒÑ¾­±àÒëºÃµÄÏîÄ¿£¬ÓÒ¼ü =>ÊôĞÔ => ÅäÖÃÊôĞÔ => ³£¹æ => ÅäÖÃÀàĞÍ => ¶¯Ì¬Á´½Ó¿â £¬ ÔÚstdafx.hÍ·ÎÄ¼şÖĞÅäÖÃ(¼û·¨Ò»3)
-2. ±àÒëÉú³ÉdllÎÄ¼ş
+æ³•äºŒ:åœ¨vs2010
+1. é€‰ä¸­å·²ç»ç¼–è¯‘å¥½çš„é¡¹ç›®ï¼Œå³é”® =>å±æ€§ => é…ç½®å±æ€§ => å¸¸è§„ => é…ç½®ç±»å‹ => åŠ¨æ€é“¾æ¥åº“ ï¼Œ åœ¨stdafx.hå¤´æ–‡ä»¶ä¸­é…ç½®(è§æ³•ä¸€3)
+2. ç¼–è¯‘ç”Ÿæˆdllæ–‡ä»¶
 
-·¨Èı£ºÓÃ.defÎÄ¼ş
-ÓÃ.defÎÄ¼ş´´½¨¶¯Ì¬Á¬½Ó¿âDllDemo.dll
-1. É¾³ıDllDemo¹¤³ÌÖĞµÄDllDemo.hÎÄ¼ş¡£
-2. ÔÚDllDemo.cppÎÄ¼şÍ·£¬É¾³ı #include DllDemo.hÓï¾ä¡£
-3. Ïò¸Ã¹¤³ÌÖĞ¼ÓÈëÒ»¸öÎÄ±¾ÎÄ¼ş£¬ÃüÃûÎªDllDemo.def²¢Ğ´ÈëÈçÏÂÓï¾ä£º
-LIBRARY ¡°MyDll¡±             //MyDllÎÄ¼şÃû
-EXPORTS Max@1        //MaxÊÇº¯ÊıÃû
+æ³•ä¸‰ï¼šç”¨.defæ–‡ä»¶
+ç”¨.defæ–‡ä»¶åˆ›å»ºåŠ¨æ€è¿æ¥åº“DllDemo.dll
+1. åˆ é™¤DllDemoå·¥ç¨‹ä¸­çš„DllDemo.hæ–‡ä»¶ã€‚
+2. åœ¨DllDemo.cppæ–‡ä»¶å¤´ï¼Œåˆ é™¤ #include DllDemo.hè¯­å¥ã€‚
+3. å‘è¯¥å·¥ç¨‹ä¸­åŠ å…¥ä¸€ä¸ªæ–‡æœ¬æ–‡ä»¶ï¼Œå‘½åä¸ºDllDemo.defå¹¶å†™å…¥å¦‚ä¸‹è¯­å¥ï¼š
+LIBRARY â€œMyDllâ€             //MyDllæ–‡ä»¶å
+EXPORTS Max@1        //Maxæ˜¯å‡½æ•°å
 
 
-Ê¹ÓÃdllÎÄ¼ş£º
-½«±àÒëÉú³ÉµÄ.dllÎÄ¼ş¿½±´µ½C¹¤³Ì(Ğèµ÷ÓÃ¹¤³Ì)ÏÂµÄdebugÎÄ¼şÏÂ£»
-°üº¬#include <Windows.h>
-
+ä½¿ç”¨dllæ–‡ä»¶ï¼š
+å°†ç¼–è¯‘ç”Ÿæˆçš„.dllæ–‡ä»¶æ‹·è´åˆ°Cå·¥ç¨‹(éœ€è°ƒç”¨å·¥ç¨‹)ä¸‹çš„debugæ–‡ä»¶ä¸‹ï¼›
+åŒ…å«#include <Windows.h>
+```C++
 int _tmain(int argc, _TCHAR* argv[])
 { 
-	HINSTANCE hDll; //DLL¾ä?±ú¨¤¡§2 
+	HINSTANCE hDll; //DLLå¥æŸ„ 
 	typedef int(*PSUM)(int a,int b);  
     PSUM pSum;  
   
@@ -42,14 +42,15 @@ int _tmain(int argc, _TCHAR* argv[])
 	 FreeLibrary(hDll);
 }
 
-»òÕß
+æˆ–è€…
 int _tmain(int argc, _TCHAR* argv[])
-{  // ¼Ó¡§?ÔØ?DLL
+{  	// åŠ è½½DLL
 	//HINSTANCE hInstance = LoadLibrary(L"makeserverdll.dll");
-		HINSTANCE hInstance = LoadLibrary(L"CenterServer.dll");
-	// ¶¨?¡ìÒå¡ã?ÏÔ?Ê¾o?Ñ§?¨¬Éú|¡§2ĞÅ?Ï¢?¨¦µÄ¨¬?·½¡è?·¨¡è?¡ì
+
 	typedef void (*StartTransferServer)();
 	StartTransferServer startTransferServer = (StartTransferServer)GetProcAddress(hInstance, "startTransferServer");
 	startTransferServer();
 }
+```
+
 
