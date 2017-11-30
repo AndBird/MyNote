@@ -21,6 +21,7 @@
   * [Bitmap](https://github.com/AndBird/MyNote/blob/master/android/other/Bitmap.md)
   * [常用Adb命令](https://github.com/AndBird/MyNote/blob/master/android/other/常用Adb命令.md)
   * [传感器](https://github.com/AndBird/MyNote/blob/master/android/other/传感器.md)
+  * [ndk-build](https://github.com/AndBird/MyNote/blob/master/android/other/ndk-build.md)
   * [project.properties](https://github.com/AndBird/MyNote/blob/master/android/other/project.properties.md)
   * [输入法](https://github.com/AndBird/MyNote/blob/master/android/other/输入法.md)
   * [屏幕相关](https://github.com/AndBird/MyNote/blob/master/android/other/屏幕相关.md)
