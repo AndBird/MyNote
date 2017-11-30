@@ -101,7 +101,15 @@
 	//默认比特率是4M/s，为了分享方便，我们可以调低比特率为2M
 	adb shell screenrecord --bit-rate 2000000 /sdcard/1.mp4
 
-
+## 9. 发送广播，启动Activity和Service
+	
+	//发送广播
+	adb shell -am broadcast -a android.intent.action.BOOT_COMPLETED
+	adb shell -am broadcast -a android.intent.action.BOOT_COMPLETED -n apk包名/广播接收包名.接收类
+	//启动activity
+	adb shell am start --user 0 -n apk包名/Activity包名.Activity类名
+	//启动service
+	adb shell am startservice -n apk包名/Service包名.Service类名
 
 	
 	
