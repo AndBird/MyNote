@@ -29,5 +29,6 @@
   * [Shell](https://github.com/AndBird/MyNote/blob/master/android/other/Shell.md)
   * [设备相关](https://github.com/AndBird/MyNote/blob/master/android/other/设备相关.md)
   * [音量](https://github.com/AndBird/MyNote/edit/master/android/other/音量.md)
+  * [缓存序列化](https://github.com/AndBird/MyNote/blob/master/android/other/缓存(序列化).md)
   * [应用相关](https://github.com/AndBird/MyNote/blob/master/android/other/应用相关.md)
   
