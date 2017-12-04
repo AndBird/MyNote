@@ -10,4 +10,4 @@ my learn note
   * [GitHub使用技巧](https://github.com/AndBird/MyNote/blob/master/GitHub操作技巧.md)
   * [工具使用](https://github.com/AndBird/MyNote/blob/master/工具使用/tool_content.md)
   * [其他](https://github.com/AndBird/MyNote/blob/master/其他/other_content.md)
-  * [工具使用](https://github.com/AndBird/MyNote/blob/master/CentOs.md)
+  * [CentOs](https://github.com/AndBird/MyNote/blob/master/CentOs.md)
