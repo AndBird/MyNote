@@ -25,6 +25,8 @@
 
  * [linux命令大全](http://man.linuxde.net/yum)
    * [wget](http://man.linuxde.net/wget)
+   * [source](https://github.com/AndBird/MyNote/blob/master/linux/source.md)
+   
    
  * [CentOS](https://github.com/AndBird/MyNote/blob/master/linux/CentOs.md)
 
