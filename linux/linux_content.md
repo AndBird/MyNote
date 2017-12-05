@@ -8,6 +8,10 @@
   * [find](https://github.com/AndBird/MyNote/blob/master/linux/find.md)
   * [cp](https://github.com/AndBird/MyNote/blob/master/linux/cp.md)
   * [mv](https://github.com/AndBird/MyNote/blob/master/linux/mv.md)
+  * [rm](https://github.com/AndBird/MyNote/blob/master/linux/rm.md)
+  * [ps](https://github.com/AndBird/MyNote/blob/master/linux/ps.md)
+  * [kill](https://github.com/AndBird/MyNote/blob/master/linux/kill.md)
+  * [killall](https://github.com/AndBird/MyNote/blob/master/linux/killall.md)
  
   
 
