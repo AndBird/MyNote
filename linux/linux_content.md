@@ -15,8 +15,12 @@
   * [file](https://github.com/AndBird/MyNote/blob/master/linux/file.md)
   * [tar压缩/解压缩](https://github.com/AndBird/MyNote/blob/master/linux/tar.md)
   * [cat文本查看](https://github.com/AndBird/MyNote/blob/master/linux/cat.md)
- 
-  
+  * [chgrp](https://github.com/AndBird/MyNote/blob/master/linux/chgrp.md)
+  * [chown](https://github.com/AndBird/MyNote/blob/master/linux/chown.md)
+  * [chmod](https://github.com/AndBird/MyNote/blob/master/linux/chmod.md)
+  * [vim文本编辑](https://github.com/AndBird/MyNote/blob/master/linux/vim.md)
+  * [gcc](https://github.com/AndBird/MyNote/blob/master/linux/gcc.md)
+  * [time](https://github.com/AndBird/MyNote/blob/master/linux/time.md)
 
 
   
