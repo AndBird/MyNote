@@ -24,6 +24,7 @@
 
 
  * [linux命令大全](http://man.linuxde.net/yum)
+   * [wget](http://man.linuxde.net/wget)
 
 
   
