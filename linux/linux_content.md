@@ -23,4 +23,7 @@
   * [time](https://github.com/AndBird/MyNote/blob/master/linux/time.md)
 
 
+ * [linux命令大全](http://man.linuxde.net/yum)
+
+
   
