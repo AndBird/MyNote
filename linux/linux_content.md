@@ -21,7 +21,7 @@
   * [vim文本编辑](https://github.com/AndBird/MyNote/blob/master/linux/vim.md)
   * [gcc](https://github.com/AndBird/MyNote/blob/master/linux/gcc.md)
   * [time](https://github.com/AndBird/MyNote/blob/master/linux/time.md)
-
+  * [du 文件大小](https://github.com/AndBird/MyNote/blob/master/linux/du.md)
 
  * [linux命令大全](http://man.linuxde.net/yum)
    * [wget](http://man.linuxde.net/wget)
