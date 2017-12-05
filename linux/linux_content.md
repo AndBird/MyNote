@@ -6,7 +6,7 @@
   * [ls](https://github.com/AndBird/MyNote/blob/master/linux/ls.md)
   * [grep](https://github.com/AndBird/MyNote/blob/master/linux/grep.md)
   * [find](https://github.com/AndBird/MyNote/blob/master/linux/find.md)
-  * [cp](https://github.com/AndBird/MyNote/blob/master/linux/cp.md)
+  * [cp](https://github.com/AndBird/MyNote/blob/master/linux/cp.md)
   * [mv](https://github.com/AndBird/MyNote/blob/master/linux/mv.md)
  
   
