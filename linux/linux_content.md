@@ -27,7 +27,7 @@
    * [wget](http://man.linuxde.net/wget)
    * [source](https://github.com/AndBird/MyNote/blob/master/linux/source.md)
    * [sh](https://github.com/AndBird/MyNote/blob/master/linux/sh.md)
-   
+   * [chkconfig](https://github.com/AndBird/MyNote/blob/master/linux/chkconfig.md)
    
  * [CentOS](https://github.com/AndBird/MyNote/blob/master/linux/CentOs.md)
  
