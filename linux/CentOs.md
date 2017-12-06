@@ -26,7 +26,7 @@
     source /etc/profile
 ```  
   
-* tomcat
+* tomcat安装
 ```Java
     1. 下载tomcat
       在https://tomcat.apache.org/download-90.cgi选择tomcat版本下载地址，
@@ -42,8 +42,8 @@
 ```Java
 网上有很多人自己写了脚本用于tomcat的自启动。实际上，完全没有必要，因为tomcat也自带了脚本，只需稍作修改即可用于注册服务。我们只需要将%TOMCAT_HOME%/bin/catalina.sh文件拷贝到/etc/init.d/文件夹下，然后稍作编辑，最后注册成系统服务，是否设置自启动均可
 
-1. 复制catalina.sh 到/etc/init.d目录下，命名为tomcat
-2. vim tomcat,并新增
+ 1. 复制catalina.sh 到/etc/init.d目录下，命名为tomcat
+ 2. vim tomcat,并新增
     JAVA_HOME=/disk/java/jdk/jdk1.8.0_151
     CATALINA_HOME=/disk/apache-tomcat-8.5.24
     CLASSPATH=.:${JAVA_HOME}/lib:$CATALINA_HOME/lib
@@ -91,7 +91,13 @@
   如果返回类似以下信息出现，说明tomcat是启动了，第一个是启动该进程的用户，第二个是该进程的id，第三个 是占用CPU的百分比，
   第四个是占用内存的百分比
   # ps -ef|grep tomcat
-  root       881     1  2 21:25 ?        00:00:02 /disk/java/jdk/jdk1.8.0_151/bin/java -             Djava.util.logging.config.file=/disk/apache-tomcat-8.5.24/conf/logging.properties -    Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -classpath /disk/apache-tomcat-8.5.24/bin/bootstrap.jar:/disk/apache-tomcat-8.5.24/bin/tomcat-juli.jar -Dcatalina.base=/disk/apache-tomcat-8.5.24 -Dcatalina.home=/disk/apache-tomcat-8.5.24 -Djava.io.tmpdir=/disk/apache-tomcat-8.5.24/temp org.apache.catalina.startup.Bootstrap start
+  root       881     1  2 21:25 ?        00:00:02 /disk/java/jdk/jdk1.8.0_151/bin/java -   
+  Djava.util.logging.config.file=/disk/apache-tomcat-8.5.24/conf/logging.properties -     
+  Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -
+  Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -classpath /disk/apache-tomcat-
+  8.5.24/bin/bootstrap.jar:/disk/apache-tomcat-8.5.24/bin/tomcat-juli.jar -Dcatalina.base=/disk/apache-tomcat-8.5.24 -
+  Dcatalina.home=/disk/apache-tomcat-8.5.24 -Djava.io.tmpdir=/disk/apache-tomcat-8.5.24/temp 
+  org.apache.catalina.startup.Bootstrap start
   root      1162  1125  0 21:27 pts/0    00:00:00 grep --color=auto tomcat
 
 
