@@ -30,6 +30,9 @@
    
    
  * [CentOS](https://github.com/AndBird/MyNote/blob/master/linux/CentOs.md)
+ 
+ 
+ * [环境变量](https://github.com/AndBird/MyNote/blob/master/linux/环境变量.md)
 
 
   
