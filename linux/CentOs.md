@@ -27,7 +27,7 @@
 ```  
   
 * tomcat
-  ```Java
+```Java
     1. 下载tomcat
       在https://tomcat.apache.org/download-90.cgi选择tomcat版本下载地址，
       wget http://mirrors.hust.edu.cn/apache/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz
