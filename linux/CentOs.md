@@ -103,3 +103,14 @@
 
 
 ```
+
+* svn的搭建
+
+  [阿里云参考地址](https://help.aliyun.com/document_detail/52864.html)
+
+```Java
+在http://subversion.apache.org/上选择版本下载地址
+wget http://mirrors.hust.edu.cn/apache/subversion/subversion-1.9.7.tar.gz
+
+tar -xf subversion-1.9.7.tar.gz
+```
