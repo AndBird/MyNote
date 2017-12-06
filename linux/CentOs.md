@@ -113,4 +113,17 @@
 wget http://mirrors.hust.edu.cn/apache/subversion/subversion-1.9.7.tar.gz
 
 tar -xf subversion-1.9.7.tar.gz
+
+
+在线安装参考阿里云地址
+
+启动svn
+svnserve -d -r /库地址
+查看启动端口
+netstat -antp |grep svn
+
+客户端访问
+svn://ip:端口或者svn://ip
+
+
 ```
