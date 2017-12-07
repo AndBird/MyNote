@@ -111,17 +111,21 @@
   [阿里云参考地址](https://help.aliyun.com/document_detail/52864.html)
 
 ```Java
+1. 本地安装，需要关联许多包
 在http://subversion.apache.org/上选择版本下载地址
 wget http://mirrors.hust.edu.cn/apache/subversion/subversion-1.9.7.tar.gz
-
 tar -xf subversion-1.9.7.tar.gz
 
+2. yum install subversion 
+注：在线安装和配置svn请参考阿里云(上面的地址)
 
-在线安装参考阿里云地址
-
+查看版本号
+svnserve --version
 启动svn
 svnserve -d -r /库地址
-查看启动端口
+关闭svn
+killall svnserve
+查看启动端口(默认端口3690)
 netstat -antp |grep svn
 
 客户端访问
