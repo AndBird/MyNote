@@ -40,7 +40,9 @@
     
 * 配置tomcat开机自启动
 ```Java
-网上有很多人自己写了脚本用于tomcat的自启动。实际上，完全没有必要，因为tomcat也自带了脚本，只需稍作修改即可用于注册服务。我们只需要将%TOMCAT_HOME%/bin/catalina.sh文件拷贝到/etc/init.d/文件夹下，然后稍作编辑，最后注册成系统服务，是否设置自启动均可
+网上有很多人自己写了脚本用于tomcat的自启动。实际上，完全没有必要，因为tomcat也自带了脚本，
+只需稍作修改即可用于注册服务。我们只需要将%TOMCAT_HOME%/bin/catalina.sh文件拷贝
+到/etc/init.d/文件夹下，然后稍作编辑，最后注册成系统服务，是否设置自启动均可
 
  1. 复制catalina.sh 到/etc/init.d目录下，命名为tomcat
  2. vim tomcat,并新增
