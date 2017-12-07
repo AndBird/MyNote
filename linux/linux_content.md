@@ -28,6 +28,8 @@
    * [source](https://github.com/AndBird/MyNote/blob/master/linux/source.md)
    * [sh](https://github.com/AndBird/MyNote/blob/master/linux/sh.md)
    * [chkconfig](https://github.com/AndBird/MyNote/blob/master/linux/chkconfig.md)
+   * [systemctl](https://github.com/AndBird/MyNote/blob/master/linux/systemctl.md)
+   
    
  * [CentOS](https://github.com/AndBird/MyNote/blob/master/linux/CentOs.md)
    * [yum](https://github.com/AndBird/MyNote/blob/master/linux/yum.md)
