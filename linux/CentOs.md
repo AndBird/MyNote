@@ -112,24 +112,67 @@
 
 ```Java
 1. 本地安装，需要关联许多包
-在http://subversion.apache.org/上选择版本下载地址
-wget http://mirrors.hust.edu.cn/apache/subversion/subversion-1.9.7.tar.gz
-tar -xf subversion-1.9.7.tar.gz
+  在http://subversion.apache.org/上选择版本下载地址
+  wget http://mirrors.hust.edu.cn/apache/subversion/subversion-1.9.7.tar.gz
+  tar -xf subversion-1.9.7.tar.gz
 
 2. yum install subversion 
-注：在线安装和配置svn请参考阿里云(上面的地址)
+  注：在线安装和配置svn请参考阿里云(上面的地址)
 
-查看版本号
-svnserve --version
-启动svn
-svnserve -d -r /库地址
-关闭svn
-killall svnserve
-查看启动端口(默认端口3690)
-netstat -antp |grep svn
+  查看版本号
+  svnserve --version
+  启动svn
+  svnserve -d -r /库地址
+  关闭svn
+  killall svnserve
+  查看启动端口(默认端口3690)
+  netstat -antp |grep svn
 
-客户端访问
-svn://ip:端口或者svn://ip
+  客户端访问
+  svn://ip:端口或者svn://ip
+
+
+```
+
+
+* svn 开机自启
+
+```Java
+
+安装好 svn 服务后，默认是没有随系统启动自动启动的， CentOS 7 的 /etc/rc.d/rc.local 是没有执行权限的， 
+系统建议创建 systemd service 启动服务,于是查看 systemd 里 svn 的配置文件 /lib/systemd/system/svnserve.service
+
+1. vim /lib/systemd/system/svnserve.service
+  [Unit]  
+  Description=Subversion protocol daemon  
+  After=syslog.target network.target  
+
+  [Service]  
+  Type=forking  
+  EnvironmentFile=/etc/sysconfig/svnserve  
+  ExecStart=/usr/bin/svnserve --daemon --pid-file=/run/svnserve/svnserve.pid $OPTIONS  
+
+  [Install]  
+  WantedBy=multi-user.target  
+
+  可以发现svn指向：/etc/sysconfig/svnserve
+
+2. 修改/etc/sysconfig/svnserve文件
+  vi /etc/sysconfig/svnserve
+  将 OPTIONS="-r /var/svn" 改为 svn版本库存放的目录
+
+  注：/var/svn为svn默认目录(阿里云安装svn，创建版本库时的命令svnadmin create /var/svn/svnrepos，指向的就是/var/svn，
+  这样就能保证svn开机自启动)，安装时指定的默认库目录是/var/svn就不需要修改本文件了，如果使用的是自定义库目录，
+  需要修改本文件才能开机自启
+
+3. 让服务生效
+  systemctl enable svnserve.service
+
+4. 重启系统
+  通过netstat -antp |grep svn命令就能知道svn已经自启动
+
+
+
 
 
 ```
