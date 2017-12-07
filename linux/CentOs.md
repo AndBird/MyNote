@@ -135,7 +135,7 @@
 ```
 
 
-* svn 开机自启
+* svn 开机自启（法1）
 
 ```Java
 
@@ -170,9 +170,26 @@
 
 4. 重启系统
   通过netstat -antp |grep svn命令就能知道svn已经自启动
+  
 
+```
 
-
+* svn 开机自启（法二）
+```Java
+  安装好 svn 服务后，默认是没有随系统启动自动启动的， CentOS 7 的 /etc/rc.d/rc.local 是没有执行权限的
+  
+  1. 先授权rc.local可执行权限
+     cd /etc/rc.d/
+     chmod a+x rc.local
+     ll 查看文件权限
+     
+  2. 编辑rc.local文件
+    /usr/bin/svnserve -d -r /svn库目录
+    
+    注：在/etc/rc.d/rc.local 文件中svnserve必须写上完整的路径,如果不知道svnserve安装在哪，可以通过如下命令：
+      whereis svnserve 查找svn的安装目录
 
 
 ```
+
+
