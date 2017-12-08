@@ -33,6 +33,8 @@
    
  * [CentOS](https://github.com/AndBird/MyNote/blob/master/linux/CentOs.md)
    * [yum](https://github.com/AndBird/MyNote/blob/master/linux/yum.md)
+   * [pip](https://github.com/AndBird/MyNote/blob/master/linux/pip.md)
+ 
  
  * [环境变量](https://github.com/AndBird/MyNote/blob/master/linux/环境变量.md)
 
