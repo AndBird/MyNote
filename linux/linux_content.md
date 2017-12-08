@@ -32,6 +32,7 @@
    
    
  * [CentOS](https://github.com/AndBird/MyNote/blob/master/linux/CentOs.md)
+   * [centos配置开机自启](https://github.com/AndBird/MyNote/blob/master/linux/centos配置开机自启.md)
    * [yum](https://github.com/AndBird/MyNote/blob/master/linux/yum.md)
    * [pip](https://github.com/AndBird/MyNote/blob/master/linux/pip.md)
  
