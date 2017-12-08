@@ -174,7 +174,7 @@
 
 ```
 
-* svn 开机自启（法二）
+* svn 开机自启（法2）
 ```Java
   安装好 svn 服务后，默认是没有随系统启动自动启动的， CentOS 7 的 /etc/rc.d/rc.local 是没有执行权限的
   
@@ -189,6 +189,27 @@
     注：在/etc/rc.d/rc.local 文件中svnserve必须写上完整的路径,如果不知道svnserve安装在哪，可以通过如下命令：
       whereis svnserve 查找svn的安装目录
 
+
+```
+
+* shadowsocks server
+  
+  [参考链接](https://github.com/shadowsocksr-backup/shadowsocksr)
+
+```Java
+    1. 安装
+    yum install python-pip
+    pip install shadowsocks
+    
+    2. 使用
+    前端运行
+    ssserver -p 443 -k password -m aes-256-cfb
+    后台运行
+    ssserver -p 443 -k password -m aes-256-cfb --user nobody -d start
+    停止运行
+    sudo ssserver -d stop
+    日志
+    less /var/log/shadowsocks.log
 
 ```
 
