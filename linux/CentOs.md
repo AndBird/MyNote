@@ -338,7 +338,11 @@
   select database();
   查看当前数据库版本
   select version();
-  
+  查看当前日期
+  select current_date;
+  
+  查看mysql端口
+  show variables like 'port';
   查看mysql的状态
   show status;
   查看mysql的参数
@@ -354,13 +358,23 @@
   
   创建新库xx(数据库名)
   create database xx;
+  删除数据库xx(数据库名)，无提醒
+  drop database xx;
+  删除数据库xx(数据库名)，有提醒
+  mysqladmin drop database xx;
+  
   创建表
   create table t1 (`id` int(4), `name` char(40));
     注:字段名需要用反引号(还不是单引号)括起来
+  表的详细描述
+  describe tablename; 表的详细描述
+  表的重命名
+  alter table tname1 rename tname2;
+  清空表数据
+  truncate table dbname.tname;
   
   备份数据库
-  mysqldump  -uroot -p'root' databasename >/tmp/mysql.sql
-  
+  mysqldump  -uroot -p'yourpassword' databasename >/tmp/mysql.sql
   恢复备份
   mysql -uroot -p'yourpassword' databasename </tmp/mysql.sql
   
