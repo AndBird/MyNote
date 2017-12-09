@@ -220,3 +220,43 @@
 ```
 
 
+* 安装mysql
+
+```Java
+1. 安装
+  安装rpm包
+  rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+  查看当前可用的mysql安装资源
+  yum repolist enabled | grep "mysql.*-community.*"
+  安装mysql
+  yum -y install mysql-community-server
+ 
+2. 配置
+  安装成功后，将其加入开机启动
+  systemctl enable mysqld
+
+  启动mysql服务进程
+  systemctl start mysqld
+
+  配置mysql（设置密码等）
+  mysql_secure_installation
+  Enter current password for root (enter for none): [enter键]
+  Set root password? [Y/n] y     [设置root用户密码]
+  Remove anonymous users? [Y/n] y     [删除匿名用户]
+  Disallow root login remotely? [Y/n] y  [禁止root远程登录]
+  Remove test database and access to it? [Y/n] y   [删除test数据库]
+  Reload privilege tables now? [Y/n] y   [刷新权限]
+  
+3. 使用
+
+  查看sql是否启动(默认端口3306)
+  netstat -tnl|grep 3306
+  rpm 命令来查看 mysql 的安装情况
+  rpm -qa | grep mysql* 
+  
+  连接数据库
+  mysql -u root -p
+  修改访问权限，让其他计算机也能访问
+  GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'yourpassword' WITH GRANT OPTION;
+```
+
