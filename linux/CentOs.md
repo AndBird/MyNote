@@ -248,6 +248,11 @@
   Reload privilege tables now? [Y/n] y   [刷新权限]
   
 3. 使用
+  -u 用来指定要登录的用户，后边可以有空格，也可以无空格
+  -p 后面可以直接跟密码,后面不可以有空格，不过密码最好用单引号括起来，不括也可以
+  -P(大写) 用来指定远程主机MySQL的绑定端口，默认都是3306
+  -h 用来指定远程主机的IP
+
   (1) mysql运行相关
   数据存放目录(默认)
   /var/lib/mysql
@@ -270,12 +275,13 @@
   (2) 连接数据库
   连接数据库
   mysql -u root -p
+  注： 远程连接 mysql -uroot -p -h192.168.137.10 -P3306
   断开连接
   quit或者exit
   查看帮助
   help 或者 \h
   清除当前输入
-  \c
+  clear或者\c
   修改访问权限，让其他计算机也能访问
   GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'yourpassword' WITH GRANT OPTION;
   
@@ -314,6 +320,49 @@
   重启mysql
   systemctl restart mysqld
   
+  (5) 数据库操作
+  查看数据库
+  show databases;
+  切换到xx(数据库名)数据库
+  use xx;
+  显示数据库中的表
+  show tables;
+  查看某个表中全部字段
+  desc host; 
+  显示字段(详细,建表语句)
+  show create table host\G;
+  
+  查看当前是哪个用户
+  select user();
+  查看当前使用的数据库
+  select database();
+  查看当前数据库版本
+  select version();
   
+  查看mysql的状态
+  show status;
+  查看mysql的参数
+  show variables;
+  修改mysql的参数
+  show variables like 'max_connect%';
+  set global max_connect_errors = 1000;
+  注："%"类似于shell下的 *, 表示万能匹配。使用 "set global" 可以临时修改某些参数，但是重启mysqld服务后
+      还会变为原来的，所以要想恒久生效，需要在配置文件 my.cnf 中定义。
+  查看mysql服务器的队列    
+  show processlist;
+      
+  
+  创建新库xx(数据库名)
+  create database xx;
+  创建表
+  create table t1 (`id` int(4), `name` char(40));
+  注:字段名需要用反引号(还不是单引号)括起来
+  
+  备份数据库
+  mysqldump  -uroot -p'root' databasename >/tmp/mysql.sql
+  
+  恢复备份
+  mysql -uroot -p'yourpassword' databasename </tmp/mysql.sql
+  
 ```
 
