@@ -248,15 +248,58 @@
   Reload privilege tables now? [Y/n] y   [刷新权限]
   
 3. 使用
-
-  查看sql是否启动(默认端口3306)
+  (1) mysql运行相关
+  数据存放目录(默认)
+  /var/lib/mysql
+  查看sql是否启动(默认端口3306)
   netstat -tnl|grep 3306
-  rpm 命令来查看 mysql 的安装情况
-  rpm -qa | grep mysql* 
-  
+  查看mysql服务是否开机自启
+  systemctl is-enabled mysql.service;echo $?
+  注：返回enabled表示开机自启，如果不是，执行chkconfig --levels 235 mysqld on
+  rpm 命令来查看 mysql 的安装情况
+  rpm -qa | grep mysql*.
+  启动mysql服务进程
+  systemctl start mysqld
+  关闭mysql服务进程
+  mysqladmin -u root -p shutdown
+  
+  (2) 连接数据库
   连接数据库
   mysql -u root -p
-  修改访问权限，让其他计算机也能访问
+  断开连接
+  quit或者exit
+  查看帮助
+  help 或者 \h
+  清除当前输入
+  \c
+  修改访问权限，让其他计算机也能访问
   GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'yourpassword' WITH GRANT OPTION;
+  
+  (3)知道mysql数据存放目录
+  关闭mysql服务进程
+  mysqladmin -u root -p shutdown 
+  创建保存目录
+  mkdir /disk
+  移动mysql到指定目录
+  mv /var/lib/mysql /disk
+  修改mysql配置文件/etc/my.cnf
+  [mysqld] datadir=/disk/mysql
+  socket=/disk/mysql/mysql.sock
+  [mysql] socket=/disk/mysql/mysql.sock
+  修改权限
+  chown -R mysql:mysql /disk/mysql
+  重启mysql服务进程
+  mysqladmin -u root -p shutdown
+  重启mysql服务进程，如果不能重启，执行下面指令
+  vi /etc/sysconfig/selinux
+  SELINUX=permissive
+  reboot
+  
+  (4) 修改字符集
+  为支持中文设置字符集，默认服务器的字符器是 latin1 ，对中文不友好，改用utf-8
+  查看字符集
+  SHOW VARIABLES LIKE 'character%';
+  修改字符集
+  vim /etc/my.cnf
 ```
 
