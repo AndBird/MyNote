@@ -260,7 +260,7 @@
   netstat -tnl|grep 3306
   查看mysql服务是否开机自启
   systemctl is-enabled mysql.service;echo $?
-  注：返回enabled表示开机自启，如果不是，执行chkconfig --levels 235 mysqld on
+    注：返回enabled表示开机自启，如果不是，执行chkconfig --levels 235 mysqld on
   rpm 命令来查看 mysql 的安装情况
   rpm -qa | grep mysql*.
   启动mysql服务进程
@@ -275,7 +275,7 @@
   (2) 连接数据库
   连接数据库
   mysql -u root -p
-  注： 远程连接 mysql -uroot -p -h192.168.137.10 -P3306
+    注： 远程连接 mysql -uroot -p -h192.168.137.10 -P3306
   断开连接
   quit或者exit
   查看帮助
@@ -293,11 +293,11 @@
   移动mysql到指定目录
   mv /var/lib/mysql /disk
   修改mysql配置文件/etc/my.cnf
-  [mysqld] 
-  datadir=/disk/mysql
-  socket=/disk/mysql/mysql.sock
-  [mysql] 
-  socket=/disk/mysql/mysql.sock
+    [mysqld] 
+    datadir=/disk/mysql
+    socket=/disk/mysql/mysql.sock
+    [mysql] 
+    socket=/disk/mysql/mysql.sock
   修改权限，需关闭mysql服务进程(后面直接用mysql就能连接上)
   chown -R mysql:mysql /disk/mysql
   重启mysql服务进程
@@ -306,17 +306,17 @@
   vi /etc/sysconfig/selinux
   SELINUX=permissive
   reboot
-  注： 连接mysql报错，mysql: unknown variable 'symbolic-links=0'，注意 [mysqld]和[mysql]的范围 
+    注： 连接mysql报错，mysql: unknown variable 'symbolic-links=0'，注意 [mysqld]和[mysql]的范围 
   
   (4) 修改字符集
-  为支持中文设置字符集，默认服务器的字符器是 latin1 ，对中文不友好，改用utf-8
+  注：为支持中文设置字符集，默认服务器的字符器是 latin1 ，对中文不友好，改用utf-8
   查看字符集,先连上mysql
   SHOW VARIABLES LIKE 'character%';
   修改字符集 vim /etc/my.cnf， 加入
-  [mysqld] 
-  character_set_server = utf8
-  [mysql]
-  default-character-set = utf8
+    [mysqld] 
+    character_set_server = utf8
+    [mysql]
+    default-character-set = utf8
   重启mysql
   systemctl restart mysqld
   
@@ -356,7 +356,7 @@
   create database xx;
   创建表
   create table t1 (`id` int(4), `name` char(40));
-  注:字段名需要用反引号(还不是单引号)括起来
+    注:字段名需要用反引号(还不是单引号)括起来
   
   备份数据库
   mysqldump  -uroot -p'root' databasename >/tmp/mysql.sql
