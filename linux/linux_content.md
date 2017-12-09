@@ -40,6 +40,9 @@
  * [环境变量](https://github.com/AndBird/MyNote/blob/master/linux/环境变量.md)
  
  * [部分软件安装](https://github.com/AndBird/MyNote/blob/master/linux/CentOs.md)
+ 
+ * [Xshell](https://github.com/AndBird/MyNote/blob/master/linux/Xshell.md)
+
 
 
   
