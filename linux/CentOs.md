@@ -300,12 +300,15 @@
   
   (4) 修改字符集
   为支持中文设置字符集，默认服务器的字符器是 latin1 ，对中文不友好，改用utf-8
-  查看字符集
-  SHOW VARIABLES LIKE 'character%';
-  修改字符集 vim /etc/my.cnf
-  加入
-  [mysqld] character_set_server = utf8
-  [mysql] default-character-set = utf8
+  查看字符集,先连上mysql
+  SHOW VARIABLES LIKE 'character%';
+  修改字符集 vim /etc/my.cnf， 加入
+  [mysqld] 
+  character_set_server = utf8
+  [mysql]
+  default-character-set = utf8
+  重启mysql
+  systemctl restart mysqld
   
   
 ```
