@@ -275,7 +275,7 @@
   修改访问权限，让其他计算机也能访问
   GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'yourpassword' WITH GRANT OPTION;
   
-  (3)知道mysql数据存放目录
+  (3)指定mysql数据存放目录
   关闭mysql服务进程
   mysqladmin -u root -p shutdown 
   创建保存目录
@@ -283,10 +283,12 @@
   移动mysql到指定目录
   mv /var/lib/mysql /disk
   修改mysql配置文件/etc/my.cnf
-  [mysqld] datadir=/disk/mysql
+  [mysqld] 
+  datadir=/disk/mysql
   socket=/disk/mysql/mysql.sock
-  [mysql] socket=/disk/mysql/mysql.sock
-  修改权限
+  [mysql] 
+  socket=/disk/mysql/mysql.sock
+  修改权限，需关闭mysql服务进程
   chown -R mysql:mysql /disk/mysql
   重启mysql服务进程
   mysqladmin -u root -p shutdown
@@ -294,12 +296,17 @@
   vi /etc/sysconfig/selinux
   SELINUX=permissive
   reboot
+  注： 连接mysql报错，mysql: unknown variable 'symbolic-links=0'，注意 [mysqld]和[mysql]的范围 
   
   (4) 修改字符集
   为支持中文设置字符集，默认服务器的字符器是 latin1 ，对中文不友好，改用utf-8
   查看字符集
   SHOW VARIABLES LIKE 'character%';
-  修改字符集
-  vim /etc/my.cnf
+  修改字符集 vim /etc/my.cnf
+  加入
+  [mysqld] character_set_server = utf8
+  [mysql] default-character-set = utf8
+  
+  
 ```
 
