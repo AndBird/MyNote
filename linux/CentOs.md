@@ -262,6 +262,10 @@
   systemctl start mysqld
   关闭mysql服务进程
   mysqladmin -u root -p shutdown
+  关闭mysql服务进程
+  systemctl stop mysqld
+  重启mysql服务进程
+  systemct1 restart mysqld
   
   (2) 连接数据库
   连接数据库
