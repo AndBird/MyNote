@@ -288,7 +288,7 @@
   socket=/disk/mysql/mysql.sock
   [mysql] 
   socket=/disk/mysql/mysql.sock
-  修改权限，需关闭mysql服务进程
+  修改权限，需关闭mysql服务进程(后面直接用mysql就能连接上)
   chown -R mysql:mysql /disk/mysql
   重启mysql服务进程
   mysqladmin -u root -p shutdown
