@@ -373,10 +373,13 @@
   清空表数据
   truncate table dbname.tname;
   
-  备份数据库
+  备份数据库(linux就控制台)
   mysqldump  -uroot -p'yourpassword' databasename >/tmp/mysql.sql
-  恢复备份
+  恢复备份(linux控制台)
   mysql -uroot -p'yourpassword' databasename </tmp/mysql.sql
+  执行sql文件(mysql的控制台)
+  source sql文件路径
+
   
 ```
 
