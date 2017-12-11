@@ -5,8 +5,8 @@
   * [TextView](https://github.com/AndBird/MyNote/blob/master/android/view/TextView.md)
   * [GridView](https://github.com/AndBird/MyNote/blob/master/android/view/GridView.md)
      * [计算GridView的高度](https://github.com/AndBird/MyNote/blob/master/android/view/计算GridView的高度.md)
-  * [ListView](https://github.com/AndBird/MyNote/blob/master/android/view/ListView.java)
-    * [ScrollStateListView](https://github.com/AndBird/MyNote/blob/master/android/view/ScrollStateListView.md)
+  * [ListView](https://github.com/AndBird/MyNote/blob/master/android/view/ListView.md)
+    * [ScrollStateListView](https://github.com/AndBird/MyNote/blob/master/android/view/ScrollStateListView.java)
     * [计算ListView的高度](https://github.com/AndBird/MyNote/blob/master/android/view/计算ListView的高度.md)
 
 
