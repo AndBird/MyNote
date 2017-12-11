@@ -1,4 +1,4 @@
-* 计算GridView的高度
+* 计算GridView的高度(ScrollView嵌套)
  
  注：计算高度，特别注意 item布局的root节点必须要是LinearLayout，否则会报空指针
   
