@@ -48,3 +48,19 @@
 	}
   
   ```
+  
+ * 设置GridView全显(嵌套中)
+ ```Java
+  在自定义GridView中重写onMeasure
+  
+   /** 
+     * 设置不滚动 ,全部显示
+     */  
+    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec)  
+    {  
+        int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,  
+                MeasureSpec.AT_MOST);  
+        super.onMeasure(widthMeasureSpec, expandSpec);  
+  
+    }  
+ ```
