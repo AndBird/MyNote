@@ -74,9 +74,13 @@
    }	
   ```
   
- * 设置ListView全部显示
+ * 设置ListView全部显示(嵌套中使用)
  ```Java
-  /** 
+   
+   在自定义ListView中重写onMeasure方法
+   
+   
+   /** 
      * 设置不滚动 ,全部显示
      */  
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec)  
