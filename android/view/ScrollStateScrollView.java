@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 
-//ÉÏÀ­¼ÓÔØºÍ¹ö¶¯×´Ì¬¼àÌı
+//æ»šåŠ¨çŠ¶æ€ç›‘å¬
 public class ScrollStateScrollView extends ScrollView{
 	private static final String TAG = ScrollStateScrollView.class.getName();
 	
@@ -16,43 +16,41 @@ public class ScrollStateScrollView extends ScrollView{
 	
 	
 	/** 
-	 * ¼àÌı¹ö¶¯ÊÇ·ñÍ£Ö¹
-     * Ö÷ÒªÊÇÓÃÔÚÓÃ»§ÊÖÖ¸Àë¿ªMyScrollView£¬MyScrollView»¹ÔÚ¼ÌĞø»¬¶¯£¬ÎÒÃÇÓÃÀ´±£´æYµÄ¾àÀë£¬È»ºó×ö±È½Ï 
+	 * ç›‘å¬æ»šåŠ¨æ˜¯å¦åœæ­¢
+     * ä¸»è¦æ˜¯ç”¨åœ¨ç”¨æˆ·æ‰‹æŒ‡ç¦»å¼€ScrollViewï¼ŒScrollViewè¿˜åœ¨ç»§ç»­æ»‘åŠ¨ï¼Œæˆ‘ä»¬ç”¨æ¥ä¿å­˜Yçš„è·ç¦»ï¼Œç„¶ååšæ¯”è¾ƒ 
      */  
     private int lastScrollY;  
-    private boolean fingerUp = false;//ÊÖÖ¸ÊÇ·ñÒÑ¾­up 
+    private boolean fingerUp = false;//æ‰‹æŒ‡æ˜¯å¦å·²ç»up 
 
 	
 	 /** 
-     * ÓÃÓÚÓÃ»§ÊÖÖ¸Àë¿ªMyScrollView
+     * ç”¨äºç”¨æˆ·æ‰‹æŒ‡ç¦»å¼€ScrollView
      */  
     private Handler handler = new Handler() {  
   
         public void handleMessage(android.os.Message msg) {  
         	try {
         		if(!needListenerScrollState()){
-        			//²»ĞèÒª¼àÌı¹ö¶¯×´Ì¬
+        			//ä¸éœ€è¦ç›‘å¬æ»šåŠ¨çŠ¶æ€
         			return ;
         		}
         		int scrollY = ScrollStateScrollView.this.getScrollY();  
         		switch (msg.what) {
 				case MotionEvent.ACTION_UP:
-					//DebugUtils.printInfo(TAG, "up:scrollY=" + scrollY);
-					//´ËÊ±µÄ¾àÀëºÍ¼ÇÂ¼ÏÂµÄ¾àÀë²»ÏàµÈ£¬ÔÚ¸ô5ºÁÃë¸øhandler·¢ËÍÏûÏ¢   
+					//æ­¤æ—¶çš„è·ç¦»å’Œè®°å½•ä¸‹çš„è·ç¦»ä¸ç›¸ç­‰ï¼Œåœ¨éš”5æ¯«ç§’ç»™handlerå‘é€æ¶ˆæ¯   
 	        		if(lastScrollY != scrollY){  
 	        			lastScrollY = scrollY;  
 	        			if(fingerUp){
 	        				handler.sendMessageDelayed(handler.obtainMessage(MotionEvent.ACTION_UP), 15); 
 	        			}
 	        		}else{
-	        			//¹ö¶¯Í£Ö¹
+	        			//æ»šåŠ¨åœæ­¢
 	        			if(mScrollStateListener != null){
 	        				mScrollStateListener.stopScroll();
 	        			}
 	        		}
 					break;
 				case MotionEvent.ACTION_DOWN:
-					//DebugUtils.printInfo(TAG, "down:scrollY=" + scrollY);
 					if(lastScrollY != scrollY){  
 						if(mScrollStateListener != null){
 							mScrollStateListener.startScroll();
@@ -103,17 +101,12 @@ public class ScrollStateScrollView extends ScrollView{
 		this.mScrollStateListener = scrollStateListener;
 	}  
 	
-	//¹ö¶¯×´Ì¬¼àÌı
+	//æ»šåŠ¨çŠ¶æ€ç›‘å¬
 	public interface ScrollStateListener{
 		public void startScroll();
 		public void stopScroll();
 	}
 	
-	//»¬¶¯µ½µ×²¿£¬¼ÓÔØÏÂÒ»Ò³
-	public interface OnFooterListener{
-		public void onFooterLoad();
-	}
-
 	@Override
 	protected void onScrollChanged(int l, int t, int oldl, int oldt) {
 		super.onScrollChanged(l, t, oldl, oldt);
@@ -128,13 +121,13 @@ public class ScrollStateScrollView extends ScrollView{
 		if(needListenerScrollState()){
 			 switch(ev.getAction()){  
 		        case MotionEvent.ACTION_UP:  
-		        	//DebugUtils.printInfo(TAG, "onInterceptTouchEvent up");
+		        	//Log.e(TAG, "onInterceptTouchEvent up");
 		        	 fingerUp = true;
 		        	 handler.removeMessages(MotionEvent.ACTION_DOWN);
 		             handler.sendMessageDelayed(handler.obtainMessage(MotionEvent.ACTION_UP), 5);    
 		            break;  
 		        case MotionEvent.ACTION_DOWN:
-		        	//DebugUtils.printInfo(TAG, "onInterceptTouchEvent down");
+		        	//Log.e(TAG, "onInterceptTouchEvent down");
 		        	fingerUp = false;
 		        	lastScrollY = ScrollStateScrollView.this.getScrollY();
 		        	handler.removeMessages(MotionEvent.ACTION_UP);
@@ -145,19 +138,19 @@ public class ScrollStateScrollView extends ScrollView{
 		return super.onInterceptTouchEvent(ev);
 	}
 	
-	//ÓĞÊ±ÊÕ²»µ½downÊÂ¼ş
+	//æœ‰æ—¶æ”¶ä¸åˆ°downäº‹ä»¶
 	@Override  
     public boolean onTouchEvent(MotionEvent ev){  
 		if(needListenerScrollState()){
 	        switch(ev.getAction()){  
 	        case MotionEvent.ACTION_UP:  
-	        	 //DebugUtils.printInfo(TAG, "onTouchEvent up");
+	        	 //Log.e(TAG, "onTouchEvent up");
 	        	 fingerUp = true;
 	        	 handler.removeMessages(MotionEvent.ACTION_DOWN);
 	             handler.sendMessageDelayed(handler.obtainMessage(MotionEvent.ACTION_UP), 5);    
 	            break;  
 	        case MotionEvent.ACTION_DOWN:
-	        	 //DebugUtils.printInfo(TAG, "onTouchEvent down");
+	        	 //Log.e(TAG, "onTouchEvent down");
 	        	 fingerUp = false;
 	        	 lastScrollY = ScrollStateScrollView.this.getScrollY();
 	        	 handler.removeMessages(MotionEvent.ACTION_UP);
@@ -179,14 +172,14 @@ public class ScrollStateScrollView extends ScrollView{
 		}
 	}
 	
-	//Í£Ö¹¼àÌı¹ö¶¯×´Ì¬
+	//åœæ­¢ç›‘å¬æ»šåŠ¨çŠ¶æ€
 	public void stopScrollStateLinstener(){
 		if(handler != null){
 			handler.removeCallbacksAndMessages(null);
 		}
 	}
 	
-	//ÊÇ·ñĞèÒª¼àÌı¹ö¶¯×´Ì¬
+	//æ˜¯å¦éœ€è¦ç›‘å¬æ»šåŠ¨çŠ¶æ€
 	private boolean needListenerScrollState(){
 		return mScrollStateListener != null;
 	}
