@@ -210,7 +210,10 @@
     sudo ssserver -d stop
     日志
     less /var/log/shadowsocks.log
+    查看shadowsocks是否运行
+    ps -aux | grep 'svn'
     
+    
    3. 开机自启
    在/etc/rc.local上加入
    ssserver -p 443 -k password -m aes-256-cfb --user nobody -d start
