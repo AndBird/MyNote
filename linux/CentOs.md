@@ -286,8 +286,17 @@
   help 或者 \h
   清除当前输入
   clear或者\c
-  修改访问权限，让其他计算机也能访问(root账号或者新建账号，不建议允许root远程登录)
+  
+  创建访问用户(username, userpassword)
+  CREATE USER 'username'@'%' IDENTIFIED BY 'userpassword';
+  授权用户SELECT,INSERT,UPDATE,DELETE 的远程访问权限
+  GRANT SELECT,INSERT,UPDATE,DELETE ON *.* TO 'username'@'%';
+  授予用户所有的远程访问权限
+  GRANT ALL ON *.* TO 'username'@'%';
+  创建远程连接用户，并授予用户远程访问的所有权限(root账号或者新建账号，不建议允许root远程登录)
   GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'yourpassword' WITH GRANT OPTION;
+  使授权立即生效
+  flush privileges;
   查看连接用户
   select host,user from user;
   
