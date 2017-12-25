@@ -241,12 +241,13 @@
   启动mysql服务进程
   systemctl start mysqld
 
-  配置mysql（设置密码等）
-  mysql_secure_installation
+  配置mysql（设置密码等）,输入命令
+  mysql_secure_installation
+  
   Enter current password for root (enter for none): [enter键]
   Set root password? [Y/n] y     [设置root用户密码]
   Remove anonymous users? [Y/n] y     [删除匿名用户]
-  Disallow root login remotely? [Y/n] y  [禁止root远程登录]
+  Disallow root login remotely? [Y/n] y  [禁止root远程登录,不建议允许root远程登录]
   Remove test database and access to it? [Y/n] y   [删除test数据库]
   Reload privilege tables now? [Y/n] y   [刷新权限]
   
@@ -285,9 +286,11 @@
   help 或者 \h
   清除当前输入
   clear或者\c
-  修改访问权限，让其他计算机也能访问
+  修改访问权限，让其他计算机也能访问(root账号或者新建账号，不建议允许root远程登录)
   GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'yourpassword' WITH GRANT OPTION;
-  
+  查看连接用户
+  select host,user from user;
+  
   (3)指定mysql数据存放目录
   关闭mysql服务进程
   mysqladmin -u root -p shutdown 
