@@ -102,7 +102,9 @@
   org.apache.catalina.startup.Bootstrap start
   root      1162  1125  0 21:27 pts/0    00:00:00 grep --color=auto tomcat
 
-
+8. tomcat访问
+   tomcat默认访问端口8080，http://localhost:8080/
+   http默认访问端口80
 
 ```
 
