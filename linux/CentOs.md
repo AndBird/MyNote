@@ -104,7 +104,7 @@
 
 8. tomcat访问
    tomcat默认访问端口8080，http://localhost:8080/
-   http默认访问端口80
+   http默认访问端口80,编辑tomcat目录下的/conf/server.xml，将默认端口设置成80，就可以使用http://localhost访问(可不指明端口)
 
 ```
 
