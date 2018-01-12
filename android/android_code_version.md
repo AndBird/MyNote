@@ -21,5 +21,10 @@
 17 	Jelly Bean 			4.2x 			API level 17 
 18 	Jelly Bean 			4.3x 			API level 18 
 19 	KitKat 				4.4-4.4.4 		API level 19 
+20  KitKat              4.4W            API level 20
+21  Lollipop            5.0 			API level 21
+22  Lollipop         	5.1 			API level 22
+23  Marshmallow			  6.0				API level 23
+24  Nougat				    7.0				API level 24
 
 ```
