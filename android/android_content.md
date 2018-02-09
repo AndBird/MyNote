@@ -3,6 +3,7 @@
 * [安卓Version](https://github.com/AndBird/MyNote/tree/master/android/android_code_version.md)
 * [View](https://github.com/AndBird/MyNote/tree/master/android/view/view_content.md)
   * [TextView](https://github.com/AndBird/MyNote/blob/master/android/view/TextView.md)
+  * [EditText](https://github.com/AndBird/MyNote/blob/master/android/view/EditText.md)
   * [GridView](https://github.com/AndBird/MyNote/blob/master/android/view/GridView.md)
     * [计算GridView的高度](https://github.com/AndBird/MyNote/blob/master/android/view/计算GridView的高度.md)
   * [ListView](https://github.com/AndBird/MyNote/blob/master/android/view/ListView.md)
