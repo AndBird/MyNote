@@ -70,6 +70,9 @@
     
     //文件操作
 	adb pull/push
+	adb push src_apk /sdcard/
+	//复制文件
+	cp sdcard/src_apk_name system/app
 	//重命名文件：
 	adb shell rename path/oldfilename path/newfilename
 	//删除system/avi.apk：
@@ -84,6 +87,8 @@
 	adb shell mkdir path/foldelname
 	//查看文件内容：
 	adb shell cat <file>
+	//重新挂载并给予可写权限
+	mount -o remount rw system
 	
 ## 7.事件发送
     
