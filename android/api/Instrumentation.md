@@ -3,8 +3,8 @@
 * 使用权限 </br>
  ```Java
   1. Instrumentation 需要在线程中运行才有效
-  2. 不需要root也可以生效
-  3. 需要声明权限
+  2. 不需要root也可以生效，但是对于非系统应用需要在本进程中才生效(特别注意)
+  3. 需要声明权限
     <!-- Instrumentation 跨进程注入事件，在线程中才有效 -->
     <uses-permission android:name="android.permission.INJECT_EVENTS" /> 
  ```
