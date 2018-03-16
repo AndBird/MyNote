@@ -16,10 +16,13 @@
     1.点击触摸事件
     MotionEvent downEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, x, y, 0);
     instrumentation.sendPointerSync(downEvent);
-    MotionEvent moveEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_MOVE, x, y, 0);
+    downEvent.recycle();
+    MotionEvent moveEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_MOVE, x, y, 0);
     instrumentation.sendPointerSync(moveEvent);
+    moveEvent.recycle();
     MotionEvent upEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, x, y, 0);
-    instrumentation.sendPointerSync(event);
+    instrumentation.sendPointerSync(upEvent);
+    upEvent.recycle();
     
     2.输入字符串
     注意:需要先点击输入框，内容才能输入进去
