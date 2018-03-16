@@ -15,7 +15,7 @@
 
 * [Activity](https://github.com/AndBird/MyNote/tree/master/android/activity/activity_content.md)
   * [部分系统界面跳转](https://github.com/AndBird/MyNote/blob/master/android/activity/系统界面跳转.md)
-  * [事件相关](https://github.com/AndBird/MyNote/blob/master/android/other/事件相关.md)
+  * [事件相关](https://github.com/AndBird/MyNote/blob/master/android/activity/事件相关.md)
 
 * [Service](https://github.com/AndBird/MyNote/tree/master/android/service/service_content.md)
   * [Service](https://github.com/AndBird/MyNote/tree/master/android/service/Service.md)
