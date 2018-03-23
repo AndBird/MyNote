@@ -57,6 +57,7 @@
 	
 	//杀死一个进程：
 	adb shell kill [pid]
+	adb shell am force-stop [包名] //后面跟的是包名
 	//查看进程列表：
 	adb shell ps
 	//查看指定进程状态：
