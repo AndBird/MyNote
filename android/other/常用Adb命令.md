@@ -41,6 +41,8 @@
 	 adb shell pm list packages -f
 	 //获取对应包名应用的所有信息
 	 adb shell dumpsys package com.examle.xx
+	 //获取当前应用
+	 adb shell "dumpsys activity | grep mFocusedActivity"
 	 //列出所有应用的信息
 	 adb shell dumpsys 列出所有
 	 //获取指定包名应用的路径
