@@ -32,3 +32,10 @@
     3.输入按键事件		
     inst.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
  ```
+
+# input
+```Java
+使用input分发事件，有root权限时可以跨进程分发事件；无root权限时，能在本进程中分发事件
+Runtime.getRuntime().exec("input tap 200 200");
+Runtime.getRuntime().exec("input text sssa");
+```
