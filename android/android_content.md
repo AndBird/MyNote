@@ -21,6 +21,10 @@
   * [Service](https://github.com/AndBird/MyNote/tree/master/android/service/Service.md)
 * [Broadcast](https://github.com/AndBird/MyNote/tree/master/android/broadcast/broadcast_content.md)
   * [应用安装广播](https://github.com/AndBird/MyNote/tree/master/android/broadcast/应用安装广播.md)
+  
+* [工程相关](https://github.com/AndBird/MyNote/tree/master/android/)
+  * [AndroidManifest.xml](https://github.com/AndBird/MyNote/tree/master/android/AndroidManifest.md)
+  * [project.properties](https://github.com/AndBird/MyNote/tree/master/android/project.properties.md)
 
 
 * [其他](https://github.com/AndBird/MyNote/tree/master/android/other/other_content.md)
