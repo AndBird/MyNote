@@ -49,10 +49,13 @@
  adb shell dumpsys 列出所有
  //获取指定包名应用的路径
  pm path com.xx.xx 
+ //冻结应用
+ adb shell pm disable/enable 包名
+
  ```
 	 
-## 5.进程管理和设备信息
-    
+## 5.进程管理和内存
+    
     //查看设备cpu和内存占用情况：
 	adb shell top
 	//查看占用内存前6的app：
@@ -71,7 +74,9 @@
 	adb shell service list
 	//查看当前内存占用：
 	adb shell cat /proc/meminfo
-	
+	//查看手机剩余内存和总内存的大小
+	adb chat proc/meminfo 
+
 ## 6.文件操作
     
     //文件操作
@@ -122,6 +127,22 @@
 	//启动service
 	adb shell am startservice -n apk包名/Service包名.Service类名
 
+## 10.设备相关
+```
+//获取MAC地址
+adb shell cat /sys/class/net/wlan0/address
+//获取手机IMEI
+adb shell dumpsys iphonesubinfo 
+//设备型号
+adb shell getprop ro.product.model
+//查看安卓系统版本
+adb shell getprop ro.build.version.release
+//屏幕密度（wm命令,模拟器测试通过,可修改分辨率和密度进行适配）
+adb shell wm density
+//屏幕分辨率(wm命令)
+adb shell wm size
+
+```
 	
 	
 ## .其他操作
