@@ -33,20 +33,23 @@
 	 
 ## 4.应用管理
     
-    adb install (-r) apkfile  (如果加-r参数会覆盖原来安装的软件并保留数据)
-	 adb uninstall (-k) com.xx.xx   (-k 卸载app但保留数据和缓存文件)
-	 //列出手机上所有已安装的应用包名
-	 adb shell pm list packages 
-	 //输出应用的apk文件路径和包名
-	 adb shell pm list packages -f
-	 //获取对应包名应用的所有信息
-	 adb shell dumpsys package com.examle.xx
-	 //获取当前应用
-	 adb shell "dumpsys activity | grep mFocusedActivity"
-	 //列出所有应用的信息
-	 adb shell dumpsys 列出所有
-	 //获取指定包名应用的路径
-	 pm path com.xx.xx 
+ ```
+ adb install (-r) apkfile  (如果加-r参数会覆盖原来安装的软件并保留数据)
+ adb uninstall (-k) com.xx.xx   (-k 卸载app但保留数据和缓存文件)
+ //列出手机上所有已安装的应用包名
+ adb shell pm list packages 
+ //输出应用的apk文件路径和包名
+ adb shell pm list packages -f
+ //获取对应包名应用的所有信息
+ adb shell dumpsys package com.examle.xx
+ //获取当前应用
+ adb shell "dumpsys activity | grep mFocusedActivity"
+ adb shell dumpsys activity | findstr "mFocusedActivity"
+ //列出所有应用的信息
+ adb shell dumpsys 列出所有
+ //获取指定包名应用的路径
+ pm path com.xx.xx 
+ ```
 	 
 ## 5.进程管理和设备信息
     
