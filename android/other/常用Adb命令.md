@@ -50,7 +50,11 @@
  //获取指定包名应用的路径
  pm path com.xx.xx 
  //冻结应用
- adb shell pm disable/enable 包名
+ adb shell pm disable/enable <包名>
+ //清除应用数据和缓存
+ adb shell pm clear <packagename>
+//强制停止应用
+adb shell am force-stop <packagename>
 
  ```
 	 
@@ -76,6 +80,8 @@ adb shell service list
 adb shell cat /proc/meminfo
 //查看手机剩余内存和总内存的大小
 adb chat proc/meminfo 
+//cpu 信息
+adb shell cat /proc/cpuinfo
 ```
 
 ## 6.文件操作
@@ -139,10 +145,16 @@ adb shell dumpsys iphonesubinfo
 adb shell getprop ro.product.model
 //查看安卓系统版本
 adb shell getprop ro.build.version.release
+//android id
+adb shell settings get secure android_id
 //屏幕密度（wm命令,模拟器测试通过,可修改分辨率和密度进行适配）
 adb shell wm density
 //屏幕分辨率(wm命令)
 adb shell wm size
+//显示屏参数
+adb shell dumpsys window displays
+//电池相关
+adb shell dumpsys battery
 
 ```
 	
