@@ -23,13 +23,20 @@
      adb bugreport
 	 
 ## 3.设备操作
-     
-     //列出设备列表
-     adb devices
-     adb -s deveiceName shell ....
-     //连接调试设备(部分可以不输入端口)
-     adb connect 192.168.0.101:5555 
-     adb disconnect
+```
+//列出设备列表
+adb devices
+adb -s deveiceName shell ....
+//连接调试设备(部分可以不输入端口)
+adb connect 192.168.0.101:5555 
+adb disconnect
+//重启到recovery模式
+adb reboot recovery
+//重启到fastboot模式
+adb reboot bootloader
+
+
+```
 	 
 ## 4.应用管理
     
@@ -160,15 +167,17 @@ adb shell dumpsys battery
 	
 	
 ## .其他操作
-    
-	//查看wifi密码：
-	adb shell cat /data/misc/wifi/*.conf
-	
-	//获取设备名称：
-	adb shell cat /system/build.prop
-	//跑monkey：
-	adb shell monkey -v -p your.package.name 500
+```
+//查看wifi密码：
+adb shell cat /data/misc/wifi/*.conf
 
+//获取设备名称：
+adb shell cat /system/build.prop
+//跑monkey：
+adb shell monkey -v -p your.package.name 500
+//查看adb版本
+adb version
+```
         
 
 	 
