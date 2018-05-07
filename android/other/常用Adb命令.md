@@ -96,6 +96,12 @@ adb shell cat /proc/meminfo
 adb chat proc/meminfo 
 //cpu 信息
 adb shell cat /proc/cpuinfo
+//端口（shell下）
+netstat
+//显示已连接的端口
+netstat -ntup 
+//显示正监听的端口
+netstat -ntupl 
 ```
 
 ## 6.文件操作
