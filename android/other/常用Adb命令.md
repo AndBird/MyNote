@@ -62,7 +62,14 @@ adb reboot bootloader
  adb shell pm clear <packagename>
 //强制停止应用
 adb shell am force-stop <packagename>
-
+//安装apk
+pm install -r /system/app/test.apk 
+//卸载应用
+pm uninstall 应用包名
+//查看正在运行的Service(包名是必须的、不需要写完整的包名、支持模糊匹配)
+adb shell dumpsys activity services 包名
+//查看正在运行的Activity(包名是必须的、不需要写完整的包名、支持模糊匹配)
+adb shell dumpsys activity 包名
  ```
 	 
 ## 5.进程管理和内存
@@ -108,39 +115,48 @@ adb shell rm -r <folder>
 adb shell mv path/file newpath/file
 //设置文件权限：
 adb shell chmod 777 /system/fonts/DroidSansFallback.ttf
+//让apk变成可以安装的
+chmod 644 /system/app/test.apk
 //新建文件夹：
 adb shell mkdir path/foldelname
 //查看文件内容：
 adb shell cat <file>
 //重新挂载并给予可写权限
 mount -o remount rw system
+//文件md5
+md5 /system/app/test.apk 
+//文件夹下所有文件的md5
+md5 /system/app/* 
 ```
 	
 ## 7.事件发送
-    
-    //发送返回事件
-	adb shell input keyevent 4 
+```    
+//发送返回事件
+adb shell input keyevent 4 
+```
 	
 ## 8.截屏相关
-	
-	//截屏
-	adb shell screencap -p /mnt/sdcard/save.png
-	//录制屏幕
-	adb shell screenrecord /mnt/sdcard/1.mp4
-	//设置录制的视频分辨率
-	adb shell screenrecord --size 848*480 /sdcard/1.mp4
-	//默认比特率是4M/s，为了分享方便，我们可以调低比特率为2M
-	adb shell screenrecord --bit-rate 2000000 /sdcard/1.mp4
+```	
+//截屏
+adb shell screencap -p /mnt/sdcard/save.png
+//录制屏幕
+adb shell screenrecord /mnt/sdcard/1.mp4
+//设置录制的视频分辨率
+adb shell screenrecord --size 848*480 /sdcard/1.mp4
+//默认比特率是4M/s，为了分享方便，我们可以调低比特率为2M
+adb shell screenrecord --bit-rate 2000000 /sdcard/1.mp4
+```
 
 ## 9. 发送广播，启动Activity和Service
-	
-	//发送广播
-	adb shell -am broadcast -a android.intent.action.BOOT_COMPLETED
-	adb shell -am broadcast -a android.intent.action.BOOT_COMPLETED -n apk包名/广播接收包名.接收类
-	//启动activity
-	adb shell am start --user 0 -n apk包名/Activity包名.Activity类名
-	//启动service
-	adb shell am startservice -n apk包名/Service包名.Service类名
+```	
+//发送广播
+adb shell -am broadcast -a android.intent.action.BOOT_COMPLETED
+adb shell -am broadcast -a android.intent.action.BOOT_COMPLETED -n apk包名/广播接收包名.接收类
+//启动activity
+adb shell am start --user 0 -n apk包名/Activity包名.Activity类名
+//启动service
+adb shell am startservice -n apk包名/Service包名.Service类名
+```
 
 ## 10.设备相关
 ```
