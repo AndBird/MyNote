@@ -30,7 +30,7 @@
   * [project.properties](https://github.com/AndBird/MyNote/tree/master/android/project.properties.md)
 
 
-* [移动开发平台](https://github.com/AndBird/MyNote/tree/master/android/other/移动开发平台.md)
+* [笔记收藏](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/笔记收藏.md)
 
 
 * [其他](https://github.com/AndBird/MyNote/tree/master/android/other/other_content.md)
