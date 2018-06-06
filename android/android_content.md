@@ -7,6 +7,7 @@
   * [GridView](https://github.com/AndBird/MyNote/blob/master/android/view/GridView.md)
     * [计算GridView的高度](https://github.com/AndBird/MyNote/blob/master/android/view/计算GridView的高度.md)
   * [ListView](https://github.com/AndBird/MyNote/blob/master/android/view/ListView.md)
+    * [ListView相关属性](https://github.com/AndBird/MyNote/blob/master/android/view/ListView相关属性.md)
     * [ScrollStateListView](https://github.com/AndBird/MyNote/blob/master/android/view/ScrollStateListView.java)
     * [计算ListView的高度](https://github.com/AndBird/MyNote/blob/master/android/view/计算ListView的高度.md)
   * [NotificationManager](https://github.com/AndBird/MyNote/blob/master/android/view/NotificationManager.md)
