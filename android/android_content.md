@@ -30,6 +30,9 @@
   * [project.properties](https://github.com/AndBird/MyNote/tree/master/android/project.properties.md)
 
 
+* [移动开发平台](https://github.com/AndBird/MyNote/tree/master/android/other/移动开发平台.md)
+
+
 * [其他](https://github.com/AndBird/MyNote/tree/master/android/other/other_content.md)
   * [aapt](https://github.com/AndBird/MyNote/blob/master/android/other/aapt.md)
   * [AndroidManifest](https://github.com/AndBird/MyNote/blob/master/android/other/AndroidManifest.md)
