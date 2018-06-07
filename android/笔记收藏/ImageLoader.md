@@ -26,7 +26,10 @@
 ## 2.加载资源
 ```Java
 
-String imageUri = "drawable://" + R.drawable.image;
+String imageUri = "drawable://" + R.drawable.image;//drawable文件
+String imageUri = "file:///mnt/sdcard/image.png"; //SD卡图片  
+String imageUri = "content://media/external/audio/albumart/13"; // 媒体文件夹  
+String imageUri = "assets://image.png"; // assets  
 private DisplayImageOptions options = new DisplayImageOptions.Builder()
 		.showImageForEmptyUri(R.drawable.app_image_default_h)
 		.showImageOnFail(R.drawable.app_image_default_h)
