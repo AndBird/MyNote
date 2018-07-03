@@ -15,3 +15,7 @@ android:maxLength设置最长显示内容(显示字符个数定),不会换行,�
  
  textView.setMovementMethod(ScrollingMovementMethod.getInstance());
 ```
+* 测量文字宽度
+```Java
+textView.getPaint().measureText(textView.getText().toString())
+```
