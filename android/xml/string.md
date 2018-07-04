@@ -9,4 +9,6 @@
  xml下划线: <string name="test"><u>下划线</u></string>
  xml双引号: <string name="test">创建\"快捷\"方式</string>
  xml单引号: <string name="test">创建\'快捷\'方式</string>
+ xml省略号: <string name="test">创建快捷方式\u2026</string>
+           <string name="test">创建快捷方式...</string>
 ```
