@@ -9,7 +9,6 @@
  xml下划线: <string name="test"><u>下划线</u></string>
  xml双引号: <string name="test">创建\"快捷\"方式</string>
  xml单引号: <string name="test">创建\'快捷\'方式</string>
-           <string name="test">创建快捷方式&apos;</string>
  xml省略号: <string name="test">创建快捷方式\u2026</string>
            <string name="test">创建快捷方式...</string>
  占位符:    <string name="test">整数型:%1$d，浮点型：%2$.2f，字符串:%3$s</string>
