@@ -31,8 +31,8 @@ String imageUri = "file:///mnt/sdcard/image.png"; //SD卡图片
 String imageUri = "content://media/external/audio/albumart/13"; // 媒体文件夹  
 String imageUri = "assets://image.png"; // assets  
 private DisplayImageOptions options = new DisplayImageOptions.Builder()
-		.showImageForEmptyUri(R.drawable.app_image_default_h)
-		.showImageOnFail(R.drawable.app_image_default_h)
+		.showImageForEmptyUri(R.drawable.app_image_default)
+		.showImageOnFail(R.drawable.app_image_default)
 		.cacheInMemory(false).cacheOnDisk(false)
 		.bitmapConfig(Bitmap.Config.RGB_565)
 		.build();
