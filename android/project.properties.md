@@ -13,4 +13,4 @@ android.library.reference.1=   //引用的工程
 
 * 混淆配置
 <br>proguard.config=proguard-project.txt
-<br>[proguard-project.txt](https://github.com/AndBird/MyNote/blob/master/android/other/proguard-project.txt.md)
+<br>[proguard-project.txt](https://github.com/AndBird/MyNote/blob/master/android/proguard-project.txt.md)
