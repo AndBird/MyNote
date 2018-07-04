@@ -1,5 +1,5 @@
 * 混淆配置
-```Java
+```Xml
 # To enable ProGuard in your project, edit project.properties
 # to define the proguard.config property as described in that file.
 #
