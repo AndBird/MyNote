@@ -29,7 +29,7 @@
 * [工程相关](https://github.com/AndBird/MyNote/tree/master/android/)
   * [AndroidManifest.xml](https://github.com/AndBird/MyNote/tree/master/android/AndroidManifest.md)
   * [project.properties](https://github.com/AndBird/MyNote/tree/master/android/project.properties.md)
-  * [资源相关](https://github.com/AndBird/MyNote/tree/master/android/资源相关.md)
+  * [资源相关](https://github.com/AndBird/MyNote/tree/master/android/resource_content.md)
 
 
 * [笔记收藏](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/笔记收藏.md)
