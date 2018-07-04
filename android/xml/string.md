@@ -11,4 +11,10 @@
  xml单引号: <string name="test">创建\'快捷\'方式</string>
  xml省略号: <string name="test">创建快捷方式\u2026</string>
            <string name="test">创建快捷方式...</string>
+ 占位符:    <string name="test">整数型:%1$d，浮点型：%2$.2f，字符串:%3$s</string>
+          占位符说明: %后面是占位符的位置，从1开始（比如这里用到了三个占位符，从1开始往后排）
+                    $ 后面是填充数据的类型
+                      %d：表示整数型；
+                      %f ：表示浮点型，其中f前面的.2表示小数的位数
+                      %s：表示字符串
 ```
