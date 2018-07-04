@@ -7,4 +7,6 @@
             <string name="html_text"><Data><![CDATA[<font color="#fda300"><b>%1$s</b></font>html测试]]></Data></string> 
  xml换行:  \n
  xml下划线: <string name="test"><u>下划线</u></string>
+ xml双引号: <string name="test">创建\"快捷\"方式</string>
+ xml单引号: <string name="test">创建\'快捷\'方式</string>
 ```
