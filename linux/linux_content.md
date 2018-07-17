@@ -36,6 +36,9 @@
    * [centos配置开机自启](https://github.com/AndBird/MyNote/blob/master/linux/centos配置开机自启.md)
    * [yum](https://github.com/AndBird/MyNote/blob/master/linux/yum.md)
    * [pip](https://github.com/AndBird/MyNote/blob/master/linux/pip.md)
+   
+   
+ * [Ubuntu](https://github.com/AndBird/MyNote/blob/master/linux/Ubuntu.md)
  
  
  * [环境变量](https://github.com/AndBird/MyNote/blob/master/linux/环境变量.md)
