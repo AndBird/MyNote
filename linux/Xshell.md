@@ -8,5 +8,8 @@
   yum provides */rz
   yum install -y lrzsz
 
+2.查看ip
+ifconfig
+
 ```
 
