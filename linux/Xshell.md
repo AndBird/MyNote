@@ -11,5 +11,12 @@
 2.查看ip
 ifconfig
 
+3.xshell连接不上虚拟机中的ubuntu(桥接模式联网)
+解决办法:
+apt-get install openssh-server （ 我是在root模式下，不是root用户的话要加sudo）
+检查ssh服务是否启动（如果没有启动，那么/etc/init.d/ssh start）
+ps -ef |grep ssh
+
+
 ```
 
