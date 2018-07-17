@@ -22,6 +22,7 @@
   * [gcc](https://github.com/AndBird/MyNote/blob/master/linux/gcc.md)
   * [time](https://github.com/AndBird/MyNote/blob/master/linux/time.md)
   * [du 文件大小](https://github.com/AndBird/MyNote/blob/master/linux/du.md)
+  * [ifconfig网络相关](https://github.com/AndBird/MyNote/blob/master/linux/ifconfig.md)
 
  * [linux命令大全](http://man.linuxde.net/yum)
    * [wget](http://man.linuxde.net/wget)
