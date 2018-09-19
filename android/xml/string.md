@@ -12,6 +12,13 @@
  xml省略号: <string name="test">创建快捷方式\u2026</string>
            <string name="test">创建快捷方式...</string>
            <string name="test">创建快捷方式&#8230;</string>
+
+<!-- &#060 ->小于号 &#062 ->大于号   &#038 -> &  &#064 -> @  -->
+<!-- 禁止edittext输入中文  -->
+	  	<string name="english_input_rule_text">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ `¬!"£$%^*()~=#{}[];':,./?/*-_+&#060;&#062;&#064;&#038;</string>
+
+
+
  占位符:    <string name="test">整数型:%1$d，浮点型：%2$.2f，字符串:%3$s</string>
           占位符说明: %后面是占位符的位置，从1开始（比如这里用到了三个占位符，从1开始往后排）
                     $ 后面是填充数据的类型
