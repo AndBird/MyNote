@@ -115,3 +115,20 @@ addTextChangedListener(new TextWatcher(){
 
    
 ```
+
+
+2. 禁止输入中文
+```Java
+方法1：
+<!-- &#060 ->小于号 &#062 ->大于号   &#038 -> &  &#064 -> @  -->
+<!-- 禁止edittext输入中文  -->
+<string name="english_input_rule_text">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ `¬!"£$%^*()~=#{}[];':,./?/*-_+&#060;&#062;&#064;&#038;</string>
+		
+//设置		
+android:digits="@string/english_input_rule_text"
+
+法2：
+String digits = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ `~@#$%^&*()_-+=|\\[]{};:'\",<.>/?";
+editText.setKeyListener(DigitsKeyListener.getInstance(digits));
+
+```
