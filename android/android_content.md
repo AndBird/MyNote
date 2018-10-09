@@ -37,7 +37,7 @@
 * [笔记收藏](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/笔记收藏.md)
   * [移动开放平台](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/笔记收藏.md)
   * [ImageLoader](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/ImageLoader.md)
-  * [笔记](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/othNote.md)
+  * [笔记](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/otherNote.md)
 
 * [其他](https://github.com/AndBird/MyNote/tree/master/android/other/other_content.md)
   * [aapt](https://github.com/AndBird/MyNote/blob/master/android/other/aapt.md)
