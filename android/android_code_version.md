@@ -37,3 +37,13 @@ https://en.wikipedia.org/wiki/Android_version_history
 
 
 ```
+
+1. Dalvik VM 和 Android runtime(ART)
+```Java
+区别: ART 的机制与 Dalvik 不同。在Dalvik下，应用每次运行的时候，字节码都需要通过即时编译器转换为机器码，这会拖慢应用的运行效率，而在ART 环境中，应用在第一次安装的时候，字节码就会预先编译成机器码，使其成为真正的本地应用。这个过程叫做预编译（AOT,Ahead-Of-Time）。这样的话，应用的启动(首次)和执行都会变得更加快速
+
+从 Android 4.4 开始，Google 开发者引进了新的 Android 运行环境 ART.
+2014 年 10 月 15 日发布的全新 Android 操作系统Android 5.0上，Dalvik彻底被ART取代了！
+```
+
+
