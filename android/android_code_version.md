@@ -27,9 +27,13 @@
 22  Lollipop MR1      	5.1 			API level 22       2015-03-09
 23  Marshmallow			  6.0				API level 23        2015-10-05
 24  Nougat				    7.0				API level 24       2016-08-22
-25  xx                 7.1        API level 25      2016-10-04
-26  xx                 8.0        API level 26    2017-08-21
-27  xx                8.1        API level 27    2017-12-05
-28  xx                9.0          API level 28    2018-07-02
+25  Nougat              7.1        API level 25      2016-10-04
+26  Oreo              8.0        API level 26    2017-08-21
+27  Oreo              8.1        API level 27    2017-12-05
+28  Pie              9.0          API level 28    2018-07-02
+
+
+https://en.wikipedia.org/wiki/Android_version_history
+
 
 ```
