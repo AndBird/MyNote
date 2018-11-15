@@ -178,8 +178,10 @@ adb shell getprop ro.build.version.release
 adb shell settings get secure android_id
 //屏幕密度（wm命令,模拟器测试通过,可修改分辨率和密度进行适配）
 adb shell wm density
-//屏幕分辨率(wm命令)
-adb shell wm size
+//屏幕分辨率(wm命令),可用来模拟不同比例的手机
+adb shell wm size 360x780
+//恢复分辨率
+adb shell wm size reset
 //显示屏参数
 adb shell dumpsys window displays
 //电池相关
