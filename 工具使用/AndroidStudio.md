@@ -25,3 +25,29 @@ target 的值随 AAR 里 Android Manifest.xml 文件的 targetSdkVersion 属性�
 删除 aapt 和 jni 文件夹以及 R.txt 和 proguard.txt 文件
 
 ```
+
+# 3.android studio svn忽略文件
+```Java
+as svn 忽略文件需要在工程与svn关联前处理，忽略文件添加方式:
+法1：
+File->Setting->Version Control->Ignored Files 添加忽略文件
+法2：工程内的文件中加入忽略配置
+在.idea->workspace.xml中，<component>内新加忽略配置，<ignored/>标签
+
+<component name="ChangeListManager"> 
+    <list default="true" id="98591f63-0b13-45b3-9e45-edfa0345c7da" name="Default" comment=""> 
+...
+...
+ </list>
+ 
+<ignored path=".idea/" />
+<ignored path=".gradle/" />
+<ignored path="build/" />
+<ignored mask="*.iml" />
+<ignored path="local.properties" />
+<ignored path="modulename/build/" />
+....
+....
+</component>
+
+```
