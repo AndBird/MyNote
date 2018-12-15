@@ -51,3 +51,13 @@ File->Setting->Version Control->Ignored Files 添加忽略文件
 </component>
 
 ```
+# 4.分支管理
+```Java
+1.android studio 直接从svn check工程后，点击yes创建工程，然后选择导入工程的路径，后面选择
+unmarkall导入工程，否则工程目录结构变化。或者点击no不创建工程，然后通过open导入工程。所有
+的module都会变独立的模块，改变工程结构。
+2.主干合并到分支如果选择最新更新，那么分支中的已提交过的记录会被主干覆盖，未提交的还存在。
+
+
+```
+
