@@ -61,3 +61,13 @@ unmarkall导入工程，否则工程目录结构变化。或者点击no不创建
 
 ```
 
+# 使用技巧
+```Java
+1.lint功能
+Android Studio 中，Android Lint 已经被集成，只需要点击菜单 —— Analyze —— Inspect Code 即可运行 Android Lint
+2.删除无用的资源
+在Anaylze中选择Run Inspection by Name...，在点击之后弹出的窗口输入unused resources后，回车查找无用的资源
+
+
+```
+
