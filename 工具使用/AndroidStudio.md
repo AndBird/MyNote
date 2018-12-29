@@ -3,6 +3,7 @@
 ```Java
 可能路径1：
 在C:\Users\你的用户名\.gradle\caches\modules-2\files-2.1\jar的包名目录下
+或者C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1
 可能路径2：
 在android studio sdk目录\extras\android\m2repository\jar的包名目录下
 可能路径3(已解压)：
