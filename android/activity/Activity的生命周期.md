@@ -216,8 +216,6 @@ A跳转到B:onPause(A)->onCreate(B)->onStart(B)->onResume(B)->onSaveInstanceStat
 B返回到A:onPause(B)->onRestart(A)->onStart(A)->onResume(A)->onStop(B)->onDestroy(B)
 
 
-
-
-
-
 ```
+
+[详见Demo](https://github.com/AndBird/Demo/tree/master/Activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%80%BB%E7%BB%93)
