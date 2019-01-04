@@ -170,6 +170,8 @@ adb shell am startservice -n apk包名/Service包名.Service类名
 adb shell cat /sys/class/net/wlan0/address
 //获取手机IMEI
 adb shell dumpsys iphonesubinfo 
+//获取设备相关属性
+adb shell getprop 属性名
 //设备型号
 adb shell getprop ro.product.model
 //查看安卓系统版本
