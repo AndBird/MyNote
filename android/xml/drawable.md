@@ -39,7 +39,7 @@ drawable-xxxdpi: density=640，
   
 如果不希望BitmapFactory.decode出来的Bitmap被缩放,有2种方法：
 (1)将图片放在drawable-nodpi目录下
-(2)将BitmapFactory.Options.inScaled设置为false (默认是true)
+(2)将BitmapFactory.Options.inScaled设置false(默认是true)
   
 2. BitmapFactory.decodeStream
 如果图片在asstes、手机内存／sd卡下或者网络，density默认是160，默认是不会缩放图片的，占用内存不变）
