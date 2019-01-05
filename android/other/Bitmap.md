@@ -17,7 +17,7 @@
 2.BitmapFactory.decodeResource
 图片的缩放倍数是根据scale = inTargetDensity/inDensity来计算得到的,其中inDensity与资源文件density相关,inTargetDensity与屏幕相关。
 下面是安卓源码:
-//如果资源密度不为0，手机屏幕密度也不为0, 资源的密度与屏幕密度不相等时，图片缩放比例=屏幕密度/资源密度，内存占用为scale * scale
+//如果资源密度不为0，手机屏幕密度也不为0, 资源的密度与屏幕密度不相等时，图片缩放比例=屏幕密度/资源密度，内存占用比例为scale * scale
 if (density != 0 && targetDensity != 0 && density != screenDensity) {
     scale = (float) targetDensity / density;
 }
