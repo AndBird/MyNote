@@ -17,6 +17,7 @@ drawable-hdpi: density=240，
 drawable-xhdpi: density=320，
 drawable-xxhdpi: density=480，
 drawable-xxxdpi: density=640，
+如果图片在asstes、手机内存／sd卡下，density默认是160）
 
  /**解析图片所在文件夹的属性*/
  private TypedValue getTargetDensityByResource(Resources resources, int res_id) {
