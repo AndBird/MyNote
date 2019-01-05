@@ -6,7 +6,9 @@
 缩放比例=屏幕的真实densityDpi/资源文件所在文件夹的density
 
 BitmapFactory.decodeResource
-图片的缩放倍数是根据inTargetDensity/inDensity来计算得到的,其中inDensity与资源文件density相关,inTargetDensity与屏幕相关
+图片的缩放倍数是根据inTargetDensity/inDensity来计算得到的,其中inDensity与资源文件density相关,inTargetDensity与屏幕相关。
+只有当资源密度不为0，手机屏幕密度也不为0, 资源的密度与屏幕密度不相等时，才会缩放图片(此处查看安卓源码)。图片缩放比例=屏幕密度/资源密度，内存占用为scale * scale。
+
 
 注：图片放在低density目录下，在高分辨率手机中会导致内存消耗更多
 drawable目录: density=0, 缩放比例=屏幕的真实densityDpi/160
