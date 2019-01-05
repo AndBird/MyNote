@@ -8,7 +8,9 @@
 	int outWidth  bitmap的宽
 	int outHeight  bitmap的高
 	boolean inDither  防抖动，默认false
-	int inDensity  像素密度
+	int inDensity  图片本身的像素密度（其实就是图片资源所在的哪个密度文件夹下，如果在asstes、手机内存／sd卡下，默认是160）
+	inTargetDensity：图片最终在bitmap里的像素密度，如果没有赋值，会将inTargetDensity设置成inScreenDensity；
+	inScreenDensity：手机本身的屏幕密度，scale = inTargetDensity／inDensity。
 	boolean inScaled  是否可以缩放，默认true
 	boolean inMutable 是否可变，设为ture，decode转换方法返回的结果全部可改变
 
