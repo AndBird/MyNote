@@ -20,3 +20,25 @@
     	return bitmap;
     }
 ```
+
+* 
+```Java
+ /**解析图片所在文件夹的属性*/
+ private TypedValue getTargetDensityByResource(Resources resources, int res_id) {
+	 TypedValue value = new TypedValue();
+	 resources.openRawResource(res_id, value);
+	 Log.e(TAG, "value.density: " + value.density + "," + value.string);
+	 return value;
+ }
+	 
+  /**解析图片，让图片在不同密度的手机上不会被缩放*/
+  private Bitmap decodeResourceNoScale(Resources resources, int res_id) {
+	  TypedValue value = new TypedValue();
+	  resources.openRawResource(res_id, value);
+	  BitmapFactory.Options opts = new BitmapFactory.Options();
+	  opts.inTargetDensity = value.density;
+	  return BitmapFactory.decodeResource(resources, res_id, opts);
+  }
+
+```
+
