@@ -37,7 +37,7 @@ drawable-xxxdpi: density=640，
         return BitmapFactory.decodeResource(resources, res_id, opts);
   }
   
-2.BitmapFactory.decodeStream
+2. BitmapFactory.decodeStream
 如果图片在asstes、手机内存／sd卡下或者网络，density默认是160，默认是不会缩放图片的，占用内存不变）
 options里的参数只提取了sampleSize、optionsJustBounds，但是没有见到inDensity，inTargetDensity，inScreenDensity等参数的提取。
 如果想通过设置Options里的inDensity或是inTargetDensity参数来调整图片的缩放比，必须两个参数均设置才能起作用，只设置一个，不会起作用。
