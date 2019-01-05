@@ -32,3 +32,8 @@ drawable-xxxdpi: density=640，
         return BitmapFactory.decodeResource(resources, res_id, opts);
   }
 ```
+[imageDensity](https://github.com/AndBird/Demo/blob/master/ImageDensity.zip)        [截图](https://github.com/AndBird/Demo/blob/master/screen%20capture/image_density.png)
+
+
+
+```
