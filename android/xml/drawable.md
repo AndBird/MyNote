@@ -5,6 +5,9 @@
 1. res目录下不同的drawable目录内的图片的缩放:
 缩放比例=屏幕的真实densityDpi/资源文件所在文件夹的density
 
+BitmapFactory.decodeResource
+图片的缩放倍数是根据inTargetDensity/inDensity来计算得到的,其中inDensity与资源文件density相关,inTargetDensity与屏幕相关
+
 注：图片放在低density目录下，在高分辨率手机中会导致内存消耗更多
 drawable目录: density=0, 缩放比例=屏幕的真实densityDpi/160
 drawable-nodpi: density=65535，
