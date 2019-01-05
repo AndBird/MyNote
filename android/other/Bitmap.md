@@ -1,4 +1,20 @@
 
+* 备忘
+```Java
+1.BitmapFactory.Options类
+	boolean inJustDecodeBounds	是否只扫描轮廓
+	int inSample	采样率
+	Bitmap.Config inPreferredConfig	格式，色彩模式
+	int outWidth  bitmap的宽
+	int outHeight  bitmap的高
+	boolean inDither  防抖动，默认false
+	int inDensity  像素密度
+	boolean inScaled  是否可以缩放，默认true
+	boolean inMutable 是否可变，设为ture，decode转换方法返回的结果全部可改变
+
+
+```
+
 * 旋转Bitmap
 ```Java
  /**
