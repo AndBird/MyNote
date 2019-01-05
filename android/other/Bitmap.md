@@ -12,6 +12,8 @@
 	boolean inScaled  是否可以缩放，默认true
 	boolean inMutable 是否可变，设为ture，decode转换方法返回的结果全部可改变
 
+2.BitmapFactory.decodeResource
+图片的缩放倍数是根据inTargetDensity/inDensity来计算得到的
 
 ```
 
