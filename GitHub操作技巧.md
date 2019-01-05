@@ -1,10 +1,15 @@
-#GitHubÊ¹ÓÃ
+#GitHubä½¿ç”¨
 
-* ÏÂÔØµ¥¸öÎÄ¼ş¼Ğ
+* ä¸‹è½½å•ä¸ªæ–‡ä»¶å¤¹
 </br>
-´Óä¯ÀÀÆ÷»ñÈ¡µØÖ·:https://github.com/AndBird/guideHelp/tree/master/GuideHelpDemo
+ä»æµè§ˆå™¨è·å–åœ°å€:https://github.com/AndBird/guideHelp/tree/master/GuideHelpDemo
 </br>
-½«/tree/master/»»³É/trunk/,µØÖ·ÈçÏÂ
+å°†/tree/master/æ¢æˆ/trunk/,åœ°å€å¦‚ä¸‹
 </br>
 https://github.com/AndBird/guideHelp/trunk/GuideHelpDemo
-</br>ÓÃĞÂµØÖ·Í¨¹ısvn»òÕßÆäËû¹¤¾ßÏÂÔØ
+</br>ç”¨æ–°åœ°å€é€šè¿‡svnæˆ–è€…å…¶ä»–å·¥å…·ä¸‹è½½
+
+* ç¼–è¾‘
+```
+æ˜¾ç¤ºå›¾ç‰‡ï¼š ![æè¿°](å›¾ç‰‡åœ°å€)
+```
