@@ -1,6 +1,6 @@
 # Drawable
 
-*笔记
+* 笔记
 ```Java
 1. res目录下不同的drawable目录内的图片的缩放:
 缩放比例=屏幕的真实densityDpi/资源文件所在文件夹的density
