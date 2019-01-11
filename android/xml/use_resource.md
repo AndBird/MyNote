@@ -40,4 +40,15 @@ Uri uri = Uri.parse(uriString);
  public static Uri getUriFromResource(Context context, int resource) {
        return Uri.parse("android.resource://" + context.getPackageName() + File.separator + resource);
  }
+ 
+ /**获取资源id的名字
+ * 如R.id.save的返回值为save
+ */
+public static Uri getResourceName(Context context, int resId) {
+      if(resId == View.NO_ID){
+          return null;
+      }
+      return context.getResources().getResourceEntryName(resId);
+     }
 ```
+
