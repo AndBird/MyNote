@@ -129,6 +129,8 @@
   killall svnserve
   查看启动端口(默认端口3690)
   netstat -antp |grep svn
+  查看svn启动没有
+  ps -aux | grep 'svn'
 
   客户端访问
   svn://ip:端口或者svn://ip
@@ -213,7 +215,7 @@
     日志
     less /var/log/shadowsocks.log
     查看shadowsocks是否运行
-    ps -aux | grep 'svn'
+    ps -aux | grep 'ssserver'
     
     
    3. 开机自启
