@@ -22,12 +22,7 @@ if (density != 0 && targetDensity != 0 && density != screenDensity) {
     scale = (float) targetDensity / density;
 }
 
-
---------------------- 
-作者：潇潇凤儿 
-来源：CSDN 
 原文：https://blog.csdn.net/smileiam/article/details/68946182 
-版权声明：本文为博主原创文章，转载请附上博文链接！
 
 ```
 
