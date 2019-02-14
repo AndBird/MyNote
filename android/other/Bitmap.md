@@ -24,6 +24,9 @@ if (density != 0 && targetDensity != 0 && density != screenDensity) {
 
 原文：https://blog.csdn.net/smileiam/article/details/68946182 
 
+附上:不同资源文件夹内图片的放大效果
+https://github.com/AndBird/Demo/blob/master/screen%20capture/image_density.png
+
 ```
 
 * 旋转Bitmap
