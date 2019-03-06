@@ -69,6 +69,8 @@ Android Studio 中，Android Lint 已经被集成，只需要点击菜单 ——
 2.删除无用的资源
 在Anaylze中选择Run Inspection by Name...，在点击之后弹出的窗口输入unused resources后，回车查找无用的资源
 
+2.R类的路径
+/build/generated/not_namespaced_r_class_sources/debug/generateDebugRFile/out/包名/R文件
 
 ```
 
