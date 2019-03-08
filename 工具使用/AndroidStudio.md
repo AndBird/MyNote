@@ -72,5 +72,10 @@ Android Studio 中，Android Lint 已经被集成，只需要点击菜单 ——
 2.R类的路径
 /build/generated/not_namespaced_r_class_sources/debug/generateDebugRFile/out/包名/R文件
 
+3.默认签名文件
+路径：C:\Users\Administrator\.android\debug.keystore
+别名:androiddebugkey
+密码:android
+
 ```
 
