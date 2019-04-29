@@ -77,5 +77,31 @@ Android Studio 中，Android Lint 已经被集成，只需要点击菜单 ——
 别名:androiddebugkey
 密码:android
 
+4.导出aar时，R文件不能混淆
+# 对于R（资源）类中的静态属性不能被混淆
+-keepclassmembers class **.R$* {
+ public static <fields>;
+}
+#或者
+#-keep public class **.R$*{
+#   *;
+#}
+
+5.引用aar
+(1)将ab.aar复制到libs中
+(2)配置build
+android {
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+    compile(name: 'ab', ext: 'aar')
+}
+
+
 ```
 
