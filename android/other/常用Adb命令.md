@@ -190,6 +190,16 @@ adb shell dumpsys window displays
 adb shell dumpsys battery
 
 ```
+
+## 11.数据库
+```
+//进入sqlite
+adb shell
+sqlite3 /data/data/package(应用包名)/databases/dbname
+//查看数据库版本
+PRAGMA user_version;
+
+```
 	
 	
 ## .其他操作
@@ -203,6 +213,7 @@ adb shell cat /system/build.prop
 adb shell monkey -v -p your.package.name 500
 //查看adb版本
 adb version
+busybox wget 下载
 ```
         
 
