@@ -200,6 +200,14 @@ sqlite3 /data/data/package(应用包名)/databases/dbname
 PRAGMA user_version;
 
 ```
+
+## 12.设置系统环境变量
+```
+//设置环境变量test1
+setprop test1 value1
+//获取环境变量test1
+getprop test1
+```
 	
 	
 ## .其他操作
