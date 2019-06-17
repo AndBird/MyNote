@@ -127,6 +127,9 @@ chmod 644 /system/app/test.apk
 adb shell mkdir path/foldelname
 //查看文件内容：
 adb shell cat <file>
+//查看部分文件(head后面设置行数)
+busybox head -10 <file>
+busybox tail -10 <file>
 //重新挂载并给予可写权限
 mount -o remount rw system
 //文件md5
