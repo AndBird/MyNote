@@ -1,6 +1,6 @@
 # Android studio
 
-* [android studio更多](https://github.com/AndBird/MyNote/blob/master/工具使用/AndroidStudio.md)
+* [android studio更多](https://github.com/AndBird/MyNote/blob/master/工具使用/android studio/android_studio_content.md)
 
 #  1.gradle 下载的jar或者aar的位置
 ```Java
