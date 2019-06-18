@@ -32,6 +32,10 @@ Alibaba java编码规范
 ```
 Parcelable序列化
 ```
+* GenerateSerialVersionUID
+```
+实现Serializable序列化bean
+```
 
 * Android Code Generator
 ```
@@ -42,6 +46,31 @@ Parcelable序列化
 ```
 可以根据Activity或者fragment的生命周期对其生命周期方法位置进行先后排序，快捷键Ctrl + alt + K
 ```
+
+* AndroidPixelDimenGenerator
+```
+Android Studio自动生成dimen.xml文件插件
+```
+* Android Styler
+```
+根据xml自动生成style代码的插件,提取控件的style
+
+a. copy lines with future style from your layout.xml file
+b. paste it to styles.xml file with Ctrl+Shift+D (or context menu)
+c. enter name of new style in the modal window
+d. your style is prepared!
+```
+
+* Android Postfix completion
+```
+可根据后缀快速完成代码，这个属于拓展吧，系统已经有这些功能，如sout、notnull等，这个插件在原有的基础上增添了一些新的功能
+```
+
+* Android Holo Colors Generator
+```
+通过自定义Holo主题颜色生成对应的Drawable和布局文件
+```
+
 
 ## 2.工具类
 
@@ -64,6 +93,16 @@ Parcelable序列化
 ```
 使用wifi无线调试你的app，无需root权限
 ```
+* JsonOnlineViewer
+```
+在Android Studio中请求、调试接口
+```
+
+* Android Drawable Importer
+```
+一个非常强大的图片导入插件,它导入Android图标与Material图标的Drawable ，批量导入Drawable ，多源导入
+Drawable（即导入某张图片各种dpi对应的图片）
+```
 
 * LeakCanary
 ```
@@ -74,3 +113,9 @@ Parcelable序列化
 ```
 模拟器
 ```
+* dragger-intellij-plugin
+```
+dagger可视化辅助工具
+```
+
+
