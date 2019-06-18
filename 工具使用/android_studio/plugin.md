@@ -22,6 +22,10 @@
 ```
 Parcelable序列化
 ```
+* Android Code Generator
+```
+根据布局文件快速生成对应的Activity，Fragment，Adapter，Menu
+```
 
 * LeakCanary
 ```
