@@ -78,6 +78,17 @@ maven gradle 依赖支持自动补全
 通过自定义Holo主题颜色生成对应的Drawable和布局文件
 ```
 
+* Android Studio Prettify
+```
+1.可以将代码中的字符串写在string.xml文件中(选中字符串鼠标右键选择)
+2.可以自动书写findViewById
+```
+
+* SingletonTest
+```
+快速生成单例类
+```
+
 
 ## 2.工具类
 
@@ -125,9 +136,22 @@ Drawable（即导入某张图片各种dpi对应的图片）
 dagger可视化辅助工具
 ```
 
-* AndroidProguardPlugin
+* AndroidProguard Pro
 ```
 一键生成项目混淆代码插件，值得你安装~(不过目前可能有些第三方项目的混淆还未添加完全)
+```
+
+* folding-plugin
+```
+布局文件分组的插件
+```
+
+* ECTTranslation
+```
+Android studio翻译插件
+
+其它：
+AndroidLocalizationer : 可用于将项目中的 string 资源自动翻译为其他语言的 Android Studio/IntelliJ IDEA 插件
 ```
 
 
