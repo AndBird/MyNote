@@ -146,6 +146,9 @@ dagger可视化辅助工具
 * AndroidProguard Pro
 ```
 一键生成项目混淆代码插件，值得你安装~(不过目前可能有些第三方项目的混淆还未添加完全)
+
+编辑=>AndroidProGuard
+
 ```
 
 * folding-plugin
