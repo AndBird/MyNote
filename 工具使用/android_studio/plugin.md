@@ -66,8 +66,15 @@ d. your style is prepared!
 可根据后缀快速完成代码，这个属于拓展吧，系统已经有这些功能，如sout、notnull等，这个插件在原有的基础上增添了一些新的功能
 ```
 
+* GradleDependenciesHelperPlugin
+```
+(不好用，查找不全)
+maven gradle 依赖支持自动补全
+```
+
 * Android Holo Colors Generator
 ```
+(发现不能使用)
 通过自定义Holo主题颜色生成对应的Drawable和布局文件
 ```
 
@@ -116,6 +123,11 @@ Drawable（即导入某张图片各种dpi对应的图片）
 * dragger-intellij-plugin
 ```
 dagger可视化辅助工具
+```
+
+* AndroidProguardPlugin
+```
+一键生成项目混淆代码插件，值得你安装~(不过目前可能有些第三方项目的混淆还未添加完全)
 ```
 
 
