@@ -64,6 +64,9 @@ d. your style is prepared!
 * Android Postfix completion
 ```
 可根据后缀快速完成代码，这个属于拓展吧，系统已经有这些功能，如sout、notnull等，这个插件在原有的基础上增添了一些新的功能
+其它：
+Exynap 一个帮助开发者自动生成样板代码的 AndroidStudio 插件
+
 ```
 
 * GradleDependenciesHelperPlugin
@@ -87,6 +90,10 @@ maven gradle 依赖支持自动补全
 * SingletonTest
 ```
 快速生成单例类
+```
+
+* MVPHelper
+```
 ```
 
 
