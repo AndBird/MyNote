@@ -48,3 +48,26 @@ if(BuildConfig.DEBUG){
 
 		}
 ```
+* 2.BlockCanary
+BlockCanary是一个非侵入式的性能监控函数库，它的用法和LeakCanary类似，只不过后者监控应用的内存泄露，而BlockCanary主要用来监控应用主线程的卡顿。它的基本原理是利用主线程的消息队列处理机制，通过对比消息分发开始和结束的时间点来判断是否超过设定的时间，如果是，则判断为主线程卡顿。
+```
+在build.gradle中添加在线依赖
+dependencies{
+	compile ‘com.github.moduth:blockcanary-android:1.2.1’
+	
+	//仅在debug包启用BlockCanary进行卡顿监控和提示的话，可以这么用
+	debugCompile ‘com.github.moduth:blockcanary-android:1.2.1’
+	releaseCompile 'com.github.moduth:blockcanary-no-op:1.2.1'
+}
+
+然后在Application类中onCreate()进行配置和初始化即可:
+//在主进程初始化调用
+BlockCanary.install(this,  new AppBlockCanaryContext()).start();
+
+public class AppBlockCanaryContext extends BlockCanaryContext{
+/*实现各种上下文，包括应用标识符、用户uid、网络类型、卡慢判断阈值、Log保存位置等，更多详细的信息可以参见官网说明*/
+}
+
+
+
+```
