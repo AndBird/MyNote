@@ -25,3 +25,10 @@ ServiceTimeout比较少出现的一种类型，原因是Service的各个生命�
   * 线程策略ThreadPolicy
      *  detectCustomSlowCalls:检测自定义耗时操作
      *  detectDiskReads:检测是否存在磁盘读取操作
+     *  detectDisjWrites:检测是否存在磁盘写入操作
+     *  detectNetwork:检测是否存在网络操作
+  * 虚拟机策略VmPolicy
+     * detectActivityLeaks:检测是否存在Activity泄露
+     * detectLeakedClosableObjects:检测是否存在未关闭Closable对象泄露
+     * detectLeakedSqliteObjects:检测是否存在Sqlite对象泄露
+     * setClassInstanceLimit:检测类实例个数是否超过限制
