@@ -14,3 +14,14 @@ BroadcastTimeout 原因是BroadcastReceiver的onReceiver函数运行在主线程
 ServiceTimeout比较少出现的一种类型，原因是Service的各个生命周期函数在特定时间(20秒)内无法完成处理。
 
 ```
+
+#### 2.ANR的定位和分析
+当发生ANR时，开发者可以通过结合Logcat和生成的位于手机内部存储的/data/anr/traces.txt文件进行分析和定位。
+
+#### 3.ANR的避免和检测
+* StrictMode
+<br>严格模式StrictMode是Android SDK提供的一个用来检测代码中是否存在违规操作的工具类。StrictMode主要检测两大
+类问题。
+  * 线程策略ThreadPolicy
+     *  detectCustomSlowCalls:检测自定义耗时操作
+     *  detectDiskReads:检测是否存在磁盘读取操作
