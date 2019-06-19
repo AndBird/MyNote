@@ -19,7 +19,7 @@ ServiceTimeout比较少出现的一种类型，原因是Service的各个生命�
 当发生ANR时，开发者可以通过结合Logcat和生成的位于手机内部存储的/data/anr/traces.txt文件进行分析和定位。
 
 #### 3.ANR的避免和检测
-* StrictMode
+* 1.StrictMode
 <br>严格模式StrictMode是Android SDK提供的一个用来检测代码中是否存在违规操作的工具类。StrictMode主要检测两大
 类问题。
   * 线程策略ThreadPolicy
@@ -32,3 +32,19 @@ ServiceTimeout比较少出现的一种类型，原因是Service的各个生命�
      * detectLeakedClosableObjects:检测是否存在未关闭Closable对象泄露
      * detectLeakedSqliteObjects:检测是否存在Sqlite对象泄露
      * setClassInstanceLimit:检测类实例个数是否超过限制
+ThreadPolicy可以用来检测可能存在的主线程耗时操作，解决这些检测到的问题能够减少应用发生ANR的概率。需要注意的是，只能在Debug版本中使用它，发布到市场上的版本要关闭掉。StrictMode的使用很简单，我们只需要在应用初始化的地方例如Application或者MainActivity类的onCreate方法中执行如下代码即可。
+```
+if(BuildConfig.DEBUG){
+			//开启线程模式
+			StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build());
+			//开启虚拟机模式
+			StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build());
+
+			/**
+			 * 初始化代码penaltyLog表示在Logcat中打印日志，调用detectAll方法表示启动所有的检测策略，可以根据应用的
+			 * 具体需求只开启某些策略
+			 *
+			 * */
+
+		}
+```
