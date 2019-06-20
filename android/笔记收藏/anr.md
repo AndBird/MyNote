@@ -49,6 +49,7 @@ if(BuildConfig.DEBUG){
 		}
 ```
 * 2.BlockCanary
+
 BlockCanary是一个非侵入式的性能监控函数库，它的用法和LeakCanary类似，只不过后者监控应用的内存泄露，而BlockCanary主要用来监控应用主线程的卡顿。它的基本原理是利用主线程的消息队列处理机制，通过对比消息分发开始和结束的时间点来判断是否超过设定的时间，如果是，则判断为主线程卡顿。
 ```
 在build.gradle中添加在线依赖
