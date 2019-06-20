@@ -15,6 +15,9 @@
 3.链接
 [链接描述](https://www.baidu.com  "悬停提示")
 
+简单超链接
+<http://example.com/>
+
 
 4.引用图片
 ![图片](https://github.com/AndBird/MyNote/blob/master/android/img/fragment%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png "fragment的生命周期")
@@ -50,6 +53,14 @@
 缩进一个空格（半角）的有：&ensp;  &nbsp; &#8194;  &#160;
 缩进两个空格（全角）的有：&emsp;  &#8195;
 
+9.分割线
+
+* * *
+***
+*****
+- - -
+---
+
 ```
 
 **加粗**  *斜体*   ~~删除线~~  ***加粗斜体***  
@@ -57,6 +68,7 @@
 
 [链接描述](https://www.baidu.com  "悬停提示")
 
+<https://www.baidu.com/>
 
 * 列表测试
 - 列表测试
@@ -79,3 +91,14 @@
 换行测试  
 换行测试  
 &emsp;空格测试缩进测试
+
+* 分割线
+* * *
+***
+*****
+- - -
+---
+
+
+
+
