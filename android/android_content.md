@@ -42,6 +42,9 @@
   * [ImageLoader](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/ImageLoader.md)
   * [笔记](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/otherNote.md)
   * [ANR](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/anr.md)
+  * [安卓异步处理技术](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/安卓异步处理技术.md)
+    * [HandlerThread、AsyncQueryHandler、IntentService、Executor、AnsycTask、Loader](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/安卓异步处理技术.md)
+   
 
 * [其他](https://github.com/AndBird/MyNote/tree/master/android/other/other_content.md)
   * [aapt](https://github.com/AndBird/MyNote/blob/master/android/other/aapt.md)
