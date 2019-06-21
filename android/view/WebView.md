@@ -1,6 +1,6 @@
 # WebView
 
-## 1.WebSettings
+### 1.WebSettings
 ```Java
 setting.setJavaScriptEnabled(true);
 setting.setBuiltInZoomControls(false);//支持缩放
@@ -19,7 +19,7 @@ setting.setSupportMultipleWindows(true);//支持多窗口
 //}
 ```
 
-## 2.WebView调起QQ（企业QQ）临时聊天界面
+### 2.WebView调起QQ（企业QQ）临时聊天界面
 ```Java
 1.通过浏览器调用
 String url="mqqwpa://im/chat?chat_type=wpa&uin=xxxxxxx";  
@@ -54,3 +54,25 @@ mWebView.setWebViewClient(new WebViewClient(){
 
 参见: https://blog.csdn.net/u013064109/article/details/52496502
 ```
+
+### 3.WebView加载本地html
+```
+//加载 assets中的html
+webView.loadUrl("file:///android_asset/index.html");
+//加载 sdcard中的html
+webView.loadUrl("file://" + Environment.getExternalStorageDirectory() + File.separator + "index.html");
+//加载String html
+String web = "<!DOCTYPE html>\n" +
+	"<html>\n" +
+	"<meta charset=\"utf-8\"></meta>\n" +
+	"\n" +
+	"<form name=\"testForm1\" action=\"http://www.baidu.com\">\n" +
+	"    <input type=\"submit\" value=\"go\">\n" +
+	"</form>\n" +
+	"</body>\n" +
+	"</html>";
+webView.loadData(web, "text/html", "utf-8");
+```
+
+### 4.WebView Java和JavaScript交互详解
+
