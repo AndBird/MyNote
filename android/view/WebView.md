@@ -75,4 +75,5 @@ webView.loadData(web, "text/html", "utf-8");
 ```
 
 ### 4.WebView Java和JavaScript交互详解
-
+&emsp;&emsp;Hybrid(混合开发)方式的app集合了Native App和Web App的优点，既保证了用户体验，又使得App在一定程度上具备动态更新的能力，同时有利于实现跨平台开发，减少人力成本。Hybrid实现的关键点在于如何打通Java和Javascript之间的通信，主要包括2点:Java如何调用Javascript和Javascript如何调用Java。
+&emsp;&emsp;在Android开发中我们是使用WebView组件来加载HTML5页面的，WebView默认提供了让Java和Html5页面中JavaScript脚本交互的能力。
