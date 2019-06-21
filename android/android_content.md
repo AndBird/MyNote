@@ -44,7 +44,7 @@
   * [ANR](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/anr.md)
   * [安卓异步处理技术](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/安卓异步处理技术.md)
     * [HandlerThread、AsyncQueryHandler、IntentService、Executor、AnsycTask、Loader](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/安卓异步处理技术.md)
-   
+  * [安卓数据序列化](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/安卓数据序列化.md)  
 
 * [其他](https://github.com/AndBird/MyNote/tree/master/android/other/other_content.md)
   * [aapt](https://github.com/AndBird/MyNote/blob/master/android/other/aapt.md)
