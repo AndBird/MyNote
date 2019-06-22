@@ -77,7 +77,7 @@ webView.loadData(web, "text/html", "utf-8");
 ### 4.WebView Java和JavaScript交互详解
 &emsp;&emsp;Hybrid(混合开发)方式的app集合了Native App和Web App的优点，既保证了用户体验，又使得App在一定程度上具备动态更新的能力，同时有利于实现跨平台开发，减少人力成本。Hybrid实现的关键点在于如何打通Java和Javascript之间的通信，主要包括2点:Java如何调用Javascript和Javascript如何调用Java。  
 &emsp;&emsp;在Android开发中我们是使用WebView组件来加载HTML5页面的，WebView默认提供了让Java和Html5页面中JavaScript脚本交互的能力。
-* 1.Java调用script
+* 1.Java调用script  
 使用webView.loadUrl("javascript:toast()"),其中toast(),方法是HTML5页面中的JavaScript函数。
 ```Java
 1.需要设置支持JavaScript
@@ -131,11 +131,11 @@ webView.loadUrl("javascript:toast()");
     <!--提供给Android的java代码调用-->
     function toast(){
 	    alert("test javascript toast");
-	}
+    }
 	
-	function toast(x){
-			alert(x);
-		}
+    function toast(x){
+	alert(x);
+    }
 </script>
 
 </body>
@@ -143,7 +143,7 @@ webView.loadUrl("javascript:toast()");
 
 ```
 
-* 2.JavaScript调用Java
+* 2.JavaScript调用Java  
 WebView调用Java方法，只需要3个步骤:
 	* 调用与WebView关联的WebSettings实例的setJavaScriptEnabled方法来开启JavaScript的调用功能
 	* 调用WebView的addJavascriptInterface方法将应用中的Java对象暴露给JavaScript
@@ -192,8 +192,8 @@ public static class JavaObject{
 </html>
 
 ```
-在Android4.2之前的系统中，会引起臭名昭著的WebView远程代码执行漏洞，从Android4.2开始，Google修复了这个漏洞，唯一需要修改的是对暴露给JavaScript调用的方法增加@JavascriptInterface注解。
-那么Android4.2之前的系统版本中该如何规避这个安全隐患呢？答案是不要再使用addJavascriptInterface这种方式，转而寻找其他的途径。我们知道，JavaScript有三种常用的消息提示框架，分别是:弹出警告框alert、弹出确认框confirm和弹出输入框prompt.对应到Android的WebChromeClient类，分别是以下三个方法.
+&emsp;&emsp;在Android4.2之前的系统中，会引起臭名昭著的WebView远程代码执行漏洞，从Android4.2开始，Google修复了这个漏洞，唯一需要修改的是对暴露给JavaScript调用的方法增加@JavascriptInterface注解。  
+&emsp;&emsp;那么Android4.2之前的系统版本中该如何规避这个安全隐患呢？答案是不要再使用addJavascriptInterface这种方式，转而寻找其他的途径。我们知道，JavaScript有三种常用的消息提示框架，分别是:弹出警告框alert、弹出确认框confirm和弹出输入框prompt.对应到Android的WebChromeClient类，分别是以下三个方法.
 ```Java
    @Override
 	public boolean onJsAlert(WebView view, String url, String message, final JsResult result) {
@@ -233,13 +233,10 @@ public class JsPromptResult extends JsResult{
 
 
 ```
-*很显然，String类型的结果值可以带上更多的信息，因此我们选择onJsPrompt方法作为解决方案的突破口，通过这个方法，我们能够实现在JavaScript中将字符串信息(对应onJsPrompt入参中的message传递给Java)，而Java执行完成后也能够把返回结果的字符串形式(对应onJsPrompt的返回值mStringResult)传递给JavaScript。基本思路如下：
-	* 由于我们是通过字符串形式在JavaScript和Java之间进行通信的，因此需要基于这个字符串定义好通信协议，可以是JSON格式，这个字符串中可能会包含调用的类型type、方法名method、方法参数args等。
-	* 在JavaScript中封装一个方法，它通过最终调用prompt方法实现将上面的文本协议信息传递给Java层WebChromeClient类的onJsPrompt方法，在这个方法中对协议信息进行解析，可以得到类型、方法名、参数等信息，通过Java的反射机制可以实现调用到对应的Java方法。
-	* 步骤二中的Java方法执行完毕后，同理，需要定义好返回值的协议格式，并通过JsPromptResult返回给JavaScript。
+**很显然，String类型的结果值可以带上更多的信息，因此我们选择onJsPrompt方法作为解决方案的突破口，通过这个方法，我们能够实现在JavaScript中将字符串信息(对应onJsPrompt入参中的message传递给Java)，而Java执行完成后也能够把返回结果的字符串形式(对应onJsPrompt的返回值mStringResult)传递给JavaScript。基本思路如下：**   
 	
-	当然，具体实现起来还是有许多其它工作需要做的，想要应用到线上项目中，更少不了各种测试。好消息是，国内开发者pedant基于上述方案已经实现了一个健壮可靠的开源函数库safe-java-js-webview-bridge(https://github.com/pedant)，我们可以直接拿来用。
-
-
- *
+   * 由于我们是通过字符串形式在JavaScript和Java之间进行通信的，因此需要基于这个字符串定义好通信协议，可以是JSON格式，这个字符串中可能会包含调用的类型type、方法名method、方法参数args等。  
+   * 在JavaScript中封装一个方法，它通过最终调用prompt方法实现将上面的文本协议信息传递给Java层WebChromeClient类的onJsPrompt方法，在这个方法中对协议信息进行解析，可以得到类型、方法名、参数等信息，通过Java的反射机制可以实现调用到对应的Java方法。  
+   * 步骤二中的Java方法执行完毕后，同理，需要定义好返回值的协议格式，并通过JsPromptResult返回给JavaScript。  
+&emsp;&emsp;当然，具体实现起来还是有许多其它工作需要做的，想要应用到线上项目中，更少不了各种测试。好消息是，国内开发者pedant基于上述方案已经实现了一个健壮可靠的开源函数库safe-java-js-webview-bridge(https://github.com/pedant)，我们可以直接拿来用。
 
