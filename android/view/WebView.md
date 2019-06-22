@@ -238,5 +238,5 @@ public class JsPromptResult extends JsResult{
    * 由于我们是通过字符串形式在JavaScript和Java之间进行通信的，因此需要基于这个字符串定义好通信协议，可以是JSON格式，这个字符串中可能会包含调用的类型type、方法名method、方法参数args等。  
    * 在JavaScript中封装一个方法，它通过最终调用prompt方法实现将上面的文本协议信息传递给Java层WebChromeClient类的onJsPrompt方法，在这个方法中对协议信息进行解析，可以得到类型、方法名、参数等信息，通过Java的反射机制可以实现调用到对应的Java方法。  
    * 步骤二中的Java方法执行完毕后，同理，需要定义好返回值的协议格式，并通过JsPromptResult返回给JavaScript。  
-&emsp;&emsp;当然，具体实现起来还是有许多其它工作需要做的，想要应用到线上项目中，更少不了各种测试。好消息是，国内开发者pedant基于上述方案已经实现了一个健壮可靠的开源函数库safe-java-js-webview-bridge(https://github.com/pedant)，我们可以直接拿来用。
+&emsp;&emsp;当然，具体实现起来还是有许多其它工作需要做的，想要应用到线上项目中，更少不了各种测试。好消息是，国内开发者pedant基于上述方案已经实现了一个健壮可靠的开源函数库safe-java-js-webview-bridge(https://github.com/pedant)， 我们可以直接拿来用。
 
