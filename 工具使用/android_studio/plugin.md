@@ -96,6 +96,11 @@ maven gradle 依赖支持自动补全
 ```
 ```
 
+* CheckStyle
+```
+CheckSytle进行编码规范的检查，可定制CheckStyle规则
+```
+
 
 ## 2.工具类
 
