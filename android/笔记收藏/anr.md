@@ -54,11 +54,11 @@ BlockCanary是一个非侵入式的性能监控函数库，它的用法和LeakCa
 ```
 在build.gradle中添加在线依赖
 dependencies{
-	compile ‘com.github.moduth:blockcanary-android:1.2.1’
-	
-	//仅在debug包启用BlockCanary进行卡顿监控和提示的话，可以这么用
-	debugCompile ‘com.github.moduth:blockcanary-android:1.2.1’
-	releaseCompile 'com.github.moduth:blockcanary-no-op:1.2.1'
+	compile 'com.github.markzhai:blockcanary-android:1.5.0'
+
+       // 仅在debug包启用BlockCanary进行卡顿监控和提示的话，可以这么用
+       debugCompile 'com.github.markzhai:blockcanary-android:1.5.0'
+       releaseCompile 'com.github.markzhai:blockcanary-no-op:1.5.0'
 }
 
 然后在Application类中onCreate()进行配置和初始化即可:
