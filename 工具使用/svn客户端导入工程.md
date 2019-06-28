@@ -32,6 +32,11 @@ VCS->Import into Version Control->Import into Subversion（这里androidStudio 2
 * Share Project（Subversion）
 依次选择 VCS -> Import into Version Control 此时会有Import into Subversion和 Share Project（Subversion）两个选项。第一种是直接将项目导入到SVN服务器上，但本地项目并没有与SVN建立关联，需要将本地代码删除后，重新从SVN上拉取代码；第二种是先将本地项目与SVN关联起来，之后需再次将项目提交到SVN，这里我们选择第二种,然后一路Next,关联成功后直接就可以提交了。
 
+#### 在Android Studio中通过TortoiseSVN向Github中导入代码
+1.github上创建
+2.check
+3.拷贝.svn到工程中，在setting中设置svn
+
  #### Android Studio svn忽略文件
 ```Java
 as svn 忽略文件需要在工程与svn关联前处理，忽略文件添加方式:
