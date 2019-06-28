@@ -39,7 +39,8 @@
 
 * [笔记收藏](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/笔记收藏.md)
   * [移动开放平台](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/笔记收藏.md)
-  * [ImageLoader](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/ImageLoader.md)
+  * [图片缓存与显示](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/图片缓存与显示.md)  
+    * [ImageLoader](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/ImageLoader.md)
   * [笔记](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/otherNote.md)
   * [ANR](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/anr.md)
   * [内存泄露](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/内存泄露.md)
@@ -48,6 +49,7 @@
   * [安卓数据序列化](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/安卓数据序列化.md)  
     * [Serializable、Parcelable、SQLiteDatabase、SharedPreferences、Json等](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/安卓数据序列化.md)  
     * [数据库](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/数据库.md)  
+  * [网络通信](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/网络通信.md)  
 
 * [其他](https://github.com/AndBird/MyNote/tree/master/android/other/other_content.md)
   * [aapt](https://github.com/AndBird/MyNote/blob/master/android/other/aapt.md)
