@@ -50,6 +50,7 @@
     * [Serializable、Parcelable、SQLiteDatabase、SharedPreferences、Json等](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/安卓数据序列化.md)  
     * [数据库](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/数据库.md)  
   * [网络通信](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/网络通信.md)  
+  * [sdk升级适配](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/SDK升级适配.md)  
 
 * [其他](https://github.com/AndBird/MyNote/tree/master/android/other/other_content.md)
   * [aapt](https://github.com/AndBird/MyNote/blob/master/android/other/aapt.md)
