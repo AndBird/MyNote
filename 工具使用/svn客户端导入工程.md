@@ -34,8 +34,9 @@ VCS->Import into Version Control->Import into Subversion（这里androidStudio 2
 
 #### 在Android Studio中通过TortoiseSVN向Github中导入代码
 1.github上创建
-2.check
-3.拷贝.svn到工程中，在setting中设置svn
+2.check 到本地dir
+3.将工程拷贝dir/trunck/目录下，在Android Studio ->Setting中设置svn
+4.通过svn提交
 
  #### Android Studio svn忽略文件
 ```Java
