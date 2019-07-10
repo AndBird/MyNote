@@ -35,6 +35,10 @@
   * [AndroidManifest.xml](https://github.com/AndBird/MyNote/tree/master/android/AndroidManifest.md)
   * [project.properties](https://github.com/AndBird/MyNote/tree/master/android/project.properties.md)
   * [资源相关](https://github.com/AndBird/MyNote/tree/master/android/xml/resource_content.md)
+    * [资源引用](https://github.com/AndBird/MyNote/blob/master/android/xml/use_resource.md)
+    * [string](https://github.com/AndBird/MyNote/blob/master/android/xml/string.md)
+    * [style](https://github.com/AndBird/MyNote/blob/master/android/xml/style.md)
+    * [drawable](https://github.com/AndBird/MyNote/blob/master/android/xml/drawable.md)
 
 
 * [笔记收藏](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/笔记收藏.md)
