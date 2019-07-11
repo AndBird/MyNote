@@ -22,6 +22,13 @@ textView.getPaint().measureText(textView.getText().toString())
 
 * 设置字体样式
 ```
+Spannable.SPAN_EXCLUSIVE_EXCLUSIVE //前后都不包括
+Spannable.SPAN_INCLUSIVE_EXCLUSIVE  //前包括后不包括
+Spannable.SPAN_EXCLUSIVE_INCLUSIVE  //前不包括后包括
+Spannable.SPAN_INCLUSIVE_INCLUSIVE  //前后都包括
+
+
+
 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
 SpannableString spannableString = new SpannableString("测试");
 spannableStringBuilder.append(spannableString);
