@@ -217,6 +217,8 @@ getprop test1
 ```
 //查看wifi密码：
 adb shell cat /data/misc/wifi/*.conf
+//adb shell
+netcfg
 
 //获取设备名称：
 adb shell cat /system/build.prop
