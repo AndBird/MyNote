@@ -43,6 +43,7 @@
 
 * [笔记收藏](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/笔记收藏.md)
   * [移动开放平台](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/笔记收藏.md)
+  * [函数库](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/函数库.md)
   * [图片缓存与显示](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/图片缓存与显示.md)  
     * [ImageLoader](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/ImageLoader.md)
   * [笔记](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/otherNote.md)
