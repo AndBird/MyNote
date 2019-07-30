@@ -305,8 +305,12 @@ Didn't find class "org.apache.http.ProtocolVersion"
 ```
 * Http请求:java.io.IOException: Cleartext HTTP traffic to dict.youdao.com not permitted
 ```
-原因:从Android 6.0开始引入了对Https的推荐支持，与以往不同，Android P的系统上面默认所有Http的请求都被阻止了,
-<application android:usesCleartextTraffic=["true" | "false"]>,原本这个属性的默认值从true改变为false
+原因:从Android 6.0开始引入了对Https的推荐支持，与以往不同，Android P的系统上面默认所有Http的请求都被阻止
+了,<application android:usesCleartextTraffic=["true" | "false"]>,原本这个属性的默认值从true改变为false。
+
+为保证用户数据和设备的安全，Google针对下一代 Android 系统(Android P) 的应用程序，将要求默认使用加密连接，这意
+味着 Android P 将禁止 App 使用所有未加密的连接，因此运行 Android P 系统的安卓设备无论是接收或者发送流量，未来
+都不能明码传输，需要使用下一代(Transport Layer Security)传输层安全协议，而 Android Nougat 和 Oreo 则不受影响
 
 方法:解决的办法简单来说可以通过在AnroidManifest.xml中的application显示设置
 <application android:usesCleartextTraffic="true">
