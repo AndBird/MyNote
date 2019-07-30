@@ -17,13 +17,13 @@ https://github.com/permissions-dispatcher/PermissionsDispatcher
 
 
 ## 升级7.0(sdk 24)
-* 应用间共享文件(如安装应用)
-Android7.0引入私有目录被限制访问和StrictMode API 。私有目录被限制访问是指在Android7.0中为了提高应用的安全性，在7.0上应用私有目录将被限制访问，
-StrictMode API是指禁止向你的应用外公开 file:// URI。 如果一项包含文件 file:// URI类型 的 Intent 离开你的应用，则会报出异常。
-android.os.FileUriExposedException file exposed beyond app through Intent.getData()
+* 应用间共享文件(如安装应用)  
+Android7.0引入私有目录被限制访问和StrictMode API 。私有目录被限制访问是指在Android7.0中为了提高应用的安全性，在7.0上应用私有
+目录将被限制访问，StrictMode API是指禁止向你的应用外公开 file:// URI。 如果一项包含文件 file:// URI类型 的 Intent 离开你的
+应用，则会报出异常，android.os.FileUriExposedException file exposed beyond app through Intent.getData()。
 
 * 安装应用
-安装应用(应用间共享文件)需要FileProvider
+安装应用(应用间共享文件)需要FileProvider  
 ```
 //第一步:在AndroidManifest.xml中:
 <!--文件共享-->
@@ -87,9 +87,9 @@ private boolean install(final String filepath){
 ```
 
 ## 升级8.0(sdk 26)
-* 安装应用的权限(targetsdkversion大于25必须声明REQUEST_INSTALL_PACKAGES权限)
-官方解释：https://developer.android.com/reference/android/Manifest.permission.html#REQUEST_INSTALL_PACKAGES
-Android8.0的变化是，未知应用安装权限的开关被除掉，取而代之的是未知来源应用的管理列表，需要在里面打开每个应用的未知来源的安装权限。Google这么做是为了防止一开始正经的应用后来开始通过升级来做一些不合法的事情，侵犯用户权益。
+* 安装应用的权限(targetsdkversion大于25必须声明REQUEST_INSTALL_PACKAGES权限)  
+官方解释：https://developer.android.com/reference/android/Manifest.permission.html#REQUEST_INSTALL_PACKAGES  
+Android8.0的变化是，未知应用安装权限的开关被除掉，取而代之的是未知来源应用的管理列表，需要在里面打开每个应用的未知来源的安装权限。Google这么做是为了防止一开始正经的应用后来开始通过升级来做一些不合法的事情，侵犯用户权益。  
 当你的应用直接适配到Android8之后，内部启动应用安装是会被阻塞的，如果不处理好这个未知来源的权限，会导致应用根本无法更新，只能去应用市场重新下载。
 ```
 //第一步:在AndroidManifest.xml中:
