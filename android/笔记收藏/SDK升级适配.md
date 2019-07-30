@@ -22,7 +22,7 @@ Android7.0引入私有目录被限制访问和StrictMode API 。私有目录被�
 目录将被限制访问，StrictMode API是指禁止向你的应用外公开 file:// URI。 如果一项包含文件 file:// URI类型 的 Intent 离开你的
 应用，则会报出异常，android.os.FileUriExposedException file exposed beyond app through Intent.getData()。
 
-* 安装应用
+  * 安装应用
 安装应用(应用间共享文件)需要FileProvider  
 ```
 //第一步:在AndroidManifest.xml中:
