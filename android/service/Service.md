@@ -1,3 +1,7 @@
+# Service
+
+[Service示例](https://github.com/AndBird/Demo/blob/master/%E5%AE%89%E5%8D%93Service.zip)
+
 * 判断服务是否在运行
 ```Java
 //className,服务类名
@@ -84,5 +88,56 @@ bindService:onCreate->onBind
 unbindService:onUnbind->onDestory
 
 ```
-[Service示例](https://github.com/AndBird/Demo/blob/master/%E5%AE%89%E5%8D%93Service.zip)
+
+* Android 5.0以上的隐式启动问题
+```
+原因：
+ Android 5.0之后google出于安全的角度禁止了隐式声明Intent来启动Service。如果使用隐式启动Service，会出没有指明Intent的错误。
+
+主要原因我们可以从源码中找到，这里看看Android 4.4的ContextImpl源码中的validateServiceIntent(Intent service),可知如果启动service的intent的component和package都为空并且版本大于KITKAT的时候只是报出一个警报,告诉开发者隐式声明intent去启动Service是不安全的. 
+
+而在android5.0之后呢？我们这里看的是android6.0的源码,从源码可以看出如果启动service的intent的component和package都为空并且版本大于LOLLIPOP(5.0)的时候,直接抛出异常，该异常与之前隐式启动所报的异常时一致的。
+
+解决方式:
+1.设置Action和packageName
+final Intent serviceIntent=new Intent(); serviceIntent.setAction("隐式action");
+//设置应用的包名
+serviceIntent.setPackage(getPackageName());
+startService(serviceIntent);
+
+2.将隐式启动转换为显示启动
+public static Intent getExplicitIntent(Context context, Intent implicitIntent) {
+    // Retrieve all services that can match the given intent
+     PackageManager pm = context.getPackageManager();
+     List<ResolveInfo> resolveInfo = pm.queryIntentServices(implicitIntent, 0);
+     // Make sure only one match was found
+     if (resolveInfo == null || resolveInfo.size() != 1) {
+         return null;
+     }
+     // Get component info and create ComponentName
+     ResolveInfo serviceInfo = resolveInfo.get(0);
+     String packageName = serviceInfo.serviceInfo.packageName;
+     String className = serviceInfo.serviceInfo.name;
+     ComponentName component = new ComponentName(packageName, className);
+     // Create a new intent. Use the old one for extras and such reuse
+     Intent explicitIntent = new Intent(implicitIntent);
+     // Set the component to be explicit
+     explicitIntent.setComponent(component);
+     return explicitIntent;
+    }
+    
+
+//调用如下
+Intent mIntent=new Intent();
+mIntent.setAction("隐式action");
+final Intent serviceIntent=new Intent(getExplicitIntent(this,mIntent));
+startService(serviceIntent);
+
+
+```
+
+
+
+
+
 
