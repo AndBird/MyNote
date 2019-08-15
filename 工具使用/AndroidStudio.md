@@ -80,7 +80,9 @@ Android Studio 中，Android Lint 已经被集成，只需要点击菜单 ——
 别名:androiddebugkey
 密码:android
 
-4.导出aar时，R文件不能混淆
+4.导出aar时，混淆配置
+(1)其它公共库的混淆配置
+(2)R文件不能混淆
 # 对于R（资源）类中的静态属性不能被混淆
 -keepclassmembers class **.R$* {
  public static <fields>;
@@ -89,6 +91,20 @@ Android Studio 中，Android Lint 已经被集成，只需要点击菜单 ——
 #-keep public class **.R$*{
 #   *;
 #}
+(3)aar sdk对外类不混淆
+#sdk
+#不混淆sdk对外类
+-dontwarn a.b.**
+-keep class a.b {*;}
+-keep interface b.ce$AAListener {*;}
+#end sdk
+(4)允许混淆Activity
+#允许activity混淆
+#-keep public class * extends android.app.Activity
+#BaseActivity混淆部分
+-keep class a.b.BaseActivity { public *;}
+
+
 
 5.导出aar
 (1)将混淆文件文件打包到aar
