@@ -80,9 +80,9 @@ Android Studio 中，Android Lint 已经被集成，只需要点击菜单 ——
 别名:androiddebugkey
 密码:android
 
-4.导出aar时，混淆配置
-(1)其它公共库的混淆配置
-(2)R文件不能混淆
+4.混淆配置
+(1)添加基础混淆配置和其它公共库的混淆配置
+(2)如果R文件不需要混淆
 # 对于R（资源）类中的静态属性不能被混淆
 -keepclassmembers class **.R$* {
  public static <fields>;
@@ -91,23 +91,33 @@ Android Studio 中，Android Lint 已经被集成，只需要点击菜单 ——
 #-keep public class **.R$*{
 #   *;
 #}
-(3)aar sdk对外类不混淆
+(3)对于aar, sdk对外类不混淆
 #sdk
 #不混淆sdk对外类
 -dontwarn a.b.**
 -keep class a.b {*;}
 -keep interface b.ce$AAListener {*;}
 #end sdk
-(4)允许混淆Activity
-#允许activity混淆
+(4)sdk允许混淆Activity
+#允许activity混淆(注释下行)
 #-keep public class * extends android.app.Activity
-#BaseActivity混淆部分
+#保持BaseActivity混淆
 -keep class a.b.BaseActivity { public *;}
 
 
 
 5.导出aar
-(1)将混淆文件文件打包到aar
+(1)配置混淆文件，但R文件不能混淆
+# 对于R（资源）类中的静态属性不能被混淆
+-keepclassmembers class **.R$* {
+ public static <fields>;
+}
+#或者
+#-keep public class **.R$*{
+#   *;
+#}
+
+(2)将混淆文件文件打包到aar
 consumerProguardFiles 'proguard-rules.pro'
 
 示例：
@@ -123,7 +133,7 @@ buildTypes {
         //consumerProguardFiles 'proguard-a.pro','proguard-b.pro'或consumerProguardFiles fileTree(dir: projectDir, include: 'proguard*')
     }
 }
-(2)生成aar
+(3)生成aar
 As页面右侧 Gradle  双击assmeableRelease或者右键运行assmeableRelease,运行结束后在项目的build/outputs/aar文件夹,里面有一个app-release.aar文件,这就是我们要生成的aar.
 
 6.引用aar
