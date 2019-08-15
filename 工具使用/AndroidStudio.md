@@ -90,7 +90,27 @@ Android Studio 中，Android Lint 已经被集成，只需要点击菜单 ——
 #   *;
 #}
 
-5.引用aar
+5.导出aar
+(1)将混淆文件文件打包到aar
+consumerProguardFiles 'proguard-rules.pro'
+
+示例：
+buildTypes {
+    release {
+        //是否启用混淆
+        minifyEnabled true
+        //混淆文件
+        proguardFiles 'proguard-rules.pro'
+        //混淆文件一起打包
+        //consumerProguardFiles 'proguard-rules.pro'
+        //多个混淆配置文件：
+        //consumerProguardFiles 'proguard-a.pro','proguard-b.pro'或consumerProguardFiles fileTree(dir: projectDir, include: 'proguard*')
+    }
+}
+(2)生成aar
+As页面右侧 Gradle  双击assmeableRelease或者右键运行assmeableRelease,运行结束后在项目的build/outputs/aar文件夹,里面有一个app-release.aar文件,这就是我们要生成的aar.
+
+6.引用aar
 (1)将ab.aar复制到libs中
 (2)配置build
 android {
