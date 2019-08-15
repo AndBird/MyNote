@@ -140,9 +140,13 @@ b.debug版本
 直接build-->make module，在该module的build/output/aar目录中会生成xxx-debug.aar包
 
 6.引用aar
-(1)将ab.aar复制到libs中
-(2)配置build
+(1)在主工程中应用aar
+a.将ab.aar复制到主工程libs中
+b.配置build
 android {
+    ...
+    
+    
     repositories {
         flatDir {
             dirs 'libs'
@@ -151,9 +155,37 @@ android {
 }
 
 dependencies {
-    compile(name: 'ab', ext: 'aar')
+    ...
+    
+    
+    implementation(name: 'ab', ext: 'aar')
 }
 
+(2)在library中引用aar
+a.先按(1)在library moduleA中bulid.gradle中配置
+b.任何依赖此library moduleA的module，必须在它的build.gradle声明此aar的lib所在的位置(这个位置根据文件路径所确定)
+android{
+    repositories {
+          ...
+          
+          /library moduleA引用aar
+          flatDir {
+            dirs 'libs', '../moduleA/libs'
+          }
+    }
+}
+
+或者在project的build.gradle文件中配置，如下
+allprojects {
+    repositories {
+        ...
+        
+        //library moduleA引用aar
+        flatDir {
+            dirs 'libs', '../moduleA/libs'
+        }
+    }
+}
 
 ```
 
