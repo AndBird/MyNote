@@ -134,7 +134,10 @@ buildTypes {
     }
 }
 (3)生成aar
-As页面右侧 Gradle  双击assmeableRelease或者右键运行assmeableRelease,运行结束后在项目的build/outputs/aar文件夹,里面有一个app-release.aar文件,这就是我们要生成的aar.
+a.release版本
+As页面右侧 Gradle  双击assmeableRelease或者右键运行assmeableRelease,运行结束后在项目的build/outputs/aar文件夹,里面有一个xxx-release.aar文件,这就是我们要生成的aar.
+b.debug版本
+直接build-->make module，在该module的build/output/aar目录中会生成xxx-debug.aar包
 
 6.引用aar
 (1)将ab.aar复制到libs中
