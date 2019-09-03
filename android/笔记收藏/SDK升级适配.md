@@ -296,6 +296,48 @@ private void createNotificationChannel() {
 
 ```
 
+* 启动服务问题： by java.lang.IllegalStateException Not allowed to start service Intent { cmp=com.x.x.x/.x.x.xService }: app is in background uid UidRecord{}
+方法1:
+第一步：
+// 启动服务的地方
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+	context.startForegroundService(intent);
+} else {
+	context.startService(intent);
+}
+有个简写：ContextCompat.startForegroundService(context, intent)
+
+第二步：
+// service 类内部  oncreate
+@Override
+public void onCreate() {
+    super.onCreate();
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+		//这个id不要和应用内的其他同志id一样，不行就写 int.maxValue()     
+       startForeground(1,new Notification()); 
+	   //context.startForeground(SERVICE_ID, builder.getNotification());
+    }
+}
+
+//需要channel
+NotificationChannel channel = new NotificationChannel("111", getString(R.string.app_name), NotificationManager.IMPORTANCE_LOW);
+manager.createNotificationChannel(channel);
+
+Notification notification = new NotificationCompat.Builder(this, "111")
+		.setAutoCancel(true)
+		.setCategory(Notification.CATEGORY_SERVICE)
+		//设置可清除false
+		.setOngoing(true)
+		.setPriority(NotificationManager.IMPORTANCE_LOW)
+		.build();
+
+
+startForeground(1001, notification);
+
+方法2：推荐使用JobScheduler
+
+
+
 ## 升级9.0(sdk 28)
 * java.lang.NoClassDefFoundError: Failed resolution of: Lorg/apache/http/ProtocolVersion; Caused by: java.lang.ClassNotFoundException: 
 Didn't find class "org.apache.http.ProtocolVersion"
