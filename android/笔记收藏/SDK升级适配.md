@@ -361,3 +361,38 @@ Didn't find class "org.apache.http.ProtocolVersion"
 
 ```
 
+* WebView多进程：Caused by: java.lang.RuntimeException: Using WebView from more than one process at once with the same data directory is not supported. https://crbug.com/558377
+```
+这行代码翻译过来的意思就是：不支持同时使用多个进程中具有相同数据目录的WebView.
+Android P 以及之后版本不支持同时从多个进程使用具有相同数据目录的WebView.
+针对这个问题，谷歌也给出了解决方案，代码很简单：在初始化的时候，需要为其它进程webView设置目录.
+
+//Android P 以及之后版本不支持同时从多个进程使用具有相同数据目录的WebView
+//为其它进程webView设置目录
+
+@RequiresApi(api = 28)
+public void webviewSetPath(Context context) {
+	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+		String processName = getProcessName(context);
+		if (!getPackageName().equals(processName)) {//判断不等于默认进程名称
+			WebView.setDataDirectorySuffix(processName);
+		}
+	}
+}
+
+public String getProcessName(Context context) {
+	if (context == null) return null;
+	ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+	for (ActivityManager.RunningAppProcessInfo processInfo : manager.getRunningAppProcesses()) {
+		if (processInfo.pid == android.os.Process.myPid()) {
+			return processInfo.processName;
+		}
+	}
+	return null;
+}
+
+注意：webviewSetPath()的调用一定是在进程初始化的时候调用，比如Application中进行调用，并且这行代码需要在其他的SDK等等初始化之前就要调用，否则会报其他的错误。
+
+```
+
+
