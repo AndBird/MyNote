@@ -187,5 +187,19 @@ allprojects {
     }
 }
 
+
+7.过滤so
+在引用AAR的时候排除armeabi-v7a目录下的.so文件
+
+android {
+    ....
+    defaultConfig {
+        ....
+        ndk {
+            abiFilters "armeabi"
+        }
+    }
+}
+
 ```
 
