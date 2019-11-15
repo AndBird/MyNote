@@ -41,22 +41,52 @@ Android7.0引入私有目录被限制访问和StrictMode API 。私有目录被�
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
     <!--下载目录-->
-   <!-- <external-path path="Android/data/com.huang.autorun/download/" name="download_save"/>-->
+   <!-- <external-path path="Android/data/应用包名/download/" name="download_save"/>-->
     <!--更新目录-->
-   <!-- <external-path path="com.huang.autorun/" name="update"/>-->
+   <!-- <external-path path="子目录/" name="update"/>-->
     <!--整个外部存储-->
     <external-path path="." name="external"/>
 
-    <!-- 代表context.getCacheDir()-->
-    <!--<cache-path name="test" path="test"/>-->
-    <!--代表代表context.getFilesDir()-->
-    <!--<files-path name="test" path="test"/>-->
-    <!--代表context.getExternalFilesDirs()-->
-    <!--<external-files-path name="test" path="test"/>-->
-    <!--代表getExternalCacheDirs()-->
-    <!--<external-cache-path name="test" path="test"/>-->
-	
+
+    <!--原理介绍:
+    在paths节点内部支持以下几个子节点，如下：-->
+
+        <!-- <cache-path/>代表context.getCacheDir()-->
+        <!--<cache-path name="test" path="test"/>-->
+
+        <!-- <files-path>代表代表context.getFilesDir()-->
+        <!--<files-path name="test" path="test"/>-->
+
+        <!-- <external-files-path>代表context.getExternalFilesDirs()-->
+        <!--<external-files-path name="test" path="test"/>-->
+
+        <!-- <external-cache-path>代表getExternalCacheDirs()-->
+        <!--<external-cache-path name="test" path="test"/>-->
+
+        <!-- <root-path/>代表设备的根目录new File("/")-->
+        <!--<root-path name="test" path="test"/>-->
+
+        <!--  <external-path/> 代表Environment.getExternalStorageDirectory()-->
+        <!--<external-path name="test" path="test"/>-->
+
+
+   <!--
+   每个节点都支持两个属性：
+    name
+    path
+    path即为代表目录下的子目录，比如：
+
+    <external-path
+        name="external"
+        path="pics" />
+
+    代表的目录即为：Environment.getExternalStorageDirectory()/pics，其他同理。
+    当这么声明以后，代码可以使用你所声明的当前文件夹以及其子文件夹。
+    -->
 </paths>
+
+
+
 
 //第三步:调起安装界面
 private boolean install(final String filepath){
