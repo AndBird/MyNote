@@ -326,7 +326,9 @@ private void createNotificationChannel() {
 
 ```
 
-* 启动服务问题： by java.lang.IllegalStateException Not allowed to start service Intent { cmp=com.x.x.x/.x.x.xService }: app is in background uid UidRecord{}
+* 启动服务问题： by java.lang.IllegalStateException Not allowed to start service Intent { cmp=com.x.x.x/.x.x.xService }: app is in background uid UidRecord{}   
+
+```Java
 方法1:
 第一步：
 // 启动服务的地方
@@ -350,6 +352,10 @@ public void onCreate() {
 }
 
 //需要channel
+NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+if (manager == null) {
+	return;
+}
 NotificationChannel channel = new NotificationChannel("111", getString(R.string.app_name), NotificationManager.IMPORTANCE_LOW);
 manager.createNotificationChannel(channel);
 
@@ -365,7 +371,7 @@ Notification notification = new NotificationCompat.Builder(this, "111")
 startForeground(1001, notification);
 
 方法2：推荐使用JobScheduler
-
+```
 
 
 ## 升级9.0(sdk 28)
