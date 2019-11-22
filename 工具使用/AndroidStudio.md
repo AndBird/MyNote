@@ -101,7 +101,7 @@ Android Studio 中，Android Lint 已经被集成，只需要点击菜单 ——
 (4)sdk允许混淆Activity
 #允许activity混淆(注释下行)
 #-keep public class * extends android.app.Activity
-#保持BaseActivity混淆
+#保持BaseActivity(暴露的Activity)不混淆
 -keep class a.b.BaseActivity { public *;}
 
 
