@@ -211,6 +211,21 @@ setprop test1 value1
 //获取环境变量test1
 getprop test1
 ```
+
+## 网络
+```
+//查看网络状态
+adb shell netstat 
+//ping 4次后停止
+adb shell ping -c 4 www.baidu.com
+//
+adb shell netcfg
+//查看wifi的ip
+adb shell ip -f inet addr show wlan0
+//
+adb shell ip
+
+```
 	
 	
 ## .其他操作
