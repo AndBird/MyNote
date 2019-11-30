@@ -1,8 +1,16 @@
 # SDK升级适配
 
 ## 升级6.0(sdk 23)
-* org.apache.http.legacy
+* 找不到 org.apache.http.legacy
 ```
+法1：在libs中导入org.apache.http.legacy.jar (..sdk/platforms\android-23\optional/目录下)
+法2：
+android{
+      .....
+      useLibrary 'org.apache.http.legacy'
+
+}
+
 在AndroidManifest.xml文件中<Application>标签里面加入:
 <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 ```
