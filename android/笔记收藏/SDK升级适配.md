@@ -11,8 +11,6 @@ android{
 
 }
 
-在AndroidManifest.xml文件中<Application>标签里面加入:
-<uses-library android:name="org.apache.http.legacy" android:required="false"/>
 ```
 
 * 动态权限申请
@@ -386,6 +384,7 @@ startForeground(1001, notification);
 * java.lang.NoClassDefFoundError: Failed resolution of: Lorg/apache/http/ProtocolVersion; Caused by: java.lang.ClassNotFoundException: 
 Didn't find class "org.apache.http.ProtocolVersion"
 ```
+//Android P Developer Preview的bug
 在AndroidManifest.xml文件中<Application>标签里面加入:
 <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 ```
