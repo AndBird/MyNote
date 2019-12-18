@@ -191,6 +191,11 @@ adb shell wm size reset
 adb shell dumpsys window displays
 //电池相关
 adb shell dumpsys battery
+//查看分区逻辑大小
+adb shell df
+//查看分区物理大小
+adb shell cat sys/block/mmcblk0/mmcblk0p*/size
+
 
 ```
 
