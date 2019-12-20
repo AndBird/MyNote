@@ -7,12 +7,12 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.AbsListView.OnScrollListener;
 
-//¼àÌıListViewµÄ¹ö¶¯×´Ì¬
+//ç›‘å¬ListViewçš„æ»šåŠ¨çŠ¶æ€
 public class ScrollStateListView extends ListView implements OnScrollListener{
 	private static final String TAG = ScrollStateListView.class.getSimpleName();
 	
 	private ScrollStateListener mScrollStateListener = null;
-    private boolean fingerUp = false;//ÊÖÖ¸ÊÇ·ñÒÑ¾­up 
+    private boolean fingerUp = false;//æ‰‹æŒ‡æ˜¯å¦å·²ç»up 
     
     public interface ScrollStateListener{
 		public void startScroll();

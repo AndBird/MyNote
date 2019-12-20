@@ -13,27 +13,27 @@ public class ApkChangeBroadcastReceiver extends BroadcastReceiver{
 	@Override
 	public void onReceive(Context context, Intent intent){
 		try {
-			Log.e(TAG, "ÊÕµ½Ó¦ÓÃ±ä»¯¹ã²¥: action=" + intent.getAction());
-			//½ÓÊÕ°²×°¹ã²¥ android.intent.action.PACKAGE_ADDED
+			Log.e(TAG, "æ”¶åˆ°åº”ç”¨å˜åŒ–å¹¿æ’­: action=" + intent.getAction());
+			//æ¥æ”¶å®‰è£…å¹¿æ’­ android.intent.action.PACKAGE_ADDED
 	        if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED)) {   
 	            String data = intent.getDataString(); 
 	            String packageName = data.replaceFirst("package:", "");
-	            Log.e(TAG, "°²×°ÁË:" + packageName + "°üÃûµÄ³ÌĞò");
-	            //Toast.makeText(context, "°²×°Íê³É", Toast.LENGTH_LONG).show();
+	            Log.e(TAG, "å®‰è£…äº†:" + packageName + "åŒ…åçš„ç¨‹åº");
+	            //Toast.makeText(context, "å®‰è£…å®Œæˆ", Toast.LENGTH_LONG).show();
 	           
 	        }   
 	        
 	        
-	        //½ÓÊÕĞ¶ÔØ¹ã²¥  "android.intent.action.PACKAGE_REMOVED"
+	        //æ¥æ”¶å¸è½½å¹¿æ’­  "android.intent.action.PACKAGE_REMOVED"
 	        if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)){   
 	            String data = intent.getDataString();   
 	            String packageName = data.replaceFirst("package:", "");
-	            Log.e(TAG, "Ğ¶ÔØÁË:"  + packageName + "°üÃûµÄ³ÌĞò");
+	            Log.e(TAG, "å¸è½½äº†:"  + packageName + "åŒ…åçš„ç¨‹åº");
 	           /* if(Tool.apkIsInstalled(context, packageName)){
-	            	 //Éı¼¶¸²¸Ç°²×°
-	            	 DebugUtils.printInfo(TAG, "ÊÕµ½Ó¦ÓÃ±ä»¯"  + packageName + "ÒÑ°²×°£¬Ö´ĞĞµÄ¸²¸Ç°²×°");
+	            	 //å‡çº§è¦†ç›–å®‰è£…
+	            	 DebugUtils.printInfo(TAG, "æ”¶åˆ°åº”ç”¨å˜åŒ–"  + packageName + "å·²å®‰è£…ï¼Œæ‰§è¡Œçš„è¦†ç›–å®‰è£…");
 	            }else{
-	            	 DebugUtils.printInfo(TAG, "ÊÕµ½Ó¦ÓÃ±ä»¯"  + packageName + "Î´°²×°£¬Ö´ĞĞµÄĞ¶ÔØ");
+	            	 DebugUtils.printInfo(TAG, "æ”¶åˆ°åº”ç”¨å˜åŒ–"  + packageName + "æœªå®‰è£…ï¼Œæ‰§è¡Œçš„å¸è½½");
 	            }*/
 	        }
 		} catch(Exception e){
@@ -41,7 +41,7 @@ public class ApkChangeBroadcastReceiver extends BroadcastReceiver{
 		}
 	}
 	
-	//×¢²á°²×°Ğ¶ÔØ¹ã²¥
+	//æ³¨å†Œå®‰è£…å¸è½½å¹¿æ’­
 	public static void registerApkInstallReceiver(Activity activity, ApkChangeBroadcastReceiver apkChangeBroadcastReceiver){
 		try {
 			Log.e(TAG, "registerApkInstallReceiver");
