@@ -134,6 +134,7 @@ busybox tail -10 <file>
 mount -o remount rw system
 //文件md5
 md5 /system/app/test.apk 
+md5sum filename
 //文件夹下所有文件的md5
 md5 /system/app/* 
 ```
