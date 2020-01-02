@@ -120,6 +120,10 @@ private boolean install(final String filepath){
 	}
 }
 
+
+FileProvider.getUriForFile(this, "com.zhy.android7.fileprovider", file)得到的是Uri的格式:
+content://authorities/定义的name属性/file文件的相对路径，即name隐藏了可存储的文件夹路径
+
 ```
 
 ## 升级8.0(sdk 26)
