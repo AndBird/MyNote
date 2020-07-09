@@ -57,7 +57,8 @@
   * [网络通信](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/网络通信.md)  
   * [sdk升级适配](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/SDK升级适配.md)  
   * [多进程](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/多进程.md)  
-  * [安卓插件框架](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/安卓插件框架.md)  
+  * [安卓插件框架](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/安卓插件框架.md) 
+  * [模拟器](https://github.com/AndBird/MyNote/tree/master/android/笔记收藏/模拟器连接/)    
 
 * [其他](https://github.com/AndBird/MyNote/tree/master/android/other/other_content.md)
   * [aapt](https://github.com/AndBird/MyNote/blob/master/android/other/aapt.md)
