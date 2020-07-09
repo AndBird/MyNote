@@ -26,7 +26,7 @@ dx --dex --output=C:\Users\Administrator\Desktop\test.dex .\com\text\HelloWorld.
 注意：在输入.class的路径时,直接从桌面上拖到cmd上输入了绝对路径,dx的.class文件不支持绝对路径,只能放到dx目录下,使用相对路径.
 
 
-注意:如果需要打包多个class文件到dex中，可以先将多个class转换成jar,然后将jar转换成dex
+注意:如果需要打包多个class文件到dex中，可以先将多个class转换成test.jar,然后将test.jar转换成dex
 dx --dex --output=C:\Users\Administrator\Desktop\test.dex .\test.jar
 
 
