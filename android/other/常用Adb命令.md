@@ -224,7 +224,7 @@ getprop test1
 adb shell netstat 
 //ping 4次后停止
 adb shell ping -c 4 www.baidu.com
-//
+//查看网络连接
 adb shell netcfg
 //查看wifi的ip
 adb shell ip -f inet addr show wlan0
