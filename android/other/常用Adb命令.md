@@ -20,7 +20,7 @@
      //清除log缓存：
      adb logcat -c
      //查看bug报告：
-     adb bugreport
+	 adb bugreport > bugreport.txt
 	 
 ## 3.设备操作
 ```
@@ -80,6 +80,13 @@ adb shell top
 adb shell top -m 6
 //刷新一次内存信息，然后返回：
 adb shell top -n 1
+//内存
+adb shell dumpsys meminfo
+
+//查看设备的CPU占有率
+adb shell top -n 1 -m 10 -d
+adb shell dumpsys cpuinfo
+
 
 //杀死一个进程：
 adb shell kill [pid]
@@ -102,6 +109,9 @@ netstat
 netstat -ntup 
 //显示正监听的端口
 netstat -ntupl 
+//查看进程使用情况
+adb shell dumpsys usage stats
+
 ```
 
 ## 6.文件操作
@@ -141,8 +151,15 @@ md5 /system/app/*
 	
 ## 7.事件发送
 ```    
-//发送返回事件
-adb shell input keyevent 4 
+//发送返回事件(keyCode同KeyEvent)
+adb shell input keyevent 4
+//发送返回事件(down state)
+sendevent /dev/input/event0 1 158 1
+sendevent /dev/input/event0 0 0 0 
+//发送返回事件(up state)
+sendevent /dev/input/event0 1 158 0
+sendevent /dev/input/event0 0 0 0 
+
 ```
 	
 ## 8.截屏相关
@@ -192,10 +209,19 @@ adb shell wm size reset
 adb shell dumpsys window displays
 //电池相关
 adb shell dumpsys battery
+//电池相关指令(root可用)
+adb shell dumpsys batterystats
+//设备停止充电的命令
+adb shell dumpsys battery unplug 
+//重复该命令，遍历Doze各种状态
+adb shell dumpsys deviceidle step
 //查看分区逻辑大小
 adb shell df
 //查看分区物理大小
 adb shell cat sys/block/mmcblk0/mmcblk0p*/size
+//GPU渲染
+adb shell dumpsys gfxinfo <packagename> 
+adb shell dumpsys gfxinfo <packagename> framestats
 
 
 ```
@@ -228,6 +254,8 @@ adb shell ping -c 4 www.baidu.com
 adb shell netcfg
 //查看wifi的ip
 adb shell ip -f inet addr show wlan0
+//查看wifi密码：
+adb shell cat /data/misc/wifi/*.conf
 //
 adb shell ip
 
@@ -236,10 +264,8 @@ adb shell ip
 	
 ## .其他操作
 ```
-//查看wifi密码：
-adb shell cat /data/misc/wifi/*.conf
-//adb shell
-netcfg
+
+
 
 //获取设备名称：
 adb shell cat /system/build.prop
@@ -248,6 +274,8 @@ adb shell monkey -v -p your.package.name 500
 //查看adb版本
 adb version
 busybox wget 下载
+
+
 ```
         
 
