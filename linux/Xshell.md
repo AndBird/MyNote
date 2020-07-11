@@ -7,6 +7,31 @@
   （1）安装
   yum provides */rz
   yum install -y lrzsz
+  
+ scp:
+ 从本地复制到远程指令格式：
+scp local_file remote_username@remote_ip:remote_folder 
+或者 
+scp local_file remote_username@remote_ip:remote_file 
+或者 
+scp local_file remote_ip:remote_folder 
+或者 
+scp local_file remote_ip:remote_file 
+
+示例：
+scp /home/space/music/1.mp3 root@www.runoob.com:/home/root/others/music 
+scp /home/space/music/1.mp3 root@www.runoob.com:/home/root/others/music/001.mp3 
+scp /home/space/music/1.mp3 www.runoob.com:/home/root/others/music 
+scp /home/space/music/1.mp3 www.runoob.com:/home/root/others/music/001.mp3 
+
+从远程复制到本地:
+从远程复制到本地，只要将从本地复制到远程的命令的后2个参数调换顺序即可
+示例:
+scp root@www.runoob.com:/home/root/others/music /home/space/music/1.mp3 
+scp -r www.runoob.com:/home/root/others/ /home/space/music/
+
+
+  
 
 2.查看ip
 ifconfig
