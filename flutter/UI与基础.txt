@@ -1,0 +1,489 @@
+
+(带研究)
+//Material设计规范中状态栏、导航栏的高度分别为24、56
+height: MediaQuery.of(context).size.height-24-56，
+
+获取应用的当前区域Locale：
+Locale myLocale = Localizations.localeOf(context);
+
+
+
+* Flutter基础
+1.State
+
+MaterialApp 是Material库中提供的Flutter APP框架，通过它可以设置应用的名称、主题、语言、首页及路由列表等。MaterialApp也是一个widget。
+
+2.路由管理
+MaterialPageRoute：MaterialPageRoute继承自PageRoute类，PageRoute类是一个抽象类，表示占有整个屏幕空间的一个模态路由页面，它还定义了路由构建及切换时过渡动画的相关接口及属性。
+Navigator：Navigator是一个路由管理的组件，它提供了打开和退出路由页方法。Navigator通过一个栈来管理活动路由集合。通常当前屏幕显示的页面就是栈顶的路由。
+命名路由和路由表：
+   Navigator.of(context).pushNamed("new_page", arguments: "hi");
+
+3.包管理
+4.资源管理
+5.调试
+6.Dart线程模型及异常捕获
+
+
+* 基础组件(叶子)
+StatelessWidget
+Context
+StatefulWidget
+State
+State生命周期
+在Widget树中获取State对象
+Widget状态管理
+
+1.Text
+TextStyle：用于指定文本显示的样式如颜色、字体、粗细、背景等。
+TextSpan：一个Text内容的不同部分按照不同的样式显示
+DefaultTextStyle
+字体
+
+2.Button
+RaisedButton：即"漂浮"按钮，它默认带有阴影和灰色背景。按下后，阴影会变大。
+FlatButton：即扁平按钮，默认背景透明并不带阴影。按下后，会有背景色。
+OutlineButton：默认有一个边框，不带阴影且背景透明。按下后，边框颜色会变亮、同时出现背景和阴影(较弱)。
+IconButton：是一个可点击的Icon，不包括文字，默认没有背景，点击后会出现背景。
+
+3.Image与Icon
+
+4.单选框和复选框
+Switch
+Checkbox
+
+5.输入框与表单
+TextField
+
+Form
+FormField
+TextFormField
+FormState
+
+6.进度指示器
+LinearProgressIndicator
+CircularProgressIndicator
+
+* 布局类组件
+1.线性布局
+Row
+Column
+
+2.弹性布局
+介绍:Flutter中的弹性布局主要通过Flex和Expanded来配合实现。因为Row和Column都继承自Flex，参数基本相同，所以能使用Flex的地方基本上都可以使用Row或Column。Flex组件可以沿着水平或垂直方向排列子组件，如果你知道主轴方向，使用Row或Column会方便一些。
+
+Flex：
+Expanded：可以按比例“扩伸” Row、Column和Flex子组件所占用的空间。
+Expanded 中的flex参数为弹性系数，如果为0或null，则child是没有弹性的，即不会被扩伸占用的空间。如果大于0，所有的Expanded按照其flex的比例来分割主轴的全部空闲空间。默认为1，占全部空闲空间。
+
+3.流式布局
+Wrap:够用
+Flow:复杂
+
+4.层叠布局
+Stack
+Positioned:指定子组件在Stack中的位置
+
+5.对齐相对布局
+Align:只有一个子元素，可以调整子组件的位置，并且可以根据子组件的宽高来确定自身的的宽高
+Alignment:对齐方式，坐标点为中心
+FractionalOffset:坐标点为左上角，制定精确的偏移
+
+Center
+
+* 容器类组件
+1.Padding
+
+2.尺寸限制类容器
+ConstrainedBox:用于对子组件的大小添加额外的约束,BoxConstraints
+SizedBox:用于给子元素指定固定的宽高
+注意：有多重限制时，对于minWidth和minHeight来说，是取父子中相应数值较大的;
+UnconstrainedBox:不会对子组件产生任何限制，它允许其子组件按照其本身大小绘制。一般情况下，我们会很少直接使用此组件，但在"去除"多重限制的时候也许会有帮助.
+AspectRatio:可以指定子组件的长宽比
+LimitedBox:用于指定最大宽高
+FractionallySizedBox:可以根据父容器宽高的百分比来设置子组件宽高
+
+3.装饰容器
+DecoratedBox:装饰容器，可以在其子组件绘制前(或后)绘制一些装饰（Decoration），如背景、边框、渐变等。
+BoxDecoration
+
+4.变换
+Transform：可以在其子组件绘制时对其应用一些矩阵变换来实现一些特效
+注意：Transform的变换是应用在绘制阶段，而并不是应用在布局(layout)阶段，所以无论对子组件应用何种变化，其占用空间的大小和在屏幕上的位置都是固定不变的，因为这些是在布局阶段就确定的。
+
+RotatedBox:它可以对子组件进行旋转变换，RotatedBox的变换是在layout阶段，会影响在子组件的位置和大小.
+
+5.Container容器
+Container是一个组合类容器，它本身不对应具体的RenderObject，它是DecoratedBox、ConstrainedBox、Transform、Padding、Align等组件组合的一个多功能容器，所以我们只需通过一个Container组件可以实现同时需要装饰、变换、限制的场景。
+
+6.Scaffold、TabBar、底部导航
+Scaffold:
+AppBar:AppBar是一个Material风格的导航栏，通过它可以设置导航栏标题、导航栏菜单、导航栏底部的Tab标题等.
+TabBar:Tab与TabBarView
+抽屉菜单Drawer:Scaffold的drawer和endDrawer属性可以分别接受一个Widget来作为页面的左、右抽屉菜单.
+底部Tab导航栏:BottomNavigationBar和BottomNavigationBarItem,Material组件库中提供了一个BottomAppBar 组件，它可以和FloatingActionButton配合实现这种“打洞”效果
+
+7.裁剪Clip
+ClipOval:子组件为正方形时剪裁为内贴圆形，为矩形时，剪裁为内贴椭圆
+ClipRRect:将子组件剪裁为圆角矩形
+ClipRect:剪裁子组件到实际占用的矩形大小（溢出部分剪裁）
+
+CustomClipper:自定义剪裁区域
+
+注意:剪裁成功了，但是图片所占用的空间大小仍然是60×60（红色区域），这是因为剪裁是在layout完成后的绘制阶段进行的，所以不会影响组件的大小。
+
+
+* 可滚动组件
+Scrollbar：是一个Material风格的滚动指示器（滚动条），如果要给可滚动组件添加滚动条，只需将Scrollbar作为可滚动组件的任意一个父级组件即可。
+ScrollController：一个ScrollController虽然可以对应多个可滚动组件
+PrimaryScrollController：默认情况下，Widget树中会有一个默认的PrimaryScrollController，如果子树中的可滚动组件没有显式的指定controller，并且primary属性值为true时（默认就为true），可滚动组件会使用这个默认的PrimaryScrollController。这种机制带来的好处是父组件可以控制子树中可滚动组件的滚动行为。
+ViewPort：
+Sliver：
+
+1.SingleChildScrollView
+SingleChildScrollView类似于Android中的ScrollView，它只能接收一个子组件。
+通常SingleChildScrollView只应在期望的内容不会超过屏幕太多时使用，这是因为SingleChildScrollView不支持基于Sliver的延迟实例化模型，所以如果预计视口可能包含超出屏幕尺寸太多的内容时，那么使用SingleChildScrollView将会非常昂贵（性能差）。
+
+2.ListView
+ListView.builder:可滚动组件的构造函数如果需要一个列表项Builder，那么通过该构造函数构建的可滚动组件通常就是支持基于Sliver的懒加载模型的，反之则不支持，这是个一般规律。
+ListView.separated:ListView.separated可以在生成的列表项之间添加一个分割组件，它比ListView.builder多了一个separatorBuilder参数，该参数是一个分割组件生成器。
+ListView.custom：如果需要自定义列表项生成模型，可以通过ListView.custom来自定义，它需要实现一个SliverChildDelegate用来给ListView生成列表项组件。
+
+3.GridView
+SliverGridDelegateWithFixedCrossAxisCount：SliverGridDelegate的子类，该类实现了一个横轴为固定数量子元素的layout算法。
+GridView.count:GridView.count构造函数内部使用了SliverGridDelegateWithFixedCrossAxisCount，我们通过它可以快速的创建横轴固定数量子元素的GridView
+
+SliverGridDelegateWithMaxCrossAxisExtent：SliverGridDelegate的子类，该类实现了一个横轴子元素为固定最大长度的layout算法。
+GridView.extent：GridView.extent构造函数内部使用了SliverGridDelegateWithMaxCrossAxisExtent，我们通过它可以快速的创建纵轴子元素为固定最大长度的的GridView
+
+GridView.builder：GridView都需要一个widget数组作为其子元素，这些方式都会提前将所有子widget都构建好，所以只适用于子widget数量比较少时，当子widget比较多时，我们可以通过GridView.builder来动态创建子widget。
+
+Pub上有一个包“flutter_staggered_grid_view” ，它实现了一个交错GridView的布局模型，可以很轻松的实现这种布局
+
+4.CustomScrollView(混合滚动)
+CustomScrollView是可以使用Sliver来自定义滚动模型（效果）的组件。CustomScrollView的子组件必须都是Sliver。
+SliverPadding
+SliverAppBar
+SliverList
+SliverGrid
+
+5.滚动监听及控制
+(1)ScrollController
+controller.addListener(()=>print(controller.offset))
+注意：为了避免内存泄露，在dispose()中需要调用_controller.dispose()
+
+(2)滚动位置恢复
+PageStorage
+PageStorageKey
+ScrollPosition
+
+(3)滚动监听
+ScrollNotification
+NotificationListener
+通过NotificationListener监听滚动事件和通过ScrollController有两个主要的不同：
+a.通过NotificationListener可以在从可滚动组件到widget树根之间任意位置都能监听。而ScrollController只能和具体的可滚动组件关联后才可以。
+b.收到滚动事件后获得的信息不同；NotificationListener在收到滚动事件时，通知中会携带当前滚动位置和ViewPort的一些信息，而ScrollController只能获取当前滚动位置。
+ScrollMetrics
+
+
+* 功能型组件
+1.导航返回拦截（WillPopScope）
+
+2.数据共享（InheritedWidget）
+
+3.跨组件状态共享（Provider）
+widget缓存
+Pub上Provider Package
+
+
+4. 颜色和主题
+A:颜色
+颜色转换:
+颜色亮度:
+Color.computeLuminance():Color类中提供了一个computeLuminance()方法，它可以返回一个[0-1]的一个值，数字越大颜色就越浅.
+MaterialColor:实现Material Design中的颜色的类，它包含一种颜色的10个级别的渐变色。MaterialColor通过"[]"运算符的索引值来代表颜色的深度，有效的索引有：50，100，200，…，900，数字越大，颜色越深。MaterialColor的默认值为索引等于500的颜色。
+
+B.主题Theme
+ThemeData:用于保存是Material 组件库的主题数据，Material组件需要遵守相应的设计规范，而这些规范可自定义部分都定义在ThemeData中了，所以我们可以通过ThemeData来自定义应用主题。在子组件中，我们可以通过Theme.of方法来获取当前的ThemeData.
+Theme.of(BuildContext context):context.inheritFromWidgetOfExactType会在widget树中从当前位置向上查找第一个类型为_InheritedTheme的Widget。
+
+5.异步UI更新（FutureBuilder、StreamBuilder）
+FutureBuilder:
+AsyncSnapshot:
+ConnectionState:
+
+StreamBuilder
+
+
+6.对话框
+AlertDialog
+SimpleDialog：列表框
+Dialog
+MaterialType.card：显示对话框
+
+显示对话框：
+showDialog
+showGeneralDialog
+showModalBottomSheet：底部菜单列表，showModalBottomSheet方法可以弹出一个Material风格的底部菜单列表模态对话框
+showBottomSheet：该方法会从设备底部向上弹出一个全屏的菜单列表。
+注意：howBottomSheet和我们上面介绍的弹出对话框的方法原理不同：showBottomSheet是调用widget树顶部的Scaffold组件的ScaffoldState的showBottomSheet同名方法实现，也就是说要调用showBottomSheet方法就必须得保证父级组件中有Scaffold。
+PersistentBottomSheetController：PersistentBottomSheetController中包含了一些控制对话框的方法比如close方法可以关闭该对话框
+Loading框：
+showDatePicker：日历选择，iOS风格的日历选择器需要使用showCupertinoModalPopup方法和CupertinoDatePicker组件来实现
+
+对话框打开动画及遮罩
+对话框状态管理
+StatefulBuilder：StatefulBuilder和Builder的区别(待考究)
+
+
+* 事件处理与通知
+1.原始指针事件处理
+Listener：
+PointerEvent：PointerEvent类中包括当前指针的一些信息，如：
+position：它是鼠标相对于当对于全局坐标的偏移。
+delta：两次指针移动事件（PointerMoveEvent）的距离。
+pressure：按压力度，如果手机屏幕支持压力传感器(如iPhone的3D Touch)，此属性会更有意义，如果手机不支持，则始终为1。
+orientation：指针移动方向，是一个角度值。
+
+PointerDownEvent、PointerMoveEvent、PointerUpEvent都是PointerEvent的一个子类
+
+HitTestBehavior：它决定子组件如何响应命中测试
+IgnorePointer和AbsorbPointer：这两个组件都能阻止子树接收指针事件，不同之处在于AbsorbPointer本身会参与命中测试，而IgnorePointer本身不会参与，这就意味着AbsorbPointer本身是可以接收指针事件的(但其子树不行)，而IgnorePointer不可以。
+
+2.手势识别
+estureDetector内部是使用一个或多个GestureRecognizer来识别各种手势的，而GestureRecognizer的作用就是通过Listener来将原始指针事件转换为语义手势，GestureDetector直接可以接收一个子widget。GestureRecognizer是一个抽象类，一种手势的识别器对应一个GestureRecognizer的子类。
+
+GestureDetector：GestureDetector是一个用于手势识别的功能性组件，我们通过它可以来识别各种手势。
+  onTap: 点击
+  onDoubleTap: 双击
+  onLongPress: 长按
+  注意： 当同时监听onTap和onDoubleTap事件时，当用户触发tap事件时，会有200毫秒左右的延时，这是因为当用户点击完之后很可能会再次点击以触发双击事件，所以GestureDetector会等一段时间来确定是否为双击事件。如果用户只监听了onTap（没有监听onDoubleTap）事件时，则没有延时。
+  onPanDown:手指按下时会触发此回调，DragDownDetails
+  onPanUpdate:手指滑动时会触发此回调，DragUpdateDetails 
+  onPanEnd:滑动结束，DragEndDetails
+  onVerticalDragUpdate:垂直方向拖动事件，DragUpdateDetails
+  onHorizontalDragUpdate:水平方向拖动事件，DragUpdateDetails
+  onScaleUpdate:缩放事件，ScaleUpdateDetails
+
+GestureRecognizer：
+import 'package:flutter/gestures.dart';
+包中的TapGestureRecognizer
+注意：使用GestureRecognizer后一定要调用其dispose()方法来释放资源（主要是取消内部的计时器）。
+
+手势竞争:以拖动手势为例，同时识别水平和垂直方向的拖动手势，当用户按下手指时就会触发竞争（水平方向和垂直方向），一旦某个方向“获胜”，则直到当次拖动手势结束都会沿着该方向移动。
+每次拖动只会沿一个方向移动（水平或垂直），而竞争发生在手指按下后首次移动（move）时，此例中具体的“获胜”条件是：首次移动时的位移在水平和垂直方向上的分量大的一个获胜。
+手势冲突：手势冲突只是手势级别的，而手势是对原始指针的语义化的识别，所以在遇到复杂的冲突场景时，都可以通过Listener直接识别原始指针事件来解决冲突。
+
+
+3.全局事件总线EventBus
+//定义一个top-level变量，页面引入该文件后可以直接使用bus
+var bus = new EventBus();
+
+void onLoginChanged(e){
+  //登录状态变化处理逻辑
+}
+
+@override
+void initState() {
+  //订阅登录状态改变事件
+  bus.on(Event.login, onLoginChanged);
+  //或者bus.on("login", onLoginChanged);
+  super.initState();
+}
+
+@override
+void dispose() {
+  //取消订阅
+  bus.off(Event.login, onLoginChanged);
+  //或者bus.off("login", onLoginChanged);
+  super.dispose();
+}
+
+定义事件：
+enum Event{
+  login,
+  ... //省略其它事件
+}
+// 登录状态改变后发布状态改变事件
+bus.emit(Event.login);
+//bus.emit("login");
+
+
+4.通知Notification
+通知（Notification）是Flutter中一个重要的机制，在widget树中，每一个节点都可以分发通知，通知会沿着当前节点向上传递，所有父节点都可以通过NotificationListener来监听通知。Flutter中将这种由子向父的传递通知的机制称为通知冒泡（Notification Bubbling）。通知冒泡和用户触摸事件冒泡是相似的，但有一点不同：通知冒泡可以中止，但用户触摸事件不行。
+
+NotificationListener：继承自StatelessWidget类。
+onNotification():回调返回了false，表示不阻止冒泡，所以父NotificationListener仍然会受到通知;如果将子NotificationListener的onNotification回调的返回值改为true，则父NotificationListener便不会再打印通知了，因为子NotificationListener已经终止通知冒泡了。
+
+通知：
+ScrollNotification
+SizeChangedLayoutNotification
+KeepAliveNotification
+LayoutChangedNotification
+
+Notification有一个dispatch(context)方法，它是用于分发通知的
+
+
+* 动画
+1.动画简介
+Animation、Curve、Controller、Tween
+
+CurvedAnimation
+AnimationController
+Ticker
+
+2.动画基本结构及状态监听
+
+AnimatedWidget
+AnimatedBuilder
+
+addListener()
+addStatusListener()
+
+3.自定义路由过渡动画
+PageRouteBuilder
+自定义路由及动画
+
+4.Hero动画
+Hero动画就是在路由切换时，有一个共享的widget可以在新旧路由间切换。
+
+5.交织动画(Stagger Animation)
+由一个动画序列或重叠的动画组成.
+注意以下几点：
+a.要创建交织动画，需要使用多个动画对象（Animation）。
+b.一个AnimationController控制所有的动画对象。
+c.给每一个动画对象指定时间间隔（Interval）
+
+6.通用"切换动画"组件（AnimatedSwitcher）
+AnimatedSwitcher：在一个子元素的新旧值之间切换。
+AnimatedCrossFade:针对两个子元素的切换
+
+自定义封装SlideTransitionX实现“出入滑动动画”
+
+7.动画过渡组件
+动画过渡组件：在Widget属性发生变化时会执行过渡动画的组件统称为”动画过渡组件“，而动画过渡组件最明显的一个特征就是它会在内部自管理AnimationController。
+
+自定义动画过渡组件：ImplicitlyAnimatedWidget和ImplicitlyAnimatedWidgetState
+动画过渡组件的反向动画：
+
+预置的动画过渡组件：
+AnimatedPadding	在padding发生变化时会执行过渡动画到新状态
+AnimatedPositioned	配合Stack一起使用，当定位状态发生变化时会执行过渡动画到新的状态。
+AnimatedOpacity	在透明度opacity发生变化时执行过渡动画到新状态
+AnimatedAlign	当alignment发生变化时会执行过渡动画到新的状态。
+AnimatedContainer	当Container属性发生变化时会执行过渡动画到新的状态。
+AnimatedDefaultTextStyle	当字体样式发生变化时，子组件中继承了该样式的文本组件会动态过渡到新样式。
+
+
+* 自定义组件
+1.组合现有组件
+GradientButton:自定义渐变按钮
+TurnBox：自定义选择子组件的组件
+
+2.自绘组件 （CustomPaint与Canvas）
+CustomPaint
+RepaintBoundary
+CustomPainter
+渐变圆形进度条 GradientCircularProgressIndicator
+
+
+* 文件操作与网络请求
+1.文件操作
+PathProvider插件
+
+shared_preferences包：数据持久化
+
+2.Http请求-HttpClient
+HttpClient
+HttpClientRequest
+HttpClientResponse
+
+Http请求认证
+代理
+证书校验
+
+3.Http请求-Dio http库
+dio是一个强大的Dart Http请求库，支持Restful API、FormData、拦截器、请求取消、Cookie管理、文件上传/下载、超时
+等。dio的使用方式随着其版本升级可能会发生变化，如果本节所述内容和dio官方有差异，请以dio官方文档为准。
+
+
+4. Dio Http分块下载
+
+5.WebSockets
+IOWebSocketChannel
+StreamSink
+
+6.使用Socket API
+
+7.Json转Dart Model类
+自动生成Model
+Json_model 包(插件)
+
+
+
+* 包与插件
+1.开发package
+处理包的相互依赖
+解决依赖冲突:
+a.在指定依赖关系时，程序包作者使用版本范围而不是特定版本。
+b.可以通过向hello包的pubspec.yaml文件中添加依赖性覆盖声明来处理冲突，从而强制使用特定版本：
+dependency_overrides:
+  url_launcher: '0.4.3'
+
+2.平台通道
+平台通道数据类型支持
+
+如何获取平台信息:defaultTargetPlatform、debugDefaultTargetPlatformOverride
+
+3.插件开发：Android端API实现
+
+4.插件开发：iOS端API实现
+
+5.Texture和PlatformView
+camera插件
+
+嵌套原生组件：AndroidView和UIKitView，AndroidView和UIKitView 是和具体平台相关的，所以称它们为PlatformView。
+嵌套webview
+
+
+* 国际化
+1.让App支持多语言:Material组件库如何支持国际化
+2.实现Localizations:自己的UI中如何支持多语言
+3.使用Intl包:使用Intl包我们不仅可以非常轻松的实现国际化，而且也可以将字符串文本分离成单独的文件，方便开发人员和翻译人员分工协作。
+intl.sh的脚本
+4.国际化常见问题
+默认语言区域不对
+如何对应用标题进行国际化
+如何为英语系的国家指定同一个locale
+
+
+* Flutter核心原理
+1.Flutter UI系统
+2.Element和BuildContext
+BuildContext就是widget对应的Element
+
+3.RenderObject和RenderBox
+布局、绘制、命中测试、语义化
+
+4.Flutter运行机制-从启动到显示
+启动、渲染、绘制
+WidgetsFlutterBinding：
+GestureBinding、ServicesBinding、SchedulerBinding、PaintingBinding、RendererBinding、WidgetsBinding
+
+5.图片加载原理与缓存
+Flutter框架对加载过的图片是有缓存的（内存），默认最大缓存数量是1000，最大缓存空间为100M。
+ImageProvider：子类NetworkImage类和AssetImage类
+ImageStreamCompleter：MultiFrameImageStreamCompleter 是 ImageStreamCompleter的一个子类
+NetworkImage：HttpClient参数传递
+
+Image组件原理：
+
+* 一个完整的Flutter应用
+
+
+
+
+
+
+
+
