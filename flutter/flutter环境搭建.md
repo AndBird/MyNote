@@ -1,9 +1,10 @@
 # Flutter开发环境搭建
 
-教程
-https://flutter-io.cn/docs/get-started/install/windows
+### [参考教程](https://flutter-io.cn/docs/get-started/install/windows)
 
-* 系统配置要求(教程中的步骤，待考究=>无需安装，如果命令行git下载flutter sdk或者下载app的依赖库则需要)
+### 搭建步骤
+* 1.系统配置要求(此步骤，待考究=>默认无需安装，如果通过命令行git下载flutter sdk或者下载app的依赖库则需要)
+```Java
 要想安装和运行 Flutter，你的开发环境至少应该满足如下的需求：
 操作系统：Windows 7 SP1 或更高的版本（64 位操作系统）。
 磁盘空间：除安装 IDE 和一些工具之外还应有至少 400 MB 的空间。
@@ -12,10 +13,10 @@ Windows PowerShell 5.0 或者更高的版本（Windows 10 中已经预装了）
 (地址https://docs.microsoft.com/zh-cn/powershell/scripting/install/installing-windows-powershell?view=powershell-6)
 Git for Windows 2.x，并且勾选从 Windows 命令提示符使用 Git 选项。
 如果 Windows 版的 Git 已经安装过了，那么请确保能从命令提示符或者 PowerShell 中直接执行 git 命令。
+```
 
-
-* 下载Flutter SDK
-
+* 2.下载Flutter SDK
+```Java
 1.下载最新版本 stable 的 Flutter SDK
 https://flutter.dev/docs/development/tools/sdk/releases
 
@@ -37,14 +38,21 @@ https://flutter.dev/docs/development/tools/sdk/releases
 (1)问题：License for package Android SDK Platform 27 not accepted.
 解决：flutter doctor --android-licenses
 
-* IDE
+```
+
+* 3.IDE
+```Java
 1.安卓Android Studio 3.0 或之后的版本
 2. 安装Flutter 和 Dart 插件
 打开 Android Studio->File>Settings>Preferences->Plugins
 ，选择 Browse repositories，然后选择 Flutter 插件并点击 安装。
 当弹出安装 Dart 插件提示时，点击 Yes。当弹出重新启动提示时，点击 Restart。
+```
 
-* 创建app
+
+* 4.创建app
+```Java
 1.打开 IDE，选择新 Flutter 项目 (Start a new Flutter project).
 2.选择 Flutter 应用程序 作为项目类型，然后点 下一步, 确认 Flutter SDK 路径 区域所示路径是正确的 SDK 路径。
 3.输入项目名称(比如 ‘myapp’), 然后点击下一步。点击 完成。
+```
