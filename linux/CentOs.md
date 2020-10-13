@@ -12,7 +12,7 @@
     在官网下载http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
     然后上传到linux中，并解压
     tar -xf jdk-8u151-linux-x64.tar.gz<br>
-  2. 配置环境变量
+  2. 配置环境变量(系统级)
     打开/etc/profile文件
     vim /etc/profile
   
@@ -24,6 +24,13 @@
              
     配置完成之后，最重要的一步就是使文件立即生效<br>
     source /etc/profile
+	
+	
+	注意:如果是用户下配置jdk,比如/home/user1/jvm/jdk_xxxx,环境变量在/home/user1/.profile文件设置，如下:
+	export JAVA_HOME=/home/user1/jvm/jdk1.7.0_79
+    export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/ 
+    export PATH=$PATH:$JAVA_HOME/bin
+	
 ```  
   
 * tomcat安装
