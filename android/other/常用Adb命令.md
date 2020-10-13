@@ -160,6 +160,20 @@ sendevent /dev/input/event0 0 0 0
 sendevent /dev/input/event0 1 158 0
 sendevent /dev/input/event0 0 0 0 
 
+//input 按键值
+final int key_back_value = 158;//0x9e
+final int key_up_value = 103;  //0x67
+final int key_left_value = 105; //0x69
+final int key_right_value = 106; //0x6a
+final int key_down_value = 108;//0x6c
+final int key_ok_value = 232;//0xe8
+final int key_volumedown_value = 114; //0x72
+final int key_volumeup_value = 115;//0x73
+final int key_home_value = 102; // 0x66  
+final int key_menu_value = 139; //0x8b
+final int key_power_value = 116;//0x74
+//(0x6b 107 key_END)   (0xd3 211 key_HP)   (0xd4 212 KEY_CAMERA)  (0xe7 231 key_send(电话本)) (0xe8 232 key_center)
+
 ```
 	
 ## 8.截屏相关
