@@ -19,7 +19,7 @@
     加入下面内容
     JAVA_HOME=/usr/lib/jvm/javajdk
     PATH=$JAVA_HOME/bin:$PATH
-    CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
+    CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
     export PATH JAVA_HOME CLASSPATH
              
     配置完成之后，最重要的一步就是使文件立即生效<br>
@@ -27,9 +27,10 @@
 	
 	
 	注意:如果是用户下配置jdk,比如/home/user1/jvm/jdk_xxxx,环境变量在/home/user1/.profile文件设置，如下:
-	export JAVA_HOME=/home/user1/jvm/jdk1.7.0_79
-    export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/ 
-    export PATH=$PATH:$JAVA_HOME/bin
+	export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_79
+    export PATH=$JAVA_HOME/bin:$PATH
+    export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+
 	
 ```  
   
