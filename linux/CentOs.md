@@ -17,7 +17,7 @@
     vim /etc/profile
   
     加入下面内容
-    JAVA_HOME=/usr/local/kencery/javajdk
+    JAVA_HOME=/usr/lib/jvm/javajdk
     PATH=$JAVA_HOME/bin:$PATH
     CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
     export PATH JAVA_HOME CLASSPATH

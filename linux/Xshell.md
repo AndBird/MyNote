@@ -30,6 +30,7 @@ scp /home/space/music/1.mp3 www.runoob.com:/home/root/others/music/001.mp3
 scp root@www.runoob.com:/home/root/others/music /home/space/music/1.mp3 
 scp -r www.runoob.com:/home/root/others/ /home/space/music/
 
+-r 文件夹
 
   
 
