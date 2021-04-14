@@ -15,6 +15,7 @@
     * [计算ListView的高度](https://github.com/AndBird/MyNote/blob/master/android/view/计算ListView的高度.md)
   * [NotificationManager](https://github.com/AndBird/MyNote/blob/master/android/view/NotificationManager.md)
   * [ProgressBar](https://github.com/AndBird/MyNote/blob/master/android/view/ProgressBar.md)
+  * [RatingBar](https://github.com/AndBird/MyNote/blob/master/android/view/RatingBar.md)
   * [ScrollView](https://github.com/AndBird/MyNote/blob/master/android/view/ScrollView.md)
     * [ScrollStateScrollView](https://github.com/AndBird/MyNote/blob/master/android/view/ScrollStateScrollView.java)
     * [ScrollView起始位置不置顶](https://github.com/AndBird/MyNote/blob/master/android/view/ScrollView起始位置不置顶.md)
