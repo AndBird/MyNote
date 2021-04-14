@@ -1,6 +1,6 @@
 # ProgressBar
 
-* ะวะวด๓ะก
+* ๆๆๅคงๅฐ
 ```
 <RatingBar
 	android:id="@+id/ratingBar"
