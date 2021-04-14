@@ -15,6 +15,8 @@
      adb shell "logcat | grep com.包名"                         
      //把信息存放到D盘目录下的1.txt文件，方便后续查看
      adb logcat > D:/1.txt
+	 //把日志时间和日志都保存
+	 adb -s 192.168.*.* logcat -v time | grep xxx  > ./1.txt
      //要显示包含FilterStr的字符串
      adb logcat | find "FilterStr"   
      //清除log缓存：
