@@ -135,6 +135,15 @@ adb shell mv path/file newpath/file
 adb shell chmod 777 /system/fonts/DroidSansFallback.ttf
 //让apk变成可以安装的
 chmod 644 /system/app/test.apk
+
+//修改文件|目录的拥有者(可用安装应用的uid)
+chown [选项]... [所有者][:组] 文件
+chown 用户名 目录名|文件名
+//递归修改文件|目录的组
+chgrp -R 组名 文件名|目录名
+//递归修改文件权限(-R 处理指定目录以及其子目录下的所有文件)
+chmod -R 755 文件名|目录名
+
 //新建文件夹：
 adb shell mkdir path/foldelname
 //查看文件内容：
