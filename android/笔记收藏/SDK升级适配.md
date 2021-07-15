@@ -442,4 +442,21 @@ public String getProcessName(Context context) {
 
 ```
 
+## 升级10.0(sdk 29  Q)
+* 分区存储
+```
+当满足以下每个条件时，将开启兼容模式，即不开启Q设备中的存储权限改动：
+应用targetSDK<=P。
+应用安装在从 Android P 升级到 Android Q 的设备上。
+但是当应用重新安装(更新)时，不会重新开启兼容模式，存储权限改动将生效.
+
+最简单粗暴的方法就是在AndroidManifest.xml中添加 android:requestLegacyExternalStorage="true"来请求使用旧的存储模式
+
+ <application
+	android:name="com.lgh5.web.MyApplication"
+	.......
+	android:requestLegacyExternalStorage="true">
+
+```
+
 
