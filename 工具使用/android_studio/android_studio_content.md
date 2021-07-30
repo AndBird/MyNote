@@ -4,3 +4,6 @@
   * [在手机上运行Java程序](https://github.com/AndBird/MyNote/blob/master/工具使用/android_studio/在手机上运行Java程序.md)
   
   
+* [其他](https://github.com/AndBird/MyNote/blob/master/工具使用/android_studio/其它.md)
+  
+  
