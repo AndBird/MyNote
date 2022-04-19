@@ -222,6 +222,8 @@ adb shell getprop 属性名
 adb shell getprop ro.product.model
 //查看安卓系统版本
 adb shell getprop ro.build.version.release
+//查看手机cpu 64位还是32位
+adb shell getprop ro.product.cpu.abi
 //android id
 adb shell settings get secure android_id
 //屏幕密度（wm命令,模拟器测试通过,可修改分辨率和密度进行适配）
