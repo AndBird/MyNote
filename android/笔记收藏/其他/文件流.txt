@@ -1,0 +1,41 @@
+1、Windows的路径分隔符使用反斜杠（\）,由于转义，需用双反斜杠（\\）,或者使用File.separator
+2、节点流：InputStream/Rreader，OutputStream/Writer,抽象类；FileOutputStream
+           ，FileInputStream， FileReader
+   处理流：只要流的构造器参数不是一个物理节点，而是已经存在的流，那么这种流就一定是处理流。所有的节点流都           是直接以物理IO节点作为构造器参数的。
+   输入流read(char[] buf)或read(byte[] b)方法返回-1时即表明到了输入流的结束点。
+3、标准输出System.out 的类型就是PrintStream ,PrintStream的输出功能非常强大。
+4、当使用处理流来包装底层节点流之后，关闭输入/输出流资源时，只要关闭最上层的处理流即可。关闭最上层的处理流   时，系统会自动关闭被处理流包装的节点流。
+FileOutputStream fos； PrintStream ps = new PrintStream（fos）
+关闭ps流即可
+4、流转换:System.in代表标准输入，即键盘输入，但这个标准输入流是InputStream类的实例，使用不太方便，而且我们         知道键盘输入内容都是文本内容，所以我们可以使用InputStramReader将其转化成字符输入流，普通Reader读取        输入内容时依然不太方便，我们可以将普通Reader再次包装成BufferedReader，利用BufferedReader的readLine        方法可以一次读取一行内容。
+     //将System.in对象转换成Reader对象
+      InputStreamReader reader = new InputStreamReader(System.in);
+     //将普通readeer包装成BufferedReader
+     BufferedReader br = new BufferedReader(reader);
+     String buffer = null;
+     while((buffer = br.readLine()) != null){
+      }
+
+5、字节流比字符流的使用范围广，但字符流比字节流操作方便，故只有将字节流转换成字节流，反之则无。
+6、重定向标准输入/输出:Java的标准输入/输出分别通过System.in和System.out来代表，默认情况下他们分别代表键盘   和显示器。System类里提供了三个重定向标准输入/输出的方法。
+7、Java虚拟机读写其他进程的数据：
+  Runtime对象的exec方法可以运行平台上的其他程序，该放噶产生一个Process对象，Process对象代表由该java程序启  动的子进程。
+  Process的getOutputStream方法获取向进程输入数据的流（该流对Java程序是输出流，对子进程则是输入流）。
+  getIntputStream对java程序是输入流，对子进程则是输出流。
+8、Scanner sc = new Scanner(System.in);
+   sc.userDelimiter("\n");//只把回车作为分隔符，Scanner使用默认的空白（空格和Tab空白）作为分隔符。
+9、RandomAccessFile(任意访问):
+10、File的createTempFile(文件名，读写权限)方法创建的临时文件（该临时文件将在JVM）退出时被删除。
+11、对象序列化:
+    （1）如Teacher类持有一个Person类的引用，则只有当Person类是可序列化，Teacher 类才是可序列化的。
+    （2）当使用Java序列化机制序列化对象时，只有当第一次调用writeObject方法来输出对象时才会将对象转换成字节序列，并写出到ObjectOutputStream,在后面程序中如果该对象的属性发生了改变，即再次调用writeObject方法输出该对象时，改变后的属性不会被输出。
+     (3)递归序列化:当对某个对象进行序列化时，系统会自动把该对象的所有属性依次进行序列化，如果某个属性引用到另一个对象，则被引用的对象也会被序列化。如果被引用的对象的属性也引用了其他对象，则被引用的对象也会被序列化，这种被称为递归序列化。
+      自定义序列化
+     （4）如果不希望序列化某个属性或某个属性是不可序列化的（不希望对该属性进行递归序列化），则在属性前面加上transient关键字。
+     （5）序列化版本
+12、java 新IO（从JDK1.4开始）
+    当BufferedReader读取输入流中的数据时，如果没有读取到有效数据时，程序将在此处阻塞该线程的执行（使用InputStream的read方法从流中读取数据时，如果数据源中没有数据，它也会阻塞该线程），也就是前面介绍的输入、输出流都是阻塞式的输入、输出。
+13、编码集和Charset
+   （1）Charset里提供了一个availableCharsets()静态方法来获取当前JDK所支持的所有字符集。
+14、文件锁
+   早期的JDK版本并未提供文件锁的支持，从JDK1.4的新IO开始，Java开始提供文件锁的支持。

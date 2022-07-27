@@ -1,0 +1,67 @@
+   
+ 1、FrameLayout顶层为Button，Button设置了selector背景效果,Button不设置点击监听
+ 结果FrameLayout及Button下的其它view设置selector和点击事件监听，都不会有效果(
+ selector无效和事件响应无效)，只有Button有点击效果.即使对Button设置setEnable和焦点处理依然无效。
+   <FrameLayout  android:layout_width="50dp"
+                          android:layout_height="25dp"
+                          android:layout_alignParentTop="true"
+                          android:layout_marginTop="20dp"
+                          android:layout_marginLeft="7dp"
+                          android:layout_alignParentRight="true"
+                          android:layout_marginRight="12.5dp"
+                          android:id="@+id/download_lay">
+
+
+                <ProgressBar
+                        android:id="@+id/download_progress"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:progressDrawable="@drawable/downloading_progress_bg"
+                        android:visibility="invisible"/>
+
+                <!--此处不能用Button，否则ProgressBar没点击效果且Fragment点击事件不响应-->
+                <Button
+                        android:id="@+id/download"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="下载"
+                        android:textSize="@dimen/font_size_6"
+                        android:background="@drawable/listview_download_bg"/>
+            </FrameLayout>
+   
+将其改为:     
+  <FrameLayout  android:layout_width="50dp"
+                          android:layout_height="25dp"
+                          android:layout_alignParentTop="true"
+                          android:layout_marginTop="20dp"
+                          android:layout_marginLeft="7dp"
+                          android:layout_alignParentRight="true"
+                          android:layout_marginRight="12.5dp"
+                          android:id="@+id/download_lay">
+
+
+                <ProgressBar
+                        android:id="@+id/download_progress"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:progressDrawable="@drawable/downloading_progress_bg"
+                        android:visibility="invisible"/>
+
+                <!--此处不能用Button，否则ProgressBar没点击效果且Fragment点击事件不响应-->
+                <TextView
+                        android:id="@+id/download"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="下载"
+                        android:textSize="@dimen/font_size_6"
+                        android:background="@drawable/listview_download_bg"/>
+            </FrameLayout>
+，修改后，对FrameLayout设置点击事件监听有效，进度条设置点击效果有效。原因待查。
+
+2、将FrameLayout换成RelativeLayout，RelativeLayout与FrameLayout一样的效果

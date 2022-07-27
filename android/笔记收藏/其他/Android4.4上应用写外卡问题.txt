@@ -1,0 +1,103 @@
+Android4.4上应用写外卡问题
+1.Environment.getExternalStorageDirectory() 的使用
+(1)Environment.getExternalStorageDirectory()在部分手机中获取到的是内部存储路径,而不是sd卡路径，如三星手机等
+(2).如果系统设置了优先存储在内置存储中，那么Environment.getExternalStorageDirectory()获取到的也是内部存储路径
+(3)Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)在没有sd的部分手机(Environment.getExternalStorageDirectory()指向内部路径时)上也返回true
+ //此方法不知是否可行，没有大量手机测试
+ public static boolean externalMemoryAvailable(final Context context) {
+         File[] list = context.getExternalCacheDirs();
+         boolean hasSd = list != null && list.length > 1;
+    	return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) && hasSd;
+}
+
+那么如何正确获取手机存储位置路径呢，这里附上链接:
+http://blog.fidroid.com/post/android/ru-he-zheng-que-huo-de-androidnei-wai-sdqia-lu-jing
+http://www.cnblogs.com/bluestorm/p/3694921.html(/storage/sdcard， /sdcard， /mnt/sdcard 三者的区别)
+http://www.cnblogs.com/yejiurui/p/3421314.html(android中的目录结构介绍)
+
+2.在sd卡根目录下创建目录(部分手机)失败
+ 因为在 Android4.4新版本中，Google针对外卡写权限增加了CTS用例，对外卡的写操作增加了限制，由此导致部分开发者的应用可能存在外卡写权限兼容性问题。
+Android4.4对外卡的写操作进行增加了如下两条限制：
+一、通过用户态文件系统fuse对外卡的写权限进行了限制；
+  1、用户只能在外卡Android/data/<package-name>/目录下进行写操作。
+  2、拥有WRITE_MEDIA_STORAGE权限（仅特权用户才能申请这个权
+  限）的用户才能对整个外卡进行写操作。
+二、Android4.4的MediaProvider不允许对外卡进行任何写操作。 
+
+注意:随着应用的卸载，Android/data/<package-name>/目录也会被删除
+
+参考:
+http://developer.huawei.com/devunion/ui/newsDetail.html?news=/devunion/news/n_00033.html
+http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1027/1849.html(Android 外部存储权限分析)
+https://developer.android.com/training/articles/scoped-directory-access.html
+
+3.在sd卡的Android/data/<package-name>/目录下mkdirs()失败(部分手机)
+本人经过多次尝试，终于成功了，做法是:
+(1)mContext.getExternalFilesDir(null).getAbsolutePath();//要先执行该方法，后面才能创建目录，否则失败
+个人猜测是新建了Android/data/<package-name>/目录
+(2)然后再调用mkdirs()
+
+4.getExternalFilesDir(null)及getExternalFilesDirs(null)
+getExternalFilesDir(null)返回的是SdCard/Android/data/应用包名/files或者内置存储路径/Android/data/应用包名/files
+getExternalFilesDirs(null)返回的是内置和sd卡的/Android/data/应用包名/files
+
+测试:
+  private void getDir(){
+    	Context context = getApplicationContext();
+    	Log.e(TAG, "getCacheDir():" + context.getCacheDir().getAbsolutePath());
+    	Log.e(TAG, "getExternalCacheDir():" + context.getExternalCacheDir().getAbsolutePath());
+    	print("getExternalCacheDirs():", context.getExternalCacheDirs());
+    	Log.e(TAG, "getFilesDir:" + context.getFilesDir().getAbsolutePath());
+    	Log.e(TAG, "getExternalFilesDir(null):" + context.getExternalFilesDir(null).getAbsolutePath());
+    	print("getExternalFilesDirs(null):", context.getExternalFilesDirs(null));
+    	
+    	Log.e(TAG, "getObbDir:" + context.getObbDir().getAbsolutePath());
+    	print("getObbDirs():", context.getObbDirs());
+    	
+    	Log.e(TAG, "Environment.getDataDirectory():" + Environment.getDataDirectory());
+    	Log.e(TAG, "Environment.getDownloadCacheDirectory():" + Environment.getDownloadCacheDirectory());
+    	Log.e(TAG, "Environment.getRootDirectory():" + Environment.getRootDirectory());
+    }
+    
+    private void print(String tag, File[] list){
+    	if(list == null){
+    		Log.e(TAG, tag + "null or list.length == 0");
+    	}else{
+    		int i = 0;
+    		for(File f : list){
+    			if(f != null){
+	    			i++;
+	    			Log.e(TAG, tag + " " + i + " " + f.getAbsolutePath());
+    			}
+    		}
+    	}
+    }
+
+(1)有sd卡
+08-24 14:10:23.666: E/DirDemo(26722): getCacheDir():/data/data/应用包名/cache
+08-24 14:10:23.666: E/DirDemo(26722): getExternalCacheDir():/storage/emulated/0/Android/data/应用包名/cache
+08-24 14:10:23.666: E/DirDemo(26722): getExternalCacheDirs(): 1 /storage/emulated/0/Android/data/应用包名/cache(内部存储)
+08-24 14:10:23.666: E/DirDemo(26722): getExternalCacheDirs(): 2 /storage/sdcard1/Android/data/应用包名/cache
+08-24 14:10:23.666: E/DirDemo(26722): getFilesDir:/data/data/应用包名/files
+08-24 14:10:23.666: E/DirDemo(26722): getExternalFilesDir(null):/storage/emulated/0/Android/data/应用包名/files
+08-24 14:10:23.667: E/DirDemo(26722): getExternalFilesDirs(null): 1 /storage/emulated/0/Android/data/应用包名/files
+08-24 14:10:23.667: E/DirDemo(26722): getExternalFilesDirs(null): 2 /storage/sdcard1/Android/data/应用包名/files
+08-24 14:10:23.667: E/DirDemo(26722): getObbDir:/storage/emulated/0/Android/obb/应用包名
+08-24 14:10:23.667: E/DirDemo(26722): getObbDirs(): 1 /storage/emulated/0/Android/obb/应用包名
+08-24 14:10:23.667: E/DirDemo(26722): getObbDirs(): 2 /storage/sdcard1/Android/obb/应用包名
+08-24 14:10:23.667: E/DirDemo(26722): Environment.getDataDirectory():/data
+08-24 14:10:23.667: E/DirDemo(26722): Environment.getDownloadCacheDirectory():/cache
+08-24 14:10:23.667: E/DirDemo(26722): Environment.getRootDirectory():/system
+
+(2)无sd卡
+08-24 14:22:39.862: E/DirDemo(6457): getCacheDir():/data/data/应用包名/cache
+08-24 14:22:39.873: E/DirDemo(6457): getExternalCacheDir():/storage/emulated/0/Android/data/应用包名/cache
+08-24 14:22:39.881: E/DirDemo(6457): getExternalCacheDirs(): 1 /storage/emulated/0/Android/data/应用包名/cache
+08-24 14:22:39.882: E/DirDemo(6457): getFilesDir:/data/data/应用包名/files
+08-24 14:22:39.890: E/DirDemo(6457): getExternalFilesDir(null):/storage/emulated/0/Android/data/应用包名/files
+08-24 14:22:39.895: E/DirDemo(6457): getExternalFilesDirs(null): 1 /storage/emulated/0/Android/data/应用包名/files
+08-24 14:22:39.903: E/DirDemo(6457): getObbDir:/storage/emulated/0/Android/obb/应用包名
+08-24 14:22:39.907: E/DirDemo(6457): getObbDirs(): 1 /storage/emulated/0/Android/obb/应用包名
+08-24 14:22:39.907: E/DirDemo(6457): Environment.getDataDirectory():/data
+08-24 14:22:39.907: E/DirDemo(6457): Environment.getDownloadCacheDirectory():/cache
+08-24 14:22:39.907: E/DirDemo(6457): Environment.getRootDirectory():/system

@@ -1,0 +1,148 @@
+webroot下web_INF下lib中导入jdbc
+
+时间插件（时间基准）
+
+数据库设计时int最多存10位，学号电话等不进行 运算时存为nchar
+
+用户表user写SQl语句时用[dbo].[user]，其他表可以不写
+
+密码为什么用nchar存储验证时，equal2（）函数验证时字符串不相等，数据库中字符串最好用varchar，char也行
+1、如果n表示Unicode字符集，一个汉字或字符占2个字节
+2、nchar位数不足时用空格补满，varchar不补满
+
+nchar类型字符串比较大小,String的str1与nchar（10）的sex比较：
+int i=0;
+String sex=stu.getSex();String sex1="";
+        while(sex.charAt(i)!=32)
+        {
+        sex1=sex1+sex.charAt(i);
+        i++;}
+       if(sex1.equals(str))//比较大小
+
+
+
+网页传参
+1、相邻2网页（或网页到servlet） request
+收：String loginName =request.getParameter("loginname");
+2、多网页（1网页到3网页）session
+servlet传：
+HttpSession session = request.getSession();//创建session
+session.setAttribute("loginname",loginName);
+
+
+session传多个网页可以收，经过servlet后再传到别的网页依然可以用，但是必须用session获取。
+session从servlet传出经网页到servlet依然可以用
+
+
+1网页用session传参到2网页，然后2网页跳转到servlet，然后到2网页（传一个相同的参）：
+网页没有session传参，用session接收不到，接收的为null
+2网页接收： String k=request.getParameter("k"); //接收1.jsp传来的k
+   if(k==null)
+       k=(String)session.getAttribute("k");//接收servlet传来的k
+   session.setAttribute("k",k);//向servlet传
+注：servlet传参最好用session，作用域大
+
+servlet中用request.setAttribute("stu",stuinfo)//可以直接传送学生对象，但是只能用${ stu.name}等获取，
+用StudentInfo stu =(StudentInfo)request.getgetParameter("stu");获取对象错误，因为2个request是不同的，获取不到值，同下
+
+servlet传：request.setAttribute("loginname", loginName);
+网页收：String loginName =(String)request.getParameter("loginname");//错误
+String loginName =(String)request.getAttribute("loginname");//错误，此2种方法无法获取，因为request作用域不同
+
+
+
+servlet传：request.setAttribute("loginname", loginName);
+网页收：String loginName =(String)request.getParameter("loginname");
+
+网页结构改变
+可以在超链接中指定 target属性，如果指定为_top，则是整个页面，也可以指定某个frame 。
+默认的几种值有：
+_self：当前frame（或者当前部分）
+_blank：打开新的一个窗口
+_parent：当前模块的上级模块
+_top：当前整个页面
+
+
+
+target="_top"//从top到整个网页
+target="mainFrame" //链接后再main中显示
+
+设置字体颜色
+<font color="red">${name} </font>
+<table border="1" bordercolor="#3300FF" cellspacing="0" >//设置线条颜色
+
+对话框
+JOptionPane.showMessageDialog(null, "学生添加成功！", "添加",JOptionPane.PLAIN_MESSAGE);
+ //JOptionPane.showMessageDialog(null, "修改成功!");
+
+//int k=JOptionPane.showConfirmDialog(null, "跳转到学生个人信息", "修改提示对话框", JOptionPane.YES_NO_OPTION);
+				//返回值为0（是）和1（否）
+				
+				JOptionPane jOptionPane = new JOptionPane();
+				Object[] options = {"确定","取消","帮助"};
+				int k=JOptionPane.showOptionDialog(null, "请选择", "提示对话框标题",JOptionPane.YES_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+				if(k==0)
+				{ 
+				}
+				else if(k==1)
+				{ 
+				}
+				else if(k==2)
+				{ 
+				}
+
+
+
+
+
+
+
+
+servlet中js代码，从mian框架到_top：
+ //创建网页
+					      PrintWriter out = response.getWriter();
+					      out.println("<html>");  
+					      out.println("<script type='text/javascript'>");  
+					      out.println("window.open ('login.jsp','_top')");  //在当前网页整个显示
+					      out.println("</script>");  
+					      out.println("</html>");}
+
+
+
+
+
+
+1、删除学生时要删除注册
+2、学生删除后，由于学号的缘故将导致不能再添加学生
+
+
+如何用javaScript到servlet？
+
+
+对于单个的按钮到servlet可以用form表单将其括起来
+servlet可带参数
+
+
+3、对象的创建问题？？
+	TeacherInfo tea=null;//创建并初始化，不初始化（也不实例化）不能使用
+ tea=new TeacherInfo();//对象实例化，此时不再为null，否则程序出错
+		    
+4、管理处修改删除标记（session）？？？？
+
+
+5、查询
+select * from course where cno=(select cno from sc where sno=?)//只能查询一条，有多条时报错
+select * from course where cno in(select cno from sc where sno=?)//查找多条
+select * from course ,sc where course.cno=sc.cno and sno=?//查找多条
+
+
+
+ <td><input id="tno" type="text" name="tno" value="<%=tea.getTno() %>" style="visibility:hidden" width="0px"><%=tea.getTname()%></td>
+6、
+ArrayList  list=new ArrayList();
+StuScFenYe s=new StuScFenYe();//此句要在for内
+ list.add(s);
+
+
+
+String score[] = request.getParameterValues("score");//批量数据获取

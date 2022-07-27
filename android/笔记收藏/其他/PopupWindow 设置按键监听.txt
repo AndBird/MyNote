@@ -1,0 +1,31 @@
+1、自定以的View的PopupWindow的时候，如果new的时候设置了可以获取到焦点
+popWindow = new PopupWindow(popView, 800, 700, true);
+，那么当PopupWindow显示后，Activity里的OnkeyDown事件是不可触发的，这样会导致PopupWindow对返回键没响应。故对按键的监听需设置在PopupWindow上的布局上
+2、在手机上可用如下方法解决:
+修改的地方就是在popupWindow的主View 上，我这里变量为View popView，设置一个参数，如下
+popView.setFocusableInTouchMode(true);
+这样就可以添加popupWindow的按键监听事件了，如下：
+popView.setOnKeyListener(new OnKeyListener() {
+
+@Override
+
+public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+// TODO Auto-generated method stub
+
+if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+
+return true;
+
+}
+
+return false;
+
+}
+
+});
+
+3、但是对于在电视，如果在PopupWindow显示时强制设置了焦点的位置，那么需对焦点所在view设置OnKeyLinstener事件，对opuoWindow的布局其它布局设置监听事件不起作用。此时对焦点所在view不需设置popView.setFocusableInTouchMode(true);能起作用。
+
+
+解释:OnKeyListener是对手机键盘进行监听的接口，通过对某个View注册该监听，当View获得焦点并有键盘事件时，便会触发该接口中的回调方法。

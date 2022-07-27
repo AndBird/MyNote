@@ -1,0 +1,82 @@
+安卓图片decodeResource
+
+1.获取手机屏幕密度
+DisplayMetrics dc = getResources().getDisplayMetrics();
+textView.setText("屏幕属性:\ndensity=" + dc.density + " ,densityDpi=" + dc.densityDpi + " ,xdpi=" + dc.xdpi + " ,ydpi=" + dc.ydpi + " ,size=" + dc.widthPixels + "*" + dc.heightPixels);
+
+2.解析图片的真实尺寸
+final BitmapFactory.Options options = new BitmapFactory.Options();
+options.inJustDecodeBounds = true;//第一次解析将inJustDecodeBounds设置为true，来获取图片大小
+BitmapFactory.decodeResource(getResources(), res_id, options);
+int realWidth = options.outWidth;
+int realHeight = options.outHeight;
+
+3.图片显示或者BitmapFactory.decodeResource解析图片时的缩放比
+缩放比例=屏幕的真实密度(densityDpi)/资源文件所在的文件的属性density
+
+4.加载大图片
+final BitmapFactory.Options options = new BitmapFactory.Options();
+options.inJustDecodeBounds = true;//第一次解析将inJustDecodeBounds设置为true，来获取图片大小
+BitmapFactory.decodeResource(getResources(), res_id, options);
+// 调用上面定义的方法计算inSampleSize值
+int scale = calculateInSampleSize(options, imageView.getWidth(), imageView.getHeight());
+if(scale <= 0){
+//要注意的是，inSampleSize 可能小于0，必须做判断
+	scale = 1;
+}
+//inSampleSize = 2，则取出的缩略图的宽和高都是原始图片的1/2，图片大小就为原始大小的1/4。
+options.inSampleSize = scale;
+// 使用获取到的inSampleSize值再次解析图片
+options.inJustDecodeBounds = false;
+options.inPreferredConfig = Bitmap.Config.RGB_565; //减少内存消耗
+Bitmap bitmap = BitmapFactory.decodeResource(getResources(), res_id, options);
+
+
+
+/**
+ * 计算inSampleSize，用于压缩图片
+ *
+ * @param options
+ * @param reqWidth
+ * @param reqHeight
+ * @return
+ */
+public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+	// 源图片的宽度
+	int width = options.outWidth;
+	int height = options.outHeight;
+	int inSampleSize = 1;
+
+	// int min = Math.min(width, height);
+	// int maxReq = Math.max(reqWidth, reqHeight);
+
+	// if(min > maxReq) {
+	//     inSampleSize = Math.round((float) min / (float) maxReq);
+	// }
+	
+	Log.e(TAG, "sampleSize  w * h=" + width + "*" + height);
+	// 通过之前的计算方法，在加载类似400*4000这种长图时会内存溢出
+	if (width > reqWidth || height > reqHeight){
+		int widthRadio = Math.round(width * 1.0f / reqWidth);
+		int heightRadio = Math.round(height * 1.0f / reqHeight);
+
+		inSampleSize = Math.max(widthRadio, heightRadio);
+	}
+	Log.e(TAG, "sampleSize =" + inSampleSize);
+	return inSampleSize;
+}
+
+5.加载不同dpi下的图片不缩放
+/*解析图片，让图片在不同密度的手机上不会被缩放*/
+private Bitmap decodeResourceNoScale(Resources resources, int res_id) {
+  TypedValue value = new TypedValue();
+  resources.openRawResource(res_id, value);
+  BitmapFactory.Options opts = new BitmapFactory.Options();
+  opts.inTargetDensity = value.density;
+  return BitmapFactory.decodeResource(resources, res_id, opts);
+}
+
+
+加载大图片，防止溢出:
+http://blog.csdn.net/bigconvience/article/details/27054639
+http://blog.csdn.net/sjf0115/article/details/7366746

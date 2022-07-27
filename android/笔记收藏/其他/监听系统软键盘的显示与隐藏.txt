@@ -1,0 +1,45 @@
+监听系统软键盘的显示与隐藏
+
+关于监听软键盘的显示与隐藏，本人在网上看到这样的方法:自定义view，并重写onSizeChanged()方法,在onSizeChanged(int w, int h,int oldw,int oldh) 方法里监
+听界面大小的变化来判断软键盘的弹出问题。
+但是如果不想多一个文件，又不想自定义view呢？
+下面是本人的实现:
+在我们的应用中弹出输入法的目的是想在EditText中输入内容，现在本人就通过EditText来实现监听软件盘的显示与隐藏：
+
+
+ private boolean softInputIsHide = true;  //输入法是否在显示
+ private int editPosY = -1; //记录edit在屏幕的初始的位置Y
+	
+	
+	    //下面2个监听用户监听输入法是否弹出
+		    edit.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+				@Override
+				public void onGlobalLayout() {
+					int[] location = new int[2];
+					edit.getLocationOnScreen(location);
+					editPosY = location[1];//保存edit在屏幕的初始Y位置
+					//DebugUtils.printInfo(TAG, "addOnGlobalLayoutListener edit pos:[" + location[0] + "," + location[1] + "]");
+					edit.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+				}
+			});
+		    
+		    edit.getViewTreeObserver().addOnPreDrawListener(new OnPreDrawListener() {
+				@Override
+				public boolean onPreDraw() {
+					// TODO Auto-generated method stub
+					int[] location = new int[2];
+					edit.getLocationOnScreen(location);
+					//DebugUtils.printInfo(TAG, "addOnPreDrawListener dh=" + location[1]);
+					if(editPosY == location[1]){
+						softInputIsHide = true;
+					}else{
+						softInputIsHide = false;
+					}
+					return true;
+				}
+			});
+
+
+在本方法中是用来监听当点击EditText时弹出软键盘的(对于页面跳转直接弹出软件盘未做测试)，当然AndroidManifest.xml中activity的android:windowSoftInputMode的部分情形可能对本方法有影响(未测试所有情形)。
+注：stateHidden|adjustResize|adjustPan等测试过可行
+有事请加：四八三四一九一五三

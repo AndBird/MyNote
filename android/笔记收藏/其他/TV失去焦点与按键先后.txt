@@ -1,0 +1,62 @@
+1、通过按键控制焦点变化，控件上焦点的失去是在按键down事件触发之后才触发的，故如果需强制转换焦点，那么需要在onkeydown事件中强制转换。
+顺序:
+onkeydown ----->  失去焦点 -----> 其他控件获取到焦点 ------>  onkeyup
+
+2、在onkeydown中处理了焦点问题后要返回true，否则系统会再次移动焦点位置，对没处理的就不能返回true。
+@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		try {
+			switch(keyCode){
+			case KeyEvent.KEYCODE_DPAD_UP:
+				//Toast.makeText(MainActivity.this, "上键", Toast.LENGTH_SHORT).show();
+				View rootview = this.getWindow().getDecorView();
+				View currFocus = rootview.findFocus();
+				LinearLayout p = (LinearLayout)currFocus.getParent();
+				int pId = p.getId();
+				int cId = currFocus.getId();
+		
+				if(cId == R.id.fiveview_left1 || pId == R.id.firstview_up){//第二个页面
+					headText[1].requestFocus();
+					return true;
+				}else if(cId == R.id.thirdview_left1 || pId == R.id.thirdview_up){//第三个页面
+					headText[2].requestFocus();
+					return true;
+				}else if(cId == R.id.fourview_left1 || pId == R.id.fourview_up){//第四个页面
+					Toast.makeText(MainActivity.this, "3获取焦点", Toast.LENGTH_SHORT).show();
+					headText[3].requestFocus();
+					return true;
+				}else if(cId == R.id.fiveview_left1 || pId == R.id.fiveview_up){//第五个页面
+					headText[4].requestFocus();
+					return true;
+				}else if(pId == R.id.manager_up){
+					headText[0].requestFocus();
+					return true;
+				}else if(pId == R.id.mainmenu){//焦点在菜单上
+					if(download.getVisibility() == View.VISIBLE){
+						download.requestFocus();
+						return true;
+					}
+				}
+				break;
+			case KeyEvent.KEYCODE_DPAD_DOWN:
+				Toast.makeText(MainActivity.this, "下键down", Toast.LENGTH_SHORT).show();
+				if(download.hasFocus()){
+					headText[curSelect].requestFocus();//焦点返回给原先的菜单
+					return true;
+				}
+				break;
+			case KeyEvent.KEYCODE_DPAD_LEFT:
+				//Toast.makeText(MainActivity.this, "左键", Toast.LENGTH_SHORT).show();
+				break;
+			case KeyEvent.KEYCODE_DPAD_RIGHT:
+				//Toast.makeText(MainActivity.this, "右键", Toast.LENGTH_SHORT).show();
+				break;
+				default:
+					break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return super.onKeyDown(keyCode, event);
+	}

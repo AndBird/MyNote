@@ -1,0 +1,23 @@
+今日头条适配原理:
+view dp值宽度 * density / 设备总px宽度 = view所占宽比例，
+屏幕总px宽度 / density = 屏幕的总dp宽度
+上面2个公示=>view dp值宽度 / 设备的总dp宽度 = view所占比例
+
+从这个公式可以看出，view的宽dp是固定的，如果保证每个设备的屏幕总dp宽度不变，就能保证每个 View 在所有分辨率的屏幕上与屏幕的比例都保持不变，从而完成等比例适配。并且这个屏幕总 dp 宽度如果还能保证和设计图的宽度一致的话，那我们在布局时就可以直接按照设计图上的尺寸填写 dp 值，因而
+关键点是如何保证屏幕的总dp宽度一致。
+屏幕总px宽度 / density = 屏幕的总dp宽度
+在这个公式中我们要保证 屏幕的总 dp 宽度 和 设计图总dp宽度 一致，并且在所有分辨率的屏幕上都保持不变，
+那么就需要修改设备的density。这就是今日头条适配原理，通过根据不同的设备进行实时计算出density并修改设备的
+density，即可保证所有设备的总dp宽度和设计图总宽度一致。
+今日头条公式:
+density = 当前设备屏幕总宽度(单位为px)/设计图总宽度(单位为dp)
+
+AndroidAutoSize使用说明:
+1.me.jessyan:autosize:1.1.1最低sdk 14
+2.AndroidAutoSize使用了FragmentManager.FragmentLifecycleCallbacks，故需要support v4的版本最低25
+3.activity方向旋转，无法适配，最后取消自适配功能
+
+android studio导入：
+implementation 'me.jessyan:autosize:1.1.1'
+//me.jessyan:autosize需要support v4最低为25
+implementation 'com.android.support:support-v4:25.3.0'

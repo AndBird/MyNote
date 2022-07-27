@@ -1,0 +1,14 @@
+1、ImageLoaderEngine：任务分发器，负责分发LoadAndDisplayImageTask和ProcessAndDisplayImageTask给具体的线程池去执行;
+   LoadAndDisplayImageTask：用于加载并显示图片的任务；
+		ImageDownloader：图片下载器，负责从图片的各个来源获取输入流;
+		ImageDecoder：图片解码器，负责将图片输入流InputStream转换为Bitmap对象;
+		BitmapProcessor：图片处理器，负责从缓存读取或写入前对图片进行处理;
+		DisplayBitmapTask：用于显示图片的任务；
+   ProcessAndDisplayImageTask：用于处理并显示图片的任务；
+2、Cache：图片缓存，分为MemoryCache和DiskCache两部分; 
+MemoryCache：内存图片缓存，可向内存缓存缓存图片或从内存缓存读取图片，Map<String, Bitmap>结构，Map的key值为:图片的URL + "_" + width x height ;
+DiskCache：本地图片缓存，可向本地磁盘缓存保存图片或从本地磁盘读取图片，文件名默认用：图片的URL的HashCode;
+3、线程池：
+线程池的默认大小是3，优先级默认是4，范围是1到10
+4、图片加载顺序
+先从MemoryCache中加载，如果没有就从DiskCache（需要设置开启）中加载，如果加载失败，则从网络上获取图片(因此，服务器端更换图片时是需要更换地址的，同一个地址在cache存在时是不进行第二次网络获取的)

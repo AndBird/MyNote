@@ -1,0 +1,14 @@
+1.DPI：dots per inch，一英寸的像素数量,这个值是设备自己决定的，是写死的。不管什么屏幕160dp，就相当于1英寸。
+DPI/160=density
+1dp=1inch/160
+2.DIP（也就是用的dip/dp）：device independent pixel，设备独立像素。
+px/density=dp
+屏幕的总 px 宽度 / density = 屏幕的总 dp 宽度
+3.density: 1dp 占当前设备多少像素。
+4.densityDpi：值与DPI相同
+5.ppi:pixels per inch(跟dpi一样）
+6.px:pixel
+7.sp(与刻度无关的像素) : scaled pixels(放大像素)，主要用于字体显示
+8.pt(磅):point，是一个标准的长度单位，1pt＝1/72英寸
+9.in(英寸): 长度单位。
+

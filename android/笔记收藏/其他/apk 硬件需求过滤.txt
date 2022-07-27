@@ -1,0 +1,6 @@
+用 Android Market 过滤器来限定目标设备必须带有指定的传感器配置
+如果你要在 Android Market 上发布应用，你可以用 manifest 文件中的 <uses-feature> 元素把不提供所需传感器的设备过滤掉。 manifest 文件中的<uses-feature>元素有很多硬件描述符，利用它们你 可以根据传感器存在与否来对应用进行过滤。 可列出的传感器包括：加速计、气压计、罗盘（地磁）、陀螺仪、光线和邻近距离。 以下是滤除无加速计的 manifest 样例：
+<uses-feature android:name="android.hardware.sensor.accelerometer"
+              android:required="true" />
+如果你把这个元素和描述符加入你的 manifest 中，则只有设备上带有加速计的用户才能在 Android Market 上看到你的应用。
+仅当应用程序完全依赖于某指定传感器时，你才能把描述符设置 android:required="true"。 如果你的应用中只有某些功能用到了传感器，而没有传感器的话仍然能正常运行，那么你可以把传感器列在 <uses-feature> 中，但应设置 android:required="false" 。 这样可以确保没有此传感器的设备也能安装你的应用。 这也是项目管理实践中的最佳方案，有助于你时刻了解应用所需要的硬件特性。 请记住，如果你的应用用到了某个传感器，但没有此传感器也能运行，那你就必须在运行时检测传感器，并酌情禁用或启用相应功能。

@@ -1,0 +1,99 @@
+    /**
+	 * 保存对象
+	 * @param ser
+	 * @param file
+	 * @throws IOException
+	 */
+	public boolean saveObject(Context context,Serializable ser, String filename) {
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+		try{
+			fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(ser);
+			oos.flush();
+			return true;
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				oos.close();
+			} catch (Exception e) {}
+			try {
+				fos.close();
+			} catch (Exception e) {}
+		}
+	}
+
+
+
+//读取缓存
+/**
+	 * 判断缓存是否存在
+	 * @param cachefile
+	 * @return
+	 */
+	private boolean isExistDataCache(Context context,String cachefile)
+	{
+		boolean exist = false;
+		File data = context.getFileStreamPath(cachefile);
+		if(data.exists())
+			exist = true;
+		return exist;
+	}
+
+
+/**
+	 * 读取对象，将读取到的对象强制转换
+	 * @param file
+	 * @return
+	 * @throws IOException
+	 */
+	public Serializable readObject(Context context,String file){
+		if(!isExistDataCache(context,file))
+			return null;
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try{
+			fis = context.openFileInput(file);
+			ois = new ObjectInputStream(fis);
+			return (Serializable)ois.readObject();
+		}catch(FileNotFoundException e){
+		}catch(Exception e){
+			e.printStackTrace();
+			//反序列化失败 - 删除缓存文件
+			if(e instanceof InvalidClassException){
+				File data = context.getFileStreamPath(file);
+				data.delete();
+			}
+		}finally{
+			try {
+				ois.close();
+			} catch (Exception e) {}
+			try {
+				fis.close();
+			} catch (Exception e) {}
+		}
+		return null;
+	}
+
+	/**
+	 * 判断缓存数据是否可读
+	 * @param cachefile
+	 * @return
+	 */
+	public boolean isReadDataCache(Context context,String cachefile)
+	{
+		return readObject(context,cachefile) != null;
+	}
+
+
+//定义一个序列化类对象，然后用使用list集合，saveObject可以用集合做参数并正常读取。
+ArrayList<Game> list = new ArrayList<Game>();
+
+public class Game implements Serializable{
+	public String gameId;
+	public String icon;//游戏图标
+	public String gamename; //游戏名称
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+              <FrameLayout android:layout_width="match_parent"
+                           android:layout_height="match_parent">
+                  <ImageView android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                          android:scaleType="fitXY"
+                          android:id="@+id/viewpager_imageview"/>
+			 <!--遮罩点击效果-->
+                  <ImageView android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             android:scaleType="fitXY"
+                             android:src="@drawable/viewpager_click_bg"
+                             />
+                  <RelativeLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+                      <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/font_size_9"
+                                android:layout_centerInParent="true"
+                                android:text="荒野猎人"
+                                android:id="@+id/viewpager_title"/>
+                      <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/font_size_5"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:layout_below="@id/viewpager_title"
+                                android:text="#一部看了让你又疼又冷又饿的电影"
+                                android:id="@+id/viewpager_intro"/>
+                  </RelativeLayout>
+              </FrameLayout>
+</LinearLayout>
+
+注意:(1)通过listview的属性设置点击效果
+(2)在item的根上添加效果，item下的view不能设置点击事件，否则该区域点击没效果
+(3)注意点击效果view的位置，且事件响应需放置在listitem上或者点击view的父布局中。总之事件被子view消费，就无法有效果。

@@ -1,0 +1,3 @@
+1、首次创建菜单onCreateOptionsMenu(Menu menu)，onPrepareOptionsMenu(Menu menu)，onMenuOpened(int featureId, Menu menu)，onOptionsMenuClosed(Menu menu)
+2、第二次显示菜单：，onPrepareOptionsMenu(Menu menu)，onMenuOpened(int featureId, Menu menu)，onOptionsMenuClosed(Menu menu)
+如果在同一个activity需显示不同的菜单，只能onPrepareOptionsMenu(Menu menu)，onMenuOpened(int featureId, Menu menu)去更改菜单显示

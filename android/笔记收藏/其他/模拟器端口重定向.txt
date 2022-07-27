@@ -1,0 +1,3 @@
+1、telnet localhost 5554 或者是 telnet 127.0.0.1  5554（5554是指模拟器）
+   redir add tcp :端口号：端口号
+2、adb –s emulator-5554 forward tcp:8080 tcp:8090）（复制该命令时-s中的-要重新type，容易造成命令识别不了   ；使用该命令时需要指定设备，特别是开多个模拟器或电脑连接着手机的时候）

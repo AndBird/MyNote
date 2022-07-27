@@ -1,0 +1,36 @@
+1、getViewTreeObserver().addOnPreDrawListener的使用：
+(1)使用后要调用.getViewTreeObserver().removeOnPreDrawListener()
+
+2、获取view的大小
+通常在OnCreate()和Resume()中是无法获取到view的大小的，可通过设置(getViewTreeObserver().addOnPreDrawListener())监听，在回调中获取view的大小
+
+3、动态设置view的大小和位置
+(1)在获取到view的大小和位置后，setLeft()和setRight()可以设置view的大小或者通过layout()函数
+(2)调用(1)的方法后并不是马上就能见效，view并不一定就绘制成功了，所以不能马上调用removeOnPreDrawListener().可以加一个if条件判断,通过getLeft(或者其他函数)得到view的位置1，然后比较位置1
+与要设置的位置是否相同来确定是否已经绘制成功。
+
+
+例子：设置view右侧处于屏幕中线
+conNectView = (ImageView) findViewById(R.id.connecting);
+conNectView.getViewTreeObserver().addOnPreDrawListener(new OnPreDrawListener() {
+			
+			@Override
+			public boolean onPreDraw() {
+				   // TODO Auto-generated method stub
+					int screenWidth = MainActivity.this.getWindowManager().getDefaultDisplay().getWidth();
+					int mid = screenWidth /2;
+					
+					//Log.e("MainActivity", "right=" + conNectView.getRight());
+					if(conNectView.getRight() == mid){//当右边位置处于屏幕中间时,移除监听
+						conNectView.getViewTreeObserver().removeOnPreDrawListener(this);
+					}
+					conNectView.setLeft(mid - width);
+					conNectView.setRight(mid);
+					//Log.e("MainActivity", "right=" + conNectView.getRight());
+					return true;
+			}
+		});
+		
+3、OnGlobalLayoutListener在OnPreDrawListener前面调用
+
+4、可通过getViewTreeObserver来监听输入法是否显示

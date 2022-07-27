@@ -1,0 +1,64 @@
+1、重写TextView
+public class MarqueeText extends TextView {  
+ public MarqueeText(Context con) {  
+ super(con);  
+}                                      
+public MarqueeText(Context context, AttributeSet attrs) {  
+super(context, attrs);  
+}  
+public MarqueeText(Context context, AttributeSet attrs, int defStyle) {  
+super(context, attrs, defStyle);  
+}  
+@Override  
+public boolean isFocused() {  
+return true;  
+}  
+@Override  
+protected void onFocusChanged(boolean focused, int direction,  
+Rect previouslyFocusedRect) {  
+}  
+}  
+
+2、布局定义
+<LinearLayout 
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:gravity="center"
+  android:focusable="true"
+  android:background="@drawable/opt_select_bg"
+  android:layout_marginBottom="5dp">
+  
+  <ImageView
+  android:id="@+id/gameicon_linearout"
+  android:layout_width="80dp"
+  android:layout_height="80dp"
+  />
+  <com.widget.MarqueeTextView
+  android:id="@+id/gamename_linearout"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:textSize="12sp"
+  android:singleLine="true"
+  android:ellipsize="end"
+  android:marqueeRepeatLimit="marquee_forever"
+  android:gravity="top"/> 
+</LinearLayout>
+
+3、对父布局设置焦点监听事件，并进行如下处理
+public void onFocusChange(View arg0, boolean has) {
+		try {
+			if(has){
+				if(textView != null){
+		    		textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+		    	}
+		    }else{
+		    	if(textView != null){
+		    		textView.setEllipsize(TextUtils.TruncateAt.END); //控制焦点和次数无法到达效果
+		    	}
+		    }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}

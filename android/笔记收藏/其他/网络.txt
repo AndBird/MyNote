@@ -1,0 +1,27 @@
+1、传统的BufferedReader的readLine()方法读取数据时，当该方法成功返回之前，线程被阻塞。客户端和服务器应该为每个Socket单独启动一条线程，每个线程负责一个通信。
+2、如果不想让执行网络连接、读取服务器数据的进程一直阻塞，而是希望当网络连接、读取操作超过合理时间之后，系统自动认为该操作失败，这个合理时间就是超时时长。
+Socket s = new Socket("127.0.0.1", 30000);
+s.setSoTimeout(10000);
+3、socket和socket获取的输入输出流的关闭都会导致不能再通信，需要重新连接。
+   socket.shutdownOutput()方法关闭了输出流（socket未关闭，输出流不可再使用），输入流还可以和对方通信。
+   socket.isOutputShutdown()检测输出流是否关闭
+4、输入流的ready()是查看流是否已经准备好被读了。
+  BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream(),"utf-8"));
+  while((content = in.readline()) != null){//readline是阻塞的，当流不可读时一直处于等待，while之后的无法执                                            //行，导致结果是不知道数据是否已经接收完成和处理
+      .....
+  }
+
+  //方法二
+  while(true){
+	if(in.ready()){//准备好读了
+	   while(in.ready() && (content = in.readLine()) != null){ //readLine阻塞
+		 System.out.println("读");
+		 System.out.println(content);
+		 content = content + "\r\n";
+		 out.write(content.getBytes("utf-8")); 
+	    }
+	    System.out.println("不阻塞");
+	}
+   }
+   5、安卓socket的操作都应放在线程中（socket连接、关闭）。
+ 

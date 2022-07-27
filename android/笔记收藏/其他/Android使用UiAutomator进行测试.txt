@@ -1,0 +1,67 @@
+1.建立一个java项目，新建lib文件夹。 
+2.拷贝android.jar和uiautomator.jar到lib文件夹(jar文件的地址：D:\Program Files\adt-bundle-windows-x86_64-20140702\sdk\platforms\android-23)
+3.开始编写代码，新建一个类继承 UiAutomatorTestCase
+
+package com.test;
+
+import com.android.uiautomator.core.UiDevice;
+import com.android.uiautomator.core.UiObject;
+import com.android.uiautomator.core.UiObjectNotFoundException;
+import com.android.uiautomator.core.UiSelector;
+import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+
+public class Test extends UiAutomatorTestCase {
+	
+    //注意方法名要以 test开头
+    public void testDemo() throws UiObjectNotFoundException{
+        /*UiDevice.getInstance().pressHome();//回到主界面
+        UiObject browserObject = new UiObject(new UiSelector().text("UC浏览器"));
+        browserObject.clickAndWaitForNewWindow();//点击等待新窗口出现
+        UiObject editObject = new UiObject(new UiSelector().className("android.view.View"));
+        editObject.clickAndWaitForNewWindow();
+        UiObject inputObject = new UiObject(new UiSelector().text("搜索或输入网址"));
+        inputObject.setText("www.baidu.com");
+        UiDevice.getInstance().pressEnter();//敲下回车
+        sleep(2000);//等待两秒
+*/        
+        UiDevice.getInstance().pressHome();//回到主界面
+//工程需要utf-8编码，才能识别中文
+       // browserObject = new UiObject(new UiSelector().text("删除快捷方式"));
+        UiObject browserObject = new UiObject(new UiSelector().index(10));
+       browserObject.click();
+       browserObject.setText("WW");
+        sleep(2000);//等待两秒
+    }
+}
+
+
+4.开始编译。在项目路径下运行cmd。 
+输入： android create uitest-project -n testdemo -t 5 -p D:\ecli
+pse_x64_workspace\test
+
+修改build.xml配置=>run as=>External Tools Configurations=>Main=>将Arguments 设置为
+-Dbuild.compiler=javac1.7
+
+说明=>android create uitest-project -n testdemo(testdemo是jar包的名字) -t 1(1是第一个SDK版本的id ##查看SDKid列表：android list targets##) -p k:\UIworkspace\Demo1(这里表示项目地址) 
+
+
+5.将项目中生成的build.xml打开，修改第二排中 default=”help” 为 default=”build” ,选中build.xml文件右键->run as =>ant build 生成testdemo.jar
+
+编译错误:ant 解决com.sun.tools.javac.Main is not on the classpath的问题
+
+解决com.sun.tools.javac.Main is not on the classpath的问题
+com.sun.tools.javac.Main is not on the classpath.
+Perhaps JAVA_HOME does not point to the JDK.
+It is currently set to "C:\Program Files\Java\jre6"
+遇到这种情况时直接将C:\Program Files\Java\jdk1.6.0_17\lib中的tools.lib拷贝到C:\Program Files\Java\jre6\lib中即可。
+
+6.将jar包push到手机中。在cmd下输入：
+adb push C:\Users\Administrator\Desktop\testdemo.jar /data/local/tmp
+或者放到sd卡指定目录，后面测试时testdemo.jar用绝对地址
+
+7. 启动测试：在cmd下输入命令 
+adb shell uiautomator runtest testdemo.jar -c com.test.Test
+说明:adb shell uiautomator runtest demo.jar -c 完整的类名(包名+类名)
+
+8.uiautomatorviewer.bat可以查找界面元素
+

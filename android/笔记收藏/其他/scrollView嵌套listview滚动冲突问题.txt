@@ -1,0 +1,77 @@
+scrollview嵌套listview,listview不滚动问题
+在scrollview里嵌套listview时，listview可能只显示一个item，这种情形需要在listview设置Adapter后手动设置listview的大小，详情请看http://www.xuebuyuan.com/2191777.html
+下面说本次要说scrollview和listview的滚动问题
+(1)scrollview和listview同步滚动(scrollview和listview都是满屏的)，xml如下
+ <FrameLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ListView 
+		    android:id="@+id/listview"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:overScrollMode="never"
+		    android:scrollbars="none">
+	   </ListView>
+
+		<ScrollView 
+	        android:id="@+id/scrollView"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:overScrollMode="never"
+	        android:scrollbarThumbVertical="@color/red"
+	        android:scrollbarSize="1dp"
+	        android:scrollbarStyle="outsideOverlay">
+	        <LinearLayout 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical">
+	            <LinearLayout 
+	            android:id="@+id/lay"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:orientation="vertical">
+	                
+	            </LinearLayout>
+			 </LinearLayout>
+	  </ScrollView>
+</FrameLayout>
+
+如下代码可控制同步滚动
+scrollview.setOnTouchListener(new OnTouchListener() {
+		@Override
+		public boolean onTouch(View v, MotionEvent event) {
+			listView.dispatchTouchEvent(event); //分发事件(让listview滚动)
+			return false; //scrollview自我滚动，true时不滚动
+		}
+   });
+也许你觉得这种情形有什么用，我做这个是因为listview底部有一部分不滚动的view(不是listview中的内容)，但是要求滚动条可以在不滚动view上面显示，而且是浮在上面的(效果类似于360手机助手的游戏详情底部)。
+
+(2)有了上面的实用后，在scrollview里嵌套listview时，我还是用同样的方式去控制listview的滚动(scrollview暂时不滚动),结果失败了。后来我终于找到了一种可以让嵌套在scrollview中的listview滚动的方法。
+那就先说说ViewGroup的requestDisallowInterceptTouchEvent(boolean)方法，设置为true时是阻止父view拦截触摸事件的。
+有了此宝贝，只需要在listview按下时让scrollview不拦截触摸事件，弹起时允许拦截事件，这样触摸listview时滚动listview，触摸listview之外的部分时就可滚动scrollview了
+			//解决scrollview和listview的滚动问题   
+		   listView.setOnTouchListener(new OnTouchListener() {
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					try {
+						switch (event.getAction()) {
+						case MotionEvent.ACTION_DOWN:
+							scrollView.requestDisallowInterceptTouchEvent(true); //禁止scrollview拦截事件，让listview可滑动
+							break;
+						case MotionEvent.ACTION_UP:
+							scrollView.requestDisallowInterceptTouchEvent(false);
+							break;
+						default:
+							break;
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					return false;
+				}
+			});
+			
+
+在(2)用第一种方法，虽然事件分发时listview没有滚动，但是在scrollview	的ontouch中用dispatchTouchEvent重新分发事件给listview，listview也不滚动，不知道什么原因，现在我还没找出原因，哪位同仁知道的话请告诉我下，相互提高。
+有事请加：四八三四一九一五三。
