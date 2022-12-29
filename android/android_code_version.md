@@ -31,7 +31,9 @@
 26  Oreo              8.0        API level 26    2017-08-21
 27  Oreo              8.1        API level 27    2017-12-05
 28  Pie              9.0          API level 28    2018-07-02
-
+29  Q                10
+30
+31                   12
 
 https://en.wikipedia.org/wiki/Android_version_history
 
